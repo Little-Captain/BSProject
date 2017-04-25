@@ -89,6 +89,7 @@
     UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     nav.title = title;
     nav.tabBarItem.image = [UIImage imageNamed:image];
     nav.tabBarItem.selectedImage = [[UIImage imageNamed:selImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];    
