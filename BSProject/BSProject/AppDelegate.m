@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // 设置窗口的根控制器
-    self.window.rootViewController = [[ViewController alloc] init];
+    self.window.rootViewController = [NSClassFromString(@"LCMainTabBarC") new];
     
     // 显示窗口
     [self.window makeKeyAndVisible];

@@ -1,0 +1,28 @@
+[
+  {
+    "clsName" : "LCEssenceViewController",
+    "title" : "精选",
+    "image" : "tabBar_essence_icon",
+    "selImage" : "tabBar_essence_click_icon"
+  },
+  {
+    "clsName" : "LCNewViewController",
+    "title" : "新帖",
+    "image" : "tabBar_new_icon",
+    "selImage" : "tabBar_new_click_icon"
+  },
+  {
+  },
+  {
+    "clsName" : "LCFriendTrendsViewController",
+    "title" : "关注",
+    "image" : "tabBar_friendTrends_icon",
+    "selImage" : "tabBar_friendTrends_click_icon"
+  },
+  {
+    "clsName" : "LCMeViewController",
+    "title" : "我",
+    "image" : "tabBar_me_icon",
+    "selImage" : "tabBar_me_click_icon"
+  }
+]

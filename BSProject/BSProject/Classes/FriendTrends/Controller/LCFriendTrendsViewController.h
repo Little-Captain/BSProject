@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LCFriendTrendsViewController.h
 //  BSProject
 //
 //  Created by Liu-Mac on 4/25/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LCFriendTrendsViewController : UIViewController
 
 @end
-
