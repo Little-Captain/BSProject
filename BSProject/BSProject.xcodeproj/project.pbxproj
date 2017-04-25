@@ -10,9 +10,7 @@
 		95D892881EAF8BD6006A08C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892871EAF8BD6006A08C3 /* main.m */; };
 		95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */; };
 		95D8928E1EAF8BD6006A08C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8928D1EAF8BD6006A08C3 /* ViewController.m */; };
-		95D892911EAF8BD6006A08C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D8928F1EAF8BD6006A08C3 /* Main.storyboard */; };
 		95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D892921EAF8BD6006A08C3 /* Assets.xcassets */; };
-		95D892961EAF8BD6006A08C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D892941EAF8BD6006A08C3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +20,7 @@
 		95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		95D8928C1EAF8BD6006A08C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		95D8928D1EAF8BD6006A08C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		95D892901EAF8BD6006A08C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95D892921EAF8BD6006A08C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		95D892951EAF8BD6006A08C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D892971EAF8BD6006A08C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,10 +58,6 @@
 				95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */,
 				95D8928C1EAF8BD6006A08C3 /* ViewController.h */,
 				95D8928D1EAF8BD6006A08C3 /* ViewController.m */,
-				95D8928F1EAF8BD6006A08C3 /* Main.storyboard */,
-				95D892921EAF8BD6006A08C3 /* Assets.xcassets */,
-				95D892941EAF8BD6006A08C3 /* LaunchScreen.storyboard */,
-				95D892971EAF8BD6006A08C3 /* Info.plist */,
 				95D892861EAF8BD6006A08C3 /* Supporting Files */,
 			);
 			path = BSProject;
@@ -74,6 +66,8 @@
 		95D892861EAF8BD6006A08C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95D892921EAF8BD6006A08C3 /* Assets.xcassets */,
+				95D892971EAF8BD6006A08C3 /* Info.plist */,
 				95D892871EAF8BD6006A08C3 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,9 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D892961EAF8BD6006A08C3 /* LaunchScreen.storyboard in Resources */,
 				95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */,
-				95D892911EAF8BD6006A08C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,25 +150,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		95D8928F1EAF8BD6006A08C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				95D892901EAF8BD6006A08C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		95D892941EAF8BD6006A08C3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				95D892951EAF8BD6006A08C3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		95D892981EAF8BD6006A08C3 /* Debug */ = {
@@ -273,6 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = X65GN27YEQ;
 				INFOPLIST_FILE = BSProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -285,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = X65GN27YEQ;
 				INFOPLIST_FILE = BSProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
