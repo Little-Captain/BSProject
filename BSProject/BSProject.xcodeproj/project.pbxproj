@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
 		95D892881EAF8BD6006A08C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892871EAF8BD6006A08C3 /* main.m */; };
 		95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */; };
 		95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D892921EAF8BD6006A08C3 /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9588AFA91EB0346800BE86C5 /* LCMainNavigationC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainNavigationC.h; sourceTree = "<group>"; };
+		9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainNavigationC.m; sourceTree = "<group>"; };
 		95D892831EAF8BD6006A08C3 /* BSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D892871EAF8BD6006A08C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95D892891EAF8BD6006A08C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 			children = (
 				95D892A21EAF9256006A08C3 /* LCMainTabBarC.h */,
 				95D892A31EAF9256006A08C3 /* LCMainTabBarC.m */,
+				9588AFA91EB0346800BE86C5 /* LCMainNavigationC.h */,
+				9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
 				95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */,
+				9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */,
 				95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */,
 				95D892881EAF8BD6006A08C3 /* main.m in Sources */,
@@ -580,6 +586,7 @@
 				95D8929C1EAF8BD6006A08C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

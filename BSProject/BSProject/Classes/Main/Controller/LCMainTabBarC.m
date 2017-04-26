@@ -78,7 +78,7 @@
 - (UIViewController *)setUpOneViewController:(NSDictionary *)vcInfo {
     
     if (!vcInfo) {
-        return [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
+        return [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:[UIViewController new]];
     }
     
     NSString *clsName = vcInfo[@"clsName"];
@@ -88,7 +88,7 @@
     
     UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav = [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:vc];
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     nav.title = title;
     nav.tabBarItem.image = [UIImage imageNamed:image];
