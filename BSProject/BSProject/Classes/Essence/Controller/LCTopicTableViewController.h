@@ -12,5 +12,7 @@
 
 /** type */
 @property (nonatomic, assign) LCTopicType type;
+/** category */
+@property (nonatomic, strong) NSString *category;
 
 @end

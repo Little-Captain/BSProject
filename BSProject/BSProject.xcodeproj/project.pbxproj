@@ -31,6 +31,8 @@
 		957691541EB2329200D6F000 /* LCCmtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691521EB2329200D6F000 /* LCCmtDetailViewController.m */; };
 		957691551EB2329200D6F000 /* LCCmtDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957691531EB2329200D6F000 /* LCCmtDetailViewController.xib */; };
 		9576915B1EB2333B00D6F000 /* LCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9576915A1EB2333B00D6F000 /* LCConst.m */; };
+		9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584786E1EB2418900B415D3 /* LCBaseVC.m */; };
+		958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958478711EB2424800B415D3 /* LCEssenceViewController.m */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
 		9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAD1EB03E9800BE86C5 /* LCRecommendFTVC.m */; };
 		9588AFB01EB03E9800BE86C5 /* LCRecommendFTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFAE1EB03E9800BE86C5 /* LCRecommendFTVC.xib */; };
@@ -66,7 +68,6 @@
 		95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892B01EAFA266006A08C3 /* UIView+Frame.m */; };
 		95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892B21EAFA266006A08C3 /* UIView+ShowWhere.m */; };
 		95D892B91EAFA480006A08C3 /* UI.json in Resources */ = {isa = PBXBuildFile; fileRef = 95D892B81EAFA480006A08C3 /* UI.json */; };
-		95D892D01EAFA78F006A08C3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892CF1EAFA78F006A08C3 /* LCEssenceViewController.m */; };
 		95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892D21EAFA7D6006A08C3 /* LCFriendTrendsViewController.m */; };
 		95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D892D31EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib */; };
 		95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */; };
@@ -113,6 +114,10 @@
 		957691531EB2329200D6F000 /* LCCmtDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCCmtDetailViewController.xib; sourceTree = "<group>"; };
 		957691591EB2333B00D6F000 /* LCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCConst.h; sourceTree = "<group>"; };
 		9576915A1EB2333B00D6F000 /* LCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCConst.m; sourceTree = "<group>"; };
+		9584786D1EB2418900B415D3 /* LCBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseVC.h; sourceTree = "<group>"; };
+		9584786E1EB2418900B415D3 /* LCBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseVC.m; sourceTree = "<group>"; };
+		958478701EB2424800B415D3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
+		958478711EB2424800B415D3 /* LCEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCEssenceViewController.m; sourceTree = "<group>"; };
 		9588AFA91EB0346800BE86C5 /* LCMainNavigationC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainNavigationC.h; sourceTree = "<group>"; };
 		9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainNavigationC.m; sourceTree = "<group>"; };
 		9588AFAC1EB03E9800BE86C5 /* LCRecommendFTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRecommendFTVC.h; sourceTree = "<group>"; };
@@ -175,8 +180,6 @@
 		95D892B21EAFA266006A08C3 /* UIView+ShowWhere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ShowWhere.m"; sourceTree = "<group>"; };
 		95D892B71EAFA27F006A08C3 /* BSProject.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSProject.pch; sourceTree = "<group>"; };
 		95D892B81EAFA480006A08C3 /* UI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UI.json; sourceTree = "<group>"; };
-		95D892CE1EAFA78F006A08C3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
-		95D892CF1EAFA78F006A08C3 /* LCEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCEssenceViewController.m; sourceTree = "<group>"; };
 		95D892D11EAFA7D6006A08C3 /* LCFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCFriendTrendsViewController.h; sourceTree = "<group>"; };
 		95D892D21EAFA7D6006A08C3 /* LCFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCFriendTrendsViewController.m; sourceTree = "<group>"; };
 		95D892D31EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 				95D892A31EAF9256006A08C3 /* LCMainTabBarC.m */,
 				9588AFA91EB0346800BE86C5 /* LCMainNavigationC.h */,
 				9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */,
+				9584786D1EB2418900B415D3 /* LCBaseVC.h */,
+				9584786E1EB2418900B415D3 /* LCBaseVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,8 +435,8 @@
 		95D892BB1EAFA768006A08C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95D892CE1EAFA78F006A08C3 /* LCEssenceViewController.h */,
-				95D892CF1EAFA78F006A08C3 /* LCEssenceViewController.m */,
+				958478701EB2424800B415D3 /* LCEssenceViewController.h */,
+				958478711EB2424800B415D3 /* LCEssenceViewController.m */,
 				9588AFCF1EB1A41A00BE86C5 /* LCRecommendTagTableViewController.h */,
 				9588AFD01EB1A41A00BE86C5 /* LCRecommendTagTableViewController.m */,
 				9588AFD11EB1A41A00BE86C5 /* LCRecommendTagTableViewController.xib */,
@@ -796,13 +801,14 @@
 				9588AFDA1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
-				95D892D01EAFA78F006A08C3 /* LCEssenceViewController.m in Sources */,
 				9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */,
 				9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */,
 				9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */,
 				95D892A91EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m in Sources */,
 				9576914F1EB2326E00D6F000 /* LCCmtUserItem.m in Sources */,
 				9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */,
+				9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */,
+				958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */,
 				957691261EB2310700D6F000 /* LCPictureViewController.m in Sources */,
 				9588AFEA1EB1BC6100BE86C5 /* LCVerticalBtn.m in Sources */,
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,

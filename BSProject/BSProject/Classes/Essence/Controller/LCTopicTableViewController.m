@@ -75,7 +75,7 @@ static NSString * const ID = @"topic";
     [self.tableView.mj_footer endRefreshing];
     
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
-    NSDictionary *paramters = @{@"a": @"list", @"c": @"data", @"type": @(self.type)};
+    NSDictionary *paramters = @{@"a": self.category, @"c": @"data", @"type": @(self.type)};
     
     [[AFHTTPSessionManager manager] GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -98,7 +98,7 @@ static NSString * const ID = @"topic";
     [self.tableView.mj_header endRefreshing];
     
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
-    NSDictionary *paramters = @{@"a": @"list", @"c": @"data", @"type": @(self.type), @"maxtime": self.currentMaxtime};
+    NSDictionary *paramters = @{@"a": self.category, @"c": @"data", @"type": @(self.type), @"maxtime": self.currentMaxtime};
     
     [[AFHTTPSessionManager manager] GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

@@ -1,13 +1,13 @@
 //
-//  LCNewViewController.h
+//  LCBaseVC.h
 //  BSProject
 //
 //  Created by Liu-Mac on 4/25/17.
 //  Copyright © 2017 Liu-Mac. All rights reserved.
 //
 
-#import "LCBaseVC.h"
+#import <UIKit/UIKit.h>
 
-@interface LCNewViewController : LCBaseVC
+@interface LCBaseVC : UIViewController
 
 @end
