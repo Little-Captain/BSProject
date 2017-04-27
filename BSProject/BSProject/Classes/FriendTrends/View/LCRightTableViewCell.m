@@ -1,5 +1,5 @@
 //
-//  BSRightTableViewCell.m
+//  LCRightTableViewCell.m
 //  BSProject
 //
 //  Created by Liu-Mac on 06/12/2016.
@@ -33,7 +33,10 @@
 
 - (IBAction)followBtnClick:(UIButton *)sender {
     
-    LogFun();
+    
+    // TODO
+    // 如果没有登录, 点击关注, 我们需要弹出登录界面
+    [self.window.rootViewController presentViewController:[NSClassFromString(@"LCLoginOrRegistVC") new] animated:YES completion:nil];
     
 }
 

@@ -1,5 +1,5 @@
 //
-//  BSRightTableViewCell.h
+//  LCRightTableViewCell.h
 //  BSProject
 //
 //  Created by Liu-Mac on 06/12/2016.

@@ -35,5 +35,9 @@
     
     [self.navigationController pushViewController:[NSClassFromString(@"LCRecommendFTVC") new] animated:YES];
 }
+- (IBAction)loginOrRegist {
+    
+    [self presentViewController:[NSClassFromString(@"LCLoginOrRegistVC") new] animated:YES completion:nil];
+}
 
 @end
