@@ -33,7 +33,7 @@
 
 - (void)mainTagClick {
     
-    LogFun();
+    [self.navigationController pushViewController:[NSClassFromString(@"LCRecommendTagTableViewController") new] animated:YES];
 }
 
 @end
