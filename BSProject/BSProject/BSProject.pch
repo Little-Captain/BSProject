@@ -6,13 +6,15 @@
 //  Copyright © 2017 Liu-Mac. All rights reserved.
 //
 
+#ifdef __OBJC__
+
+#import "UIImage+Tools.h"
+#import "UIView+Frame.h"
 #import "UIView+Bounds.h"
 #import "UIView+Center.h"
-#import "UIView+Frame.h"
-#import "UIImage+Tools.h"
-
-#import "UIView+ShowWhere.h"
-
+#import "UIColor+Tools.h"
+#import "NSDate+Tools.h"
+#import "LCConst.h"
 #import "UIBarButtonItem+LCExtension.h"
 
 #define ScreenW ([UIScreen mainScreen].bounds.size.width)
@@ -20,9 +22,13 @@
 #define ScreenB ([UIScreen mainScreen].bounds)
 #define KeyWindow ([UIApplication sharedApplication].keyWindow)
 
+#define LogHomeDirectory NSLog(@"%@", NSHomeDirectory())
+
 #define NSLog(...) NSLog(__VA_ARGS__)
 
 #define LogFun() NSLog(@"%s", __func__)
 
 #define LCColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define BSGlobalColor LCColor(223.0, 223.0, 223.0)
+
+#endif

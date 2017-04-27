@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LCPictureViewController">
+            <connections>
+                <outlet property="progressView" destination="Cdp-mf-mnT" id="Snt-dS-NNg"/>
+                <outlet property="scrollV" destination="7su-Bk-PR9" id="dcm-cQ-nNK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7su-Bk-PR9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-Uh-Wil">
+                    <rect key="frame" x="20" y="40" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="0LK-vS-LqK"/>
+                        <constraint firstAttribute="width" constant="35" id="ha5-Mj-E1i"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="show_image_back_icon"/>
+                    <connections>
+                        <action selector="back" destination="-1" eventType="touchUpInside" id="tbV-Nd-zKq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkD-kl-frW">
+                    <rect key="frame" x="295" y="597" width="60" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="G12-nc-F3H"/>
+                        <constraint firstAttribute="height" constant="30" id="MxQ-Xk-yJA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="保存"/>
+                    <connections>
+                        <action selector="savePicture" destination="-1" eventType="touchUpInside" id="xZn-If-It2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-49-G22">
+                    <rect key="frame" x="205" y="597" width="60" height="30"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="转发"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdp-mf-mnT" customClass="LCCircularProgressView">
+                    <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="AHN-VH-6pR"/>
+                        <constraint firstAttribute="height" constant="100" id="DuS-Gz-UDP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Cdp-mf-mnT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3Oc-dW-Qf7"/>
+                <constraint firstItem="7su-Bk-PR9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Vf-1o-uUo"/>
+                <constraint firstAttribute="bottom" secondItem="7su-Bk-PR9" secondAttribute="bottom" id="82O-iE-rnU"/>
+                <constraint firstItem="7su-Bk-PR9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="82e-2I-Bq1"/>
+                <constraint firstItem="dbx-Uh-Wil" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Dm3-zx-lvk"/>
+                <constraint firstItem="6AR-49-G22" firstAttribute="height" secondItem="zkD-kl-frW" secondAttribute="height" id="E62-Wg-zYV"/>
+                <constraint firstItem="6AR-49-G22" firstAttribute="top" secondItem="zkD-kl-frW" secondAttribute="top" id="H35-5c-6u2"/>
+                <constraint firstItem="dbx-Uh-Wil" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="KXQ-xk-DgT"/>
+                <constraint firstAttribute="bottom" secondItem="zkD-kl-frW" secondAttribute="bottom" constant="40" id="LDi-f3-xfG"/>
+                <constraint firstAttribute="trailing" secondItem="zkD-kl-frW" secondAttribute="trailing" constant="20" id="Lwg-yA-uis"/>
+                <constraint firstItem="Cdp-mf-mnT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Sqe-ic-aXK"/>
+                <constraint firstItem="zkD-kl-frW" firstAttribute="leading" secondItem="6AR-49-G22" secondAttribute="trailing" constant="30" id="fef-Rn-hbR"/>
+                <constraint firstAttribute="trailing" secondItem="7su-Bk-PR9" secondAttribute="trailing" id="ffX-Or-5DK"/>
+                <constraint firstItem="6AR-49-G22" firstAttribute="width" secondItem="zkD-kl-frW" secondAttribute="width" id="jxp-kH-Iln"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="show_image_back_icon" width="35" height="35"/>
+    </resources>
+</document>
