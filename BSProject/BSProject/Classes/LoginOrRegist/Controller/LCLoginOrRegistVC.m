@@ -25,13 +25,11 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     
     return UIStatusBarStyleLightContent;
-    
 }
 
 - (IBAction)closeLogin {
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (IBAction)registe:(UIButton *)btn {
@@ -51,7 +49,6 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
-    
 }
 
 @end

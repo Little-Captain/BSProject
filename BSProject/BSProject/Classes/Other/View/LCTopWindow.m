@@ -27,8 +27,7 @@ static UIWindow *window_;
     
     [window_ addGestureRecognizer:tap];
     
-    window_.rootViewController = [[UIViewController alloc] init];
-    
+    window_.rootViewController = [[UIViewController alloc] init];    
 }
 
 + (void)show {
@@ -41,12 +40,11 @@ static UIWindow *window_;
 + (void)hide {
     
     window_.hidden = YES;
-    
 }
 
 + (void)tableViewMoveToUp:(UIView *)superView {
     
-    for (UITableView *scrollView in superView.subviews) {
+    for (UIScrollView *scrollView in superView.subviews) {
         if ([scrollView isKindOfClass:[UIScrollView class]] && scrollView.isShowingOnKeyWindow) {
             CGPoint offset = scrollView.contentOffset;
             offset.y = -scrollView.contentInset.top;

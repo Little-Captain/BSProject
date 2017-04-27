@@ -159,7 +159,6 @@
     self.title = @"评论";
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(followBtn) image:@"comment_nav_item_share_icon" hightImage:@"comment_nav_item_share_icon_click"];
-    
 }
 
 - (void)followBtn {
@@ -192,8 +191,9 @@
 
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
-    self.tableView.estimatedRowHeight = 200;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    // iOS 8.0+ 的 Cell 自动计算高度设置, 两个属性缺一不可
+    self.tableView.estimatedRowHeight = 200; // 设置估算高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension; // 设置自动尺寸
     
     self.tableView.backgroundColor = BSGlobalColor;
     
@@ -204,7 +204,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
 }
 
 - (void)setUpHeader {
@@ -231,7 +230,6 @@
     [header addSubview:cell];
     
     self.tableView.tableHeaderView = header;
-    
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)note {
@@ -243,7 +241,6 @@
     self.cmtBarBottomConstraint.constant = ScreenH - frame.origin.y;
     
     [self.view layoutIfNeeded];
-    
 }
 
 - (void)dealloc {
@@ -259,9 +256,7 @@
     }
     
     // 取消所有的任务
-    
     [self.manager invalidateSessionCancelingTasks:YES];
-    
 }
 
 # pragma mark - table view delegate
@@ -284,7 +279,6 @@
     }
     
     return 0;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -298,7 +292,6 @@
     }
     
     return 0;
-    
 }
 
 - (LCCmtItem *)itemWithIndexPath:(NSIndexPath *)indexPath {
@@ -317,7 +310,6 @@
     }
     
     return nil;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -327,13 +319,11 @@
     cell.item = [self itemWithIndexPath:indexPath];
     
     return  cell;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return TableViewHeaderH;
-    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -354,7 +344,6 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     
     [self.view endEditing:YES];
-    
 }
 
 @end

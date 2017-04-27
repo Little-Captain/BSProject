@@ -9,6 +9,7 @@
 #import "LCMainTabBarC.h"
 
 #import "LCPublishView.h"
+#import "LCTopWindow.h"
 
 @interface LCMainTabBarC ()
 
@@ -48,6 +49,9 @@
     [self setUpChildViewControllers];
     // 设置中间的发布按钮
     [self setUpComposeButton];
+    
+    // 设置顶部的 window 用于控制点击顶部回滚效果
+    [LCTopWindow show];
 }
 
 // 创建所有的子控制器
