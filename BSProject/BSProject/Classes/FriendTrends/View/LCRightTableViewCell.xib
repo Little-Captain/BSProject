@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRight" rowHeight="70" id="KGk-i7-Jjw" customClass="LCRightTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKQ-Pl-5nB">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="RSS-LZ-zbP"/>
+                            <constraint firstAttribute="width" constant="50" id="UUo-lC-pcm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4M-tk-aRR">
+                        <rect key="frame" x="70" y="43" width="160" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvg-M0-QRe">
+                        <rect key="frame" x="70" y="10" width="160" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzx-g6-Ikd">
+                        <rect key="frame" x="240" y="20" width="60" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="ZBP-8W-IOL"/>
+                            <constraint firstAttribute="height" constant="30" id="b2w-JD-jZY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="+ 关注" backgroundImage="FollowBtnBg">
+                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="FollowBtnClickBg">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="followBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ow7-A1-eZ2"/>
+                        </connections>
+                    </button>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riZ-Rn-jpz">
+                        <rect key="frame" x="0.0" y="68.5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="R60-Ds-bQi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="riZ-Rn-jpz" secondAttribute="bottom" id="61w-OD-eOb"/>
+                    <constraint firstItem="Uzx-g6-Ikd" firstAttribute="leading" secondItem="c4M-tk-aRR" secondAttribute="trailing" constant="10" id="BEz-OH-QLV"/>
+                    <constraint firstItem="SKQ-Pl-5nB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I9U-5V-BfQ"/>
+                    <constraint firstItem="jvg-M0-QRe" firstAttribute="leading" secondItem="SKQ-Pl-5nB" secondAttribute="trailing" constant="10" id="KNb-U6-I6T"/>
+                    <constraint firstItem="c4M-tk-aRR" firstAttribute="bottom" secondItem="SKQ-Pl-5nB" secondAttribute="bottom" id="QCa-vq-TPe"/>
+                    <constraint firstItem="riZ-Rn-jpz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="buo-Lu-sUx"/>
+                    <constraint firstItem="jvg-M0-QRe" firstAttribute="top" secondItem="SKQ-Pl-5nB" secondAttribute="top" id="eXt-1Y-hws"/>
+                    <constraint firstItem="Uzx-g6-Ikd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iNJ-MX-Ac2"/>
+                    <constraint firstItem="SKQ-Pl-5nB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ntt-1E-b4t"/>
+                    <constraint firstAttribute="trailing" secondItem="riZ-Rn-jpz" secondAttribute="trailing" id="s5K-Cf-j9J"/>
+                    <constraint firstItem="Uzx-g6-Ikd" firstAttribute="leading" secondItem="jvg-M0-QRe" secondAttribute="trailing" constant="10" id="sVA-ct-Gul"/>
+                    <constraint firstItem="c4M-tk-aRR" firstAttribute="leading" secondItem="jvg-M0-QRe" secondAttribute="leading" id="tTt-z9-mG5"/>
+                    <constraint firstAttribute="trailing" secondItem="Uzx-g6-Ikd" secondAttribute="trailing" constant="20" id="yry-H8-9zQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fansL" destination="c4M-tk-aRR" id="7kq-nf-Ku2"/>
+                <outlet property="followBtn" destination="Uzx-g6-Ikd" id="V0y-Uy-cEL"/>
+                <outlet property="imageV" destination="SKQ-Pl-5nB" id="pWf-2R-n4i"/>
+                <outlet property="nameL" destination="jvg-M0-QRe" id="Ld5-r1-GZk"/>
+            </connections>
+            <point key="canvasLocation" x="-53" y="-79.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="FollowBtnBg" width="51" height="25"/>
+        <image name="FollowBtnClickBg" width="51" height="25"/>
+    </resources>
+</document>

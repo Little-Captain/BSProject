@@ -77,16 +77,21 @@
 // 创建一个子控制器
 - (UIViewController *)setUpOneViewController:(NSDictionary *)vcInfo {
     
-    if (!vcInfo) {
+    NSString *clsName = vcInfo[@"clsName"];
+    
+    if (!clsName) {
         return [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:[UIViewController new]];
     }
     
-    NSString *clsName = vcInfo[@"clsName"];
     NSString *title = vcInfo[@"title"];
     NSString *image = vcInfo[@"image"];
     NSString *selImage = vcInfo[@"selImage"];
     
     UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
+    
+    if (vc == nil) {
+        [NSException exceptionWithName:clsName reason:nil userInfo:nil];
+    }
     
     UINavigationController *nav = [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:vc];
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];

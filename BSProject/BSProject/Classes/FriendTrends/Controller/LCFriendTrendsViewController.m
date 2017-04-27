@@ -33,7 +33,7 @@
 
 - (void)friendsRecommenClick {
     
-    LogFun();
+    [self.navigationController pushViewController:[NSClassFromString(@"LCRecommendFTVC") new] animated:YES];
 }
 
 @end

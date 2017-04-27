@@ -9,10 +9,13 @@
 #import "UIView+Bounds.h"
 #import "UIView+Center.h"
 #import "UIView+Frame.h"
+#import "UIImage+Tools.h"
 
 #import "UIView+ShowWhere.h"
 
 #import "UIBarButtonItem+LCExtension.h"
+
+#define NSLog(...) NSLog(__VA_ARGS__)
 
 #define LogFun() NSLog(@"%s", __func__)
 

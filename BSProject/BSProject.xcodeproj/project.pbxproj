@@ -11,6 +11,16 @@
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
 		9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAD1EB03E9800BE86C5 /* LCRecommendFTVC.m */; };
 		9588AFB01EB03E9800BE86C5 /* LCRecommendFTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFAE1EB03E9800BE86C5 /* LCRecommendFTVC.xib */; };
+		9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFB11EB0435B00BE86C5 /* Foundation+Log.m */; };
+		9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFB41EB0547500BE86C5 /* LCRecommendLeftItem.m */; };
+		9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFB71EB087A400BE86C5 /* LCLeftTableViewCell.m */; };
+		9588AFBA1EB087A400BE86C5 /* LCLeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFB81EB087A400BE86C5 /* LCLeftTableViewCell.xib */; };
+		9588AFBD1EB19DEF00BE86C5 /* LCRecommendRightItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFBC1EB19DEF00BE86C5 /* LCRecommendRightItem.m */; };
+		9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFBF1EB19E4E00BE86C5 /* LCRightTableViewCell.m */; };
+		9588AFC21EB19E4E00BE86C5 /* LCRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFC01EB19E4E00BE86C5 /* LCRightTableViewCell.xib */; };
+		9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFC51EB1A14300BE86C5 /* NSDate+Tools.m */; };
+		9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFC81EB1A14300BE86C5 /* UIColor+Tools.m */; };
+		9588AFCE1EB1A14300BE86C5 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFCB1EB1A14300BE86C5 /* UIImage+Tools.m */; };
 		95D892881EAF8BD6006A08C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892871EAF8BD6006A08C3 /* main.m */; };
 		95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */; };
 		95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D892921EAF8BD6006A08C3 /* Assets.xcassets */; };
@@ -35,6 +45,23 @@
 		9588AFAC1EB03E9800BE86C5 /* LCRecommendFTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRecommendFTVC.h; sourceTree = "<group>"; };
 		9588AFAD1EB03E9800BE86C5 /* LCRecommendFTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRecommendFTVC.m; sourceTree = "<group>"; };
 		9588AFAE1EB03E9800BE86C5 /* LCRecommendFTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCRecommendFTVC.xib; sourceTree = "<group>"; };
+		9588AFB11EB0435B00BE86C5 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		9588AFB31EB0547500BE86C5 /* LCRecommendLeftItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRecommendLeftItem.h; sourceTree = "<group>"; };
+		9588AFB41EB0547500BE86C5 /* LCRecommendLeftItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRecommendLeftItem.m; sourceTree = "<group>"; };
+		9588AFB61EB087A400BE86C5 /* LCLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLeftTableViewCell.h; sourceTree = "<group>"; };
+		9588AFB71EB087A400BE86C5 /* LCLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLeftTableViewCell.m; sourceTree = "<group>"; };
+		9588AFB81EB087A400BE86C5 /* LCLeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCLeftTableViewCell.xib; sourceTree = "<group>"; };
+		9588AFBB1EB19DEF00BE86C5 /* LCRecommendRightItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRecommendRightItem.h; sourceTree = "<group>"; };
+		9588AFBC1EB19DEF00BE86C5 /* LCRecommendRightItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRecommendRightItem.m; sourceTree = "<group>"; };
+		9588AFBE1EB19E4E00BE86C5 /* LCRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRightTableViewCell.h; sourceTree = "<group>"; };
+		9588AFBF1EB19E4E00BE86C5 /* LCRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRightTableViewCell.m; sourceTree = "<group>"; };
+		9588AFC01EB19E4E00BE86C5 /* LCRightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCRightTableViewCell.xib; sourceTree = "<group>"; };
+		9588AFC41EB1A14300BE86C5 /* NSDate+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Tools.h"; sourceTree = "<group>"; };
+		9588AFC51EB1A14300BE86C5 /* NSDate+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Tools.m"; sourceTree = "<group>"; };
+		9588AFC71EB1A14300BE86C5 /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
+		9588AFC81EB1A14300BE86C5 /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		9588AFCA1EB1A14300BE86C5 /* UIImage+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
+		9588AFCB1EB1A14300BE86C5 /* UIImage+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
 		95D892831EAF8BD6006A08C3 /* BSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D892871EAF8BD6006A08C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95D892891EAF8BD6006A08C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +114,33 @@
 				BE4FCFB40A3C7E86BA370823 /* Pods-BSProject.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9588AFC31EB1A14300BE86C5 /* NSDateCategory */ = {
+			isa = PBXGroup;
+			children = (
+				9588AFC41EB1A14300BE86C5 /* NSDate+Tools.h */,
+				9588AFC51EB1A14300BE86C5 /* NSDate+Tools.m */,
+			);
+			path = NSDateCategory;
+			sourceTree = "<group>";
+		};
+		9588AFC61EB1A14300BE86C5 /* UIColorCategory */ = {
+			isa = PBXGroup;
+			children = (
+				9588AFC71EB1A14300BE86C5 /* UIColor+Tools.h */,
+				9588AFC81EB1A14300BE86C5 /* UIColor+Tools.m */,
+			);
+			path = UIColorCategory;
+			sourceTree = "<group>";
+		};
+		9588AFC91EB1A14300BE86C5 /* UIImageCategory */ = {
+			isa = PBXGroup;
+			children = (
+				9588AFCA1EB1A14300BE86C5 /* UIImage+Tools.h */,
+				9588AFCB1EB1A14300BE86C5 /* UIImage+Tools.m */,
+			);
+			path = UIImageCategory;
 			sourceTree = "<group>";
 		};
 		95D8927A1EAF8BD6006A08C3 = {
@@ -190,6 +244,10 @@
 		95D892A61EAFA156006A08C3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				9588AFB11EB0435B00BE86C5 /* Foundation+Log.m */,
+				9588AFC31EB1A14300BE86C5 /* NSDateCategory */,
+				9588AFC61EB1A14300BE86C5 /* UIColorCategory */,
+				9588AFC91EB1A14300BE86C5 /* UIImageCategory */,
 				95D892AA1EAFA266006A08C3 /* UIViewCategory */,
 				95D892A71EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.h */,
 				95D892A81EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m */,
@@ -271,6 +329,10 @@
 		95D892C01EAFA768006A08C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9588AFB31EB0547500BE86C5 /* LCRecommendLeftItem.h */,
+				9588AFB41EB0547500BE86C5 /* LCRecommendLeftItem.m */,
+				9588AFBB1EB19DEF00BE86C5 /* LCRecommendRightItem.h */,
+				9588AFBC1EB19DEF00BE86C5 /* LCRecommendRightItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +340,12 @@
 		95D892C11EAFA768006A08C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9588AFBE1EB19E4E00BE86C5 /* LCRightTableViewCell.h */,
+				9588AFBF1EB19E4E00BE86C5 /* LCRightTableViewCell.m */,
+				9588AFC01EB19E4E00BE86C5 /* LCRightTableViewCell.xib */,
+				9588AFB61EB087A400BE86C5 /* LCLeftTableViewCell.h */,
+				9588AFB71EB087A400BE86C5 /* LCLeftTableViewCell.m */,
+				9588AFB81EB087A400BE86C5 /* LCLeftTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +518,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9588AFBA1EB087A400BE86C5 /* LCLeftTableViewCell.xib in Resources */,
+				9588AFC21EB19E4E00BE86C5 /* LCRightTableViewCell.xib in Resources */,
 				9588AFB01EB03E9800BE86C5 /* LCRecommendFTVC.xib in Resources */,
 				95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */,
 				95D892B91EAFA480006A08C3 /* UI.json in Resources */,
@@ -513,16 +583,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */,
+				9588AFCE1EB1A14300BE86C5 /* UIImage+Tools.m in Sources */,
+				9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				95D892D01EAFA78F006A08C3 /* LCEssenceViewController.m in Sources */,
+				9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */,
+				9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */,
+				9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */,
 				95D892A91EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m in Sources */,
+				9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */,
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
+				9588AFBD1EB19DEF00BE86C5 /* LCRecommendRightItem.m in Sources */,
 				95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */,
 				9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */,
 				95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */,
+				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				95D892881EAF8BD6006A08C3 /* main.m in Sources */,
 				95D892B31EAFA266006A08C3 /* UIView+Bounds.m in Sources */,
 				95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */,
