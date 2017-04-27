@@ -16,7 +16,6 @@
     dfmt.dateFormat = dateFormat;
     
     return [dfmt dateFromString:str];
-    
 }
 
 + (NSDateComponents *)compareDateFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
@@ -26,7 +25,6 @@
     NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     
     return [calendar components:unit fromDate:fromDate toDate:toDate options:kNilOptions];
-    
 }
 
 - (BOOL)isThisDay {
@@ -38,7 +36,6 @@
     NSString *todayStr = [dfmt stringFromDate:[NSDate date]];
     
     return [dateStr isEqualToString:todayStr];
-    
 }
 
 - (BOOL)isYesterDay {
@@ -46,7 +43,6 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     return [calendar isDateInYesterday:self];
-    
 }
 
 - (BOOL)isThisYear {
@@ -56,8 +52,7 @@
     NSInteger thisYear = [calendar component:NSCalendarUnitYear fromDate:[NSDate date]];
     NSInteger dateYear = [calendar component:NSCalendarUnitYear fromDate:self];
     
-    return (thisYear == dateYear);
-    
+    return (thisYear == dateYear);    
 }
 
 @end

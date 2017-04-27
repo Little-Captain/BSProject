@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1050AD973BA5F624C08BBDDE /* libPods-BSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A678001E41D4256AA322B72 /* libPods-BSProject.a */; };
+		9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691181EB2193F00D6F000 /* LCPublishView.m */; };
+		9576911B1EB2193F00D6F000 /* LCPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957691191EB2193F00D6F000 /* LCPublishView.xib */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
 		9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAD1EB03E9800BE86C5 /* LCRecommendFTVC.m */; };
 		9588AFB01EB03E9800BE86C5 /* LCRecommendFTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFAE1EB03E9800BE86C5 /* LCRecommendFTVC.xib */; };
@@ -52,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		5A678001E41D4256AA322B72 /* libPods-BSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		957691171EB2193F00D6F000 /* LCPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPublishView.h; sourceTree = "<group>"; };
+		957691181EB2193F00D6F000 /* LCPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPublishView.m; sourceTree = "<group>"; };
+		957691191EB2193F00D6F000 /* LCPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPublishView.xib; sourceTree = "<group>"; };
 		9588AFA91EB0346800BE86C5 /* LCMainNavigationC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainNavigationC.h; sourceTree = "<group>"; };
 		9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainNavigationC.m; sourceTree = "<group>"; };
 		9588AFAC1EB03E9800BE86C5 /* LCRecommendFTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRecommendFTVC.h; sourceTree = "<group>"; };
@@ -535,6 +540,9 @@
 		95D892CD1EAFA768006A08C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				957691171EB2193F00D6F000 /* LCPublishView.h */,
+				957691181EB2193F00D6F000 /* LCPublishView.m */,
+				957691191EB2193F00D6F000 /* LCPublishView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,6 +623,7 @@
 				9588AFBA1EB087A400BE86C5 /* LCLeftTableViewCell.xib in Resources */,
 				9588AFC21EB19E4E00BE86C5 /* LCRightTableViewCell.xib in Resources */,
 				9588AFB01EB03E9800BE86C5 /* LCRecommendFTVC.xib in Resources */,
+				9576911B1EB2193F00D6F000 /* LCPublishView.xib in Resources */,
 				9588AFD31EB1A41A00BE86C5 /* LCRecommendTagTableViewController.xib in Resources */,
 				95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */,
 				9588AFE41EB1BB4400BE86C5 /* LCLoginOrRegistVC.xib in Resources */,
@@ -678,6 +687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */,
 				95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */,
 				9588AFE31EB1BB4400BE86C5 /* LCLoginOrRegistVC.m in Sources */,
 				9588AFCE1EB1A14300BE86C5 /* UIImage+Tools.m in Sources */,

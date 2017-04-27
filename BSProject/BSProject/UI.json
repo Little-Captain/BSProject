@@ -1,7 +1,7 @@
 [
   {
     "clsName" : "LCEssenceViewController",
-    "title" : "精选",
+    "title" : "精华",
     "image" : "tabBar_essence_icon",
     "selImage" : "tabBar_essence_click_icon"
   },

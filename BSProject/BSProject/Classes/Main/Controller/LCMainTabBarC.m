@@ -8,6 +8,8 @@
 
 #import "LCMainTabBarC.h"
 
+#import "LCPublishView.h"
+
 @interface LCMainTabBarC ()
 
 @end
@@ -121,7 +123,7 @@
 // 发布按钮点击事件的监听
 - (void)publishBtnClick {
     
-    LogFun();
+    [LCPublishView show];
 }
 
 @end
