@@ -1,5 +1,5 @@
 //
-//  LCTextField.h
+//  LCPushGuideView.h
 //  BSProject
 //
 //  Created by Liu-Mac on 09/12/2016.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LCTextField : UITextField
+@interface LCPushGuideView : UIView
+
++ (void)show;
 
 @end

@@ -15,6 +15,11 @@
 
 #import "UIBarButtonItem+LCExtension.h"
 
+#define ScreenW ([UIScreen mainScreen].bounds.size.width)
+#define ScreenH ([UIScreen mainScreen].bounds.size.height)
+#define ScreenB ([UIScreen mainScreen].bounds)
+#define KeyWindow ([UIApplication sharedApplication].keyWindow)
+
 #define NSLog(...) NSLog(__VA_ARGS__)
 
 #define LogFun() NSLog(@"%s", __func__)

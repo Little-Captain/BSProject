@@ -30,6 +30,9 @@
 		9588AFE41EB1BB4400BE86C5 /* LCLoginOrRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFE21EB1BB4400BE86C5 /* LCLoginOrRegistVC.xib */; };
 		9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFE61EB1BC6100BE86C5 /* LCTextField.m */; };
 		9588AFEA1EB1BC6100BE86C5 /* LCVerticalBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFE81EB1BC6100BE86C5 /* LCVerticalBtn.m */; };
+		9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFED1EB1C23500BE86C5 /* LCPushGuideView.m */; };
+		9588AFF21EB1C23500BE86C5 /* LCPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9588AFEE1EB1C23500BE86C5 /* LCPushGuideView.xib */; };
+		9588AFF31EB1C23500BE86C5 /* LCTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFF01EB1C23500BE86C5 /* LCTopWindow.m */; };
 		95D892881EAF8BD6006A08C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892871EAF8BD6006A08C3 /* main.m */; };
 		95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8928A1EAF8BD6006A08C3 /* AppDelegate.m */; };
 		95D892931EAF8BD6006A08C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D892921EAF8BD6006A08C3 /* Assets.xcassets */; };
@@ -86,6 +89,11 @@
 		9588AFE61EB1BC6100BE86C5 /* LCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTextField.m; sourceTree = "<group>"; };
 		9588AFE71EB1BC6100BE86C5 /* LCVerticalBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVerticalBtn.h; sourceTree = "<group>"; };
 		9588AFE81EB1BC6100BE86C5 /* LCVerticalBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVerticalBtn.m; sourceTree = "<group>"; };
+		9588AFEC1EB1C23500BE86C5 /* LCPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPushGuideView.h; sourceTree = "<group>"; };
+		9588AFED1EB1C23500BE86C5 /* LCPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPushGuideView.m; sourceTree = "<group>"; };
+		9588AFEE1EB1C23500BE86C5 /* LCPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPushGuideView.xib; sourceTree = "<group>"; };
+		9588AFEF1EB1C23500BE86C5 /* LCTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopWindow.h; sourceTree = "<group>"; };
+		9588AFF01EB1C23500BE86C5 /* LCTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopWindow.m; sourceTree = "<group>"; };
 		95D892831EAF8BD6006A08C3 /* BSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D892871EAF8BD6006A08C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95D892891EAF8BD6006A08C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -205,6 +213,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9588AFEB1EB1C23500BE86C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9588AFEC1EB1C23500BE86C5 /* LCPushGuideView.h */,
+				9588AFED1EB1C23500BE86C5 /* LCPushGuideView.m */,
+				9588AFEE1EB1C23500BE86C5 /* LCPushGuideView.xib */,
+				9588AFEF1EB1C23500BE86C5 /* LCTopWindow.h */,
+				9588AFF01EB1C23500BE86C5 /* LCTopWindow.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		95D8927A1EAF8BD6006A08C3 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +319,7 @@
 		95D892A51EAFA156006A08C3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9588AFEB1EB1C23500BE86C5 /* View */,
 				95D892A61EAFA156006A08C3 /* Category */,
 			);
 			path = Other;
@@ -589,6 +610,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9588AFF21EB1C23500BE86C5 /* LCPushGuideView.xib in Resources */,
 				9588AFDB1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.xib in Resources */,
 				9588AFBA1EB087A400BE86C5 /* LCLeftTableViewCell.xib in Resources */,
 				9588AFC21EB19E4E00BE86C5 /* LCRightTableViewCell.xib in Resources */,
@@ -671,6 +693,7 @@
 				9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */,
 				9588AFEA1EB1BC6100BE86C5 /* LCVerticalBtn.m in Sources */,
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
+				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
 				9588AFBD1EB19DEF00BE86C5 /* LCRecommendRightItem.m in Sources */,
@@ -681,6 +704,7 @@
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
+				9588AFF31EB1C23500BE86C5 /* LCTopWindow.m in Sources */,
 				95D892881EAF8BD6006A08C3 /* main.m in Sources */,
 				95D892B31EAFA266006A08C3 /* UIView+Bounds.m in Sources */,
 				95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */,

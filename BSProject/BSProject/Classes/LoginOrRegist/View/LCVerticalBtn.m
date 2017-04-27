@@ -1,5 +1,5 @@
 //
-//  BSVerticalBtn.m
+//  LCVerticalBtn.m
 //  BSProject
 //
 //  Created by Liu-Mac on 08/12/2016.
