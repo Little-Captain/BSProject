@@ -96,6 +96,12 @@
     
     [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        // 实测: 当没有任何评论的时候, 服务器返回的数据解析后是一个空的数组!!!
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            [self.tableView.mj_header endRefreshing]; // 结束刷新, 然后返回
+            return;
+        }
+        
         self.total = [responseObject[@"total"] integerValue];
         
         self.laststCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
