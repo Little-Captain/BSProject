@@ -40,7 +40,7 @@
 /** loadMordID */
 @property (nonatomic, strong) NSString *loadMordID;
 
-/** 缓存所有的帖子的评论数据 */
+/** 缓存最热评论数据 */
 @property (nonatomic, strong) LCCmtItem *save_top_cmt;
 
 /** 评论总数 */
@@ -257,6 +257,25 @@
     
     // 取消所有的任务
     [self.manager invalidateSessionCancelingTasks:YES];
+    
+    // 因为 UIMenuController 是共享的, 所以退出时, 要清空 menuItems
+    [UIMenuController sharedMenuController].menuItems = nil;
+}
+
+#pragma mark - 定位 comment 的位置
+
+- (NSArray *)commentsInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        
+        return self.hotCmt.count ? self.hotCmt : self.laststCmt;
+    }
+    return self.laststCmt;
+}
+
+- (LCCmtItem *)commentInIndexPath:(NSIndexPath *)indexPath {
+    
+    return [self commentsInSection:indexPath.section][indexPath.row];
 }
 
 # pragma mark - table view delegate
@@ -344,6 +363,52 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     
     [self.view endEditing:YES];
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if (menu.isMenuVisible) { // 正在显示的时候点击了 cell, 隐藏 menu, 然后直接返回
+        [menu setMenuVisible:NO animated:YES];
+        return;
+    }
+    
+    LCCmtCell *cell = (LCCmtCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    // menu 的显示和第一响应者关联
+    [cell becomeFirstResponder];
+    
+    // 点击 item 默认会调用控制器的方法
+    UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+    UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+    UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+    menu.menuItems = @[ding, replay, report];
+    //    [menu setTargetRect:self.frame inView:self.superview];
+    // 设置显示位置, 让 menu 放在 cell 中间
+    [menu setTargetRect:CGRectMake(0, cell.fHeight * 0.5, cell.fWidth, cell.fHeight * 0.5) inView:cell];
+    // 设置菜单显示
+    [menu setMenuVisible:YES animated:YES];
+}
+
+#pragma mark - 实现 UIMenuController 的 action 方法
+
+- (void)ding:(UIMenuController *)menu {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"顶 - %@", [self commentInIndexPath:indexPath].content);
+}
+
+- (void)replay:(UIMenuController *)menu {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"回复 - %@", [self commentInIndexPath:indexPath].content);
+}
+
+- (void)report:(UIMenuController *)menu {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"举报 - %@", [self commentInIndexPath:indexPath].content);
 }
 
 @end

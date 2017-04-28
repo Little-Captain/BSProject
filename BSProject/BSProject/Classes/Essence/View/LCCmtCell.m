@@ -71,4 +71,16 @@
     self.backgroundView = imageV;
 }
 
+#pragma mark - 重写响应者相关方法
+- (BOOL)canBecomeFirstResponder {
+    
+    return YES;
+}
+
+#pragma mark - 决定 UIMenuController 支持哪些操作的方法
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    
+    return NO;
+}
+
 @end
