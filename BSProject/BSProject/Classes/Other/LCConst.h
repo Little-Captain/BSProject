@@ -38,3 +38,6 @@ UIKIT_EXTERN CGFloat const CommentBarH;
 
 /** 用户是男性的字符 */
 UIKIT_EXTERN NSString * const ManSex;
+
+/** TabBarController 的 ViewController 被选中的通知 */
+UIKIT_EXTERN NSString * const UITabBarControllerDidSelectViewControllerNotification;

@@ -26,6 +26,9 @@
 /** maxtime */
 @property (nonatomic, strong) NSString *currentMaxtime;
 
+/** 上一次选中的 tabBar index */
+@property (nonatomic, assign) NSUInteger lastSelectedIndex;
+
 @end
 
 @implementation LCTopicTableViewController
@@ -35,11 +38,23 @@ static NSString * const ID = @"topic";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [NotificationCenter addObserver:self selector:@selector(tabBarControllerDidSelectViewController) name:UITabBarControllerDidSelectViewControllerNotification object:nil];
+    
     [self setUpTableView];
     
     [self setUpRefreshView];
     
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)tabBarControllerDidSelectViewController {
+    
+    // 如果是连续选中2次, 直接刷新
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingOnKeyWindow) {
+        [self.tableView.mj_header beginRefreshing];
+    }
+    // 记录最新的选中索引
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
 
 - (void)setUpTableView {

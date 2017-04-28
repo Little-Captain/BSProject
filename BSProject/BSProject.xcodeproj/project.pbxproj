@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1050AD973BA5F624C08BBDDE /* libPods-BSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A678001E41D4256AA322B72 /* libPods-BSProject.a */; };
+		9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */; };
 		9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691181EB2193F00D6F000 /* LCPublishView.m */; };
 		9576911B1EB2193F00D6F000 /* LCPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957691191EB2193F00D6F000 /* LCPublishView.xib */; };
 		957691261EB2310700D6F000 /* LCPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691201EB2310700D6F000 /* LCPictureViewController.m */; };
@@ -76,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		5A678001E41D4256AA322B72 /* libPods-BSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9525310C1EB2F2F900BB5B93 /* UIImageView+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Tools.h"; sourceTree = "<group>"; };
+		9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Tools.m"; sourceTree = "<group>"; };
 		957691171EB2193F00D6F000 /* LCPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPublishView.h; sourceTree = "<group>"; };
 		957691181EB2193F00D6F000 /* LCPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPublishView.m; sourceTree = "<group>"; };
 		957691191EB2193F00D6F000 /* LCPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPublishView.xib; sourceTree = "<group>"; };
@@ -210,6 +213,15 @@
 				BE4FCFB40A3C7E86BA370823 /* Pods-BSProject.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		952531081EB2F2C100BB5B93 /* UIImageViewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				9525310C1EB2F2F900BB5B93 /* UIImageView+Tools.h */,
+				9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */,
+			);
+			path = UIImageViewCategory;
 			sourceTree = "<group>";
 		};
 		9588AFC31EB1A14300BE86C5 /* NSDateCategory */ = {
@@ -399,6 +411,7 @@
 				9588AFB11EB0435B00BE86C5 /* Foundation+Log.m */,
 				9588AFC31EB1A14300BE86C5 /* NSDateCategory */,
 				9588AFC61EB1A14300BE86C5 /* UIColorCategory */,
+				952531081EB2F2C100BB5B93 /* UIImageViewCategory */,
 				9588AFC91EB1A14300BE86C5 /* UIImageCategory */,
 				95D892AA1EAFA266006A08C3 /* UIViewCategory */,
 				95D892A71EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.h */,
@@ -827,6 +840,7 @@
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
+				9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */,
 				9576913C1EB2320000D6F000 /* LCEssencePicView.m in Sources */,
 				9588AFF31EB1C23500BE86C5 /* LCTopWindow.m in Sources */,
 				957691411EB2320000D6F000 /* LCVideoView.m in Sources */,

@@ -16,11 +16,14 @@
 #import "NSDate+Tools.h"
 #import "LCConst.h"
 #import "UIBarButtonItem+LCExtension.h"
+#import "UIImageView+Tools.h"
+#import "UIView+ShowWhere.h"
 
 #define ScreenW ([UIScreen mainScreen].bounds.size.width)
 #define ScreenH ([UIScreen mainScreen].bounds.size.height)
 #define ScreenB ([UIScreen mainScreen].bounds)
 #define KeyWindow ([UIApplication sharedApplication].keyWindow)
+#define NotificationCenter [NSNotificationCenter defaultCenter]
 
 #define LogHomeDirectory NSLog(@"%@", NSHomeDirectory())
 

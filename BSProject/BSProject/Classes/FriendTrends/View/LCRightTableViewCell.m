@@ -45,9 +45,7 @@
     
     _item = item;
     
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:item.header] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.imageV.image = [UIImage imageWithCornerRadius:25.0 image:[UIImage imageWithSize:CGSizeMake(50, 50) image:image]];
-    }];
+    [self.imageV setHeader:item.header];
     
     self.nameL.text = item.screen_name;
     self.fansL.text = [NSString stringWithFormat:@"%zd人关注", item.fans_count];

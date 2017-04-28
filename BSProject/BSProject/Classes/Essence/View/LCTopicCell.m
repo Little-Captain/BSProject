@@ -116,7 +116,7 @@
     
     self.sina_vImageV.hidden = !item.isSina_v;
     
-    [self.profile_imageV sd_setImageWithURL:[NSURL URLWithString:item.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profile_imageV setHeader:item.profile_image];
     self.nameL.text = item.name;
     self.create_timeL.text = item.create_time;
     self.text_label.text = item.text;

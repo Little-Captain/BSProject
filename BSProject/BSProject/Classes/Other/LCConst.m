@@ -31,3 +31,5 @@ CGFloat const CommentBarH = 44;
 /** 用户是男性的字符 */
 NSString * const ManSex = @"m";
 
+NSString * const UITabBarControllerDidSelectViewControllerNotification = @"UITabBarControllerDidSelectViewControllerNotification";
+

@@ -25,4 +25,7 @@
 // 通过已有图片创建一张指定尺寸的图片
 + (UIImage *)imageWithSize:(CGSize)size image:(UIImage *)image;
 
+// 生成圆形图片
+- (UIImage *)circleImage;
+
 @end

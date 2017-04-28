@@ -35,7 +35,7 @@
     
     _item = item;
     
-    [self.profileImageV sd_setImageWithURL:[NSURL URLWithString:item.user.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profileImageV setHeader:item.user.profile_image];
     
     self.sexImageV.image = [item.user.sex isEqualToString:ManSex] ? [UIImage imageNamed:@"Profile_manIcon"] : [UIImage imageNamed:@"Profile_womanIcon"];
     

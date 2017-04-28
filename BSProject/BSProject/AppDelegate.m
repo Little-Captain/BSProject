@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LCMainTabBarC.h"
 #import "LCPushGuideView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 @end
 
@@ -21,8 +21,12 @@
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    // 根控制器
+    LCMainTabBarC *tabBarC = [LCMainTabBarC new];
+    tabBarC.delegate = self;
+    
     // 设置窗口的根控制器
-    self.window.rootViewController = [NSClassFromString(@"LCMainTabBarC") new];
+    self.window.rootViewController = tabBarC;
     
     // 显示窗口
     [self.window makeKeyAndVisible];
@@ -31,6 +35,14 @@
     [LCPushGuideView show];
     
     return YES;
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+// 当选中 tabBarController 的 子控制器 时调用
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    
+    [NotificationCenter postNotificationName:UITabBarControllerDidSelectViewControllerNotification object:nil];
 }
 
 @end

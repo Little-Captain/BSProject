@@ -27,7 +27,7 @@
     
     _item = item;
     
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:item.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.imageV setHeader:item.image_list];
     
     self.titleL.text = item.theme_name;
     self.followL.text = item.sub_number;
