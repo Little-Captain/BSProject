@@ -13,4 +13,6 @@ target 'BSProject' do
     pod 'MJRefresh'
     pod 'DACircularProgress'
     pod 'pop'
+    pod 'RXCollections'
+    pod 'Masonry'
 end

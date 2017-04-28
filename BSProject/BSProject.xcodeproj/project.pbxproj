@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1050AD973BA5F624C08BBDDE /* libPods-BSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A678001E41D4256AA322B72 /* libPods-BSProject.a */; };
 		9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */; };
+		952531101EB31D6E00BB5B93 /* LCMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9525310F1EB31D6E00BB5B93 /* LCMeViewController.storyboard */; };
+		952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 952531121EB322DB00BB5B93 /* LCSquareItem.m */; };
+		952531161EB3231400BB5B93 /* LCMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 952531151EB3231400BB5B93 /* LCMeFooterView.m */; };
+		952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 952531181EB3235100BB5B93 /* LCSqaureButton.m */; };
 		9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691181EB2193F00D6F000 /* LCPublishView.m */; };
 		9576911B1EB2193F00D6F000 /* LCPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957691191EB2193F00D6F000 /* LCPublishView.xib */; };
 		957691261EB2310700D6F000 /* LCPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691201EB2310700D6F000 /* LCPictureViewController.m */; };
@@ -73,12 +77,21 @@
 		95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D892D31EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib */; };
 		95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */; };
 		95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892DA1EAFA810006A08C3 /* LCNewViewController.m */; };
+		95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC681EB334050040B7F3 /* LCWebViewController.m */; };
+		95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5A678001E41D4256AA322B72 /* libPods-BSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9525310C1EB2F2F900BB5B93 /* UIImageView+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Tools.h"; sourceTree = "<group>"; };
 		9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Tools.m"; sourceTree = "<group>"; };
+		9525310F1EB31D6E00BB5B93 /* LCMeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LCMeViewController.storyboard; sourceTree = "<group>"; };
+		952531111EB322DB00BB5B93 /* LCSquareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSquareItem.h; sourceTree = "<group>"; };
+		952531121EB322DB00BB5B93 /* LCSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSquareItem.m; sourceTree = "<group>"; };
+		952531141EB3231400BB5B93 /* LCMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMeFooterView.h; sourceTree = "<group>"; };
+		952531151EB3231400BB5B93 /* LCMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMeFooterView.m; sourceTree = "<group>"; };
+		952531171EB3235100BB5B93 /* LCSqaureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSqaureButton.h; sourceTree = "<group>"; };
+		952531181EB3235100BB5B93 /* LCSqaureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSqaureButton.m; sourceTree = "<group>"; };
 		957691171EB2193F00D6F000 /* LCPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPublishView.h; sourceTree = "<group>"; };
 		957691181EB2193F00D6F000 /* LCPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPublishView.m; sourceTree = "<group>"; };
 		957691191EB2193F00D6F000 /* LCPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPublishView.xib; sourceTree = "<group>"; };
@@ -190,6 +203,9 @@
 		95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMeViewController.m; sourceTree = "<group>"; };
 		95D892D91EAFA810006A08C3 /* LCNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNewViewController.h; sourceTree = "<group>"; };
 		95D892DA1EAFA810006A08C3 /* LCNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCNewViewController.m; sourceTree = "<group>"; };
+		95FCBC671EB334050040B7F3 /* LCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
+		95FCBC681EB334050040B7F3 /* LCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCWebViewController.m; sourceTree = "<group>"; };
+		95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCWebViewController.xib; sourceTree = "<group>"; };
 		A99829410F5494C08CE4A140 /* Pods-BSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSProject/Pods-BSProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4FCFB40A3C7E86BA370823 /* Pods-BSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSProject/Pods-BSProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -571,6 +587,10 @@
 			children = (
 				95D892D61EAFA7F4006A08C3 /* LCMeViewController.h */,
 				95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */,
+				9525310F1EB31D6E00BB5B93 /* LCMeViewController.storyboard */,
+				95FCBC671EB334050040B7F3 /* LCWebViewController.h */,
+				95FCBC681EB334050040B7F3 /* LCWebViewController.m */,
+				95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +598,8 @@
 		95D892C41EAFA768006A08C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				952531111EB322DB00BB5B93 /* LCSquareItem.h */,
+				952531121EB322DB00BB5B93 /* LCSquareItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -585,6 +607,10 @@
 		95D892C51EAFA768006A08C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				952531141EB3231400BB5B93 /* LCMeFooterView.h */,
+				952531151EB3231400BB5B93 /* LCMeFooterView.m */,
+				952531171EB3235100BB5B93 /* LCSqaureButton.h */,
+				952531181EB3235100BB5B93 /* LCSqaureButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -730,6 +756,8 @@
 				9588AFF21EB1C23500BE86C5 /* LCPushGuideView.xib in Resources */,
 				957691551EB2329200D6F000 /* LCCmtDetailViewController.xib in Resources */,
 				9576914A1EB2325300D6F000 /* LCCmtCell.xib in Resources */,
+				952531101EB31D6E00BB5B93 /* LCMeViewController.storyboard in Resources */,
+				95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */,
 				9576913D1EB2320000D6F000 /* LCEssencePicView.xib in Resources */,
 				9588AFDB1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.xib in Resources */,
 				9588AFBA1EB087A400BE86C5 /* LCLeftTableViewCell.xib in Resources */,
@@ -811,6 +839,7 @@
 				9588AFCE1EB1A14300BE86C5 /* UIImage+Tools.m in Sources */,
 				9588AFD21EB1A41A00BE86C5 /* LCRecommendTagTableViewController.m in Sources */,
 				9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */,
+				952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */,
 				9588AFDA1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
@@ -827,9 +856,11 @@
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
 				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
+				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
 				9576913A1EB2320000D6F000 /* LCTopicCell.m in Sources */,
 				9588AFBD1EB19DEF00BE86C5 /* LCRecommendRightItem.m in Sources */,
+				952531161EB3231400BB5B93 /* LCMeFooterView.m in Sources */,
 				9576913E1EB2320000D6F000 /* LCCircularProgressView.m in Sources */,
 				957691281EB2310700D6F000 /* LCTopicTableViewController.m in Sources */,
 				95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */,
@@ -838,6 +869,7 @@
 				9576913F1EB2320000D6F000 /* LCVoiceView.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */,
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
+				952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
 				9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */,

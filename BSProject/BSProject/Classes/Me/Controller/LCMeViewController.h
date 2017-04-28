@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LCMeViewController : UIViewController
+@interface LCMeViewController : UITableViewController
 
 @end
