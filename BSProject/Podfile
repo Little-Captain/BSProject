@@ -8,11 +8,11 @@ target 'BSProject' do
   # Pods for BSProject
     pod 'AFNetworking'
     pod 'SDWebImage'
-    pod 'SVProgressHUD'
-    pod 'MJExtension'
-    pod 'MJRefresh'
-    pod 'DACircularProgress'
     pod 'pop'
-    pod 'RXCollections'
     pod 'Masonry'
+    pod 'MJRefresh'
+    pod 'MJExtension'
+    pod 'DACircularProgress'
+    pod 'SVProgressHUD'
+    pod 'RXCollections'
 end
