@@ -1,6 +1,6 @@
 # 百思不得姐(学习版)
 
-![项目录屏](./screenshot/BSProject.gif)
+![项目录屏](http://www.code4app.com/data/attachment/forum/201704/29/194116codg85aslsrlzssk.gif)
 
 ## 项目介绍
 
