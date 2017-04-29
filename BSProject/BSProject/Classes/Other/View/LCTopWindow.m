@@ -8,7 +8,7 @@
 
 #import "LCTopWindow.h"
 
-#import "UIView+ShowWhere.h"
+#import "UIView+LCExtension.h"
 
 #define TopWindowH 20
 

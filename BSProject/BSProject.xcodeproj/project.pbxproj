@@ -71,7 +71,7 @@
 		95D892B31EAFA266006A08C3 /* UIView+Bounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892AC1EAFA266006A08C3 /* UIView+Bounds.m */; };
 		95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892AE1EAFA266006A08C3 /* UIView+Center.m */; };
 		95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892B01EAFA266006A08C3 /* UIView+Frame.m */; };
-		95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892B21EAFA266006A08C3 /* UIView+ShowWhere.m */; };
+		95D892B61EAFA266006A08C3 /* UIView+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892B21EAFA266006A08C3 /* UIView+LCExtension.m */; };
 		95D892B91EAFA480006A08C3 /* UI.json in Resources */ = {isa = PBXBuildFile; fileRef = 95D892B81EAFA480006A08C3 /* UI.json */; };
 		95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892D21EAFA7D6006A08C3 /* LCFriendTrendsViewController.m */; };
 		95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D892D31EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib */; };
@@ -79,6 +79,13 @@
 		95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892DA1EAFA810006A08C3 /* LCNewViewController.m */; };
 		95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC681EB334050040B7F3 /* LCWebViewController.m */; };
 		95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */; };
+		95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC6D1EB37A820040B7F3 /* LCPublishWordVC.m */; };
+		95FCBC711EB37ADD0040B7F3 /* LCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC701EB37ADD0040B7F3 /* LCPlaceholderTextView.m */; };
+		95FCBC741EB37BF60040B7F3 /* LCAddTagVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC731EB37BF60040B7F3 /* LCAddTagVC.m */; };
+		95FCBC7C1EB37C4D0040B7F3 /* LCAddTagToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC761EB37C4D0040B7F3 /* LCAddTagToolbar.m */; };
+		95FCBC7D1EB37C4D0040B7F3 /* LCAddTagToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC771EB37C4D0040B7F3 /* LCAddTagToolbar.xib */; };
+		95FCBC7E1EB37C4D0040B7F3 /* LCTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC791EB37C4D0040B7F3 /* LCTagButton.m */; };
+		95FCBC7F1EB37C4D0040B7F3 /* LCTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC7B1EB37C4D0040B7F3 /* LCTagTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,8 +199,8 @@
 		95D892AE1EAFA266006A08C3 /* UIView+Center.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Center.m"; sourceTree = "<group>"; };
 		95D892AF1EAFA266006A08C3 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		95D892B01EAFA266006A08C3 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		95D892B11EAFA266006A08C3 /* UIView+ShowWhere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ShowWhere.h"; sourceTree = "<group>"; };
-		95D892B21EAFA266006A08C3 /* UIView+ShowWhere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ShowWhere.m"; sourceTree = "<group>"; };
+		95D892B11EAFA266006A08C3 /* UIView+LCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCExtension.h"; sourceTree = "<group>"; };
+		95D892B21EAFA266006A08C3 /* UIView+LCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCExtension.m"; sourceTree = "<group>"; };
 		95D892B71EAFA27F006A08C3 /* BSProject.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSProject.pch; sourceTree = "<group>"; };
 		95D892B81EAFA480006A08C3 /* UI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UI.json; sourceTree = "<group>"; };
 		95D892D11EAFA7D6006A08C3 /* LCFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCFriendTrendsViewController.h; sourceTree = "<group>"; };
@@ -206,6 +213,19 @@
 		95FCBC671EB334050040B7F3 /* LCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
 		95FCBC681EB334050040B7F3 /* LCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCWebViewController.m; sourceTree = "<group>"; };
 		95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCWebViewController.xib; sourceTree = "<group>"; };
+		95FCBC6C1EB37A820040B7F3 /* LCPublishWordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPublishWordVC.h; sourceTree = "<group>"; };
+		95FCBC6D1EB37A820040B7F3 /* LCPublishWordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPublishWordVC.m; sourceTree = "<group>"; };
+		95FCBC6F1EB37ADD0040B7F3 /* LCPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPlaceholderTextView.h; sourceTree = "<group>"; };
+		95FCBC701EB37ADD0040B7F3 /* LCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPlaceholderTextView.m; sourceTree = "<group>"; };
+		95FCBC721EB37BF60040B7F3 /* LCAddTagVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAddTagVC.h; sourceTree = "<group>"; };
+		95FCBC731EB37BF60040B7F3 /* LCAddTagVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAddTagVC.m; sourceTree = "<group>"; };
+		95FCBC751EB37C4D0040B7F3 /* LCAddTagToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAddTagToolbar.h; sourceTree = "<group>"; };
+		95FCBC761EB37C4D0040B7F3 /* LCAddTagToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAddTagToolbar.m; sourceTree = "<group>"; };
+		95FCBC771EB37C4D0040B7F3 /* LCAddTagToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCAddTagToolbar.xib; sourceTree = "<group>"; };
+		95FCBC781EB37C4D0040B7F3 /* LCTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTagButton.h; sourceTree = "<group>"; };
+		95FCBC791EB37C4D0040B7F3 /* LCTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTagButton.m; sourceTree = "<group>"; };
+		95FCBC7A1EB37C4D0040B7F3 /* LCTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTagTextField.h; sourceTree = "<group>"; };
+		95FCBC7B1EB37C4D0040B7F3 /* LCTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTagTextField.m; sourceTree = "<group>"; };
 		A99829410F5494C08CE4A140 /* Pods-BSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSProject/Pods-BSProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4FCFB40A3C7E86BA370823 /* Pods-BSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSProject/Pods-BSProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -445,8 +465,8 @@
 				95D892AE1EAFA266006A08C3 /* UIView+Center.m */,
 				95D892AF1EAFA266006A08C3 /* UIView+Frame.h */,
 				95D892B01EAFA266006A08C3 /* UIView+Frame.m */,
-				95D892B11EAFA266006A08C3 /* UIView+ShowWhere.h */,
-				95D892B21EAFA266006A08C3 /* UIView+ShowWhere.m */,
+				95D892B11EAFA266006A08C3 /* UIView+LCExtension.h */,
+				95D892B21EAFA266006A08C3 /* UIView+LCExtension.m */,
 			);
 			path = UIViewCategory;
 			sourceTree = "<group>";
@@ -661,6 +681,10 @@
 		95D892CB1EAFA768006A08C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95FCBC6C1EB37A820040B7F3 /* LCPublishWordVC.h */,
+				95FCBC6D1EB37A820040B7F3 /* LCPublishWordVC.m */,
+				95FCBC721EB37BF60040B7F3 /* LCAddTagVC.h */,
+				95FCBC731EB37BF60040B7F3 /* LCAddTagVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -675,6 +699,15 @@
 		95D892CD1EAFA768006A08C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95FCBC751EB37C4D0040B7F3 /* LCAddTagToolbar.h */,
+				95FCBC761EB37C4D0040B7F3 /* LCAddTagToolbar.m */,
+				95FCBC771EB37C4D0040B7F3 /* LCAddTagToolbar.xib */,
+				95FCBC781EB37C4D0040B7F3 /* LCTagButton.h */,
+				95FCBC791EB37C4D0040B7F3 /* LCTagButton.m */,
+				95FCBC7A1EB37C4D0040B7F3 /* LCTagTextField.h */,
+				95FCBC7B1EB37C4D0040B7F3 /* LCTagTextField.m */,
+				95FCBC6F1EB37ADD0040B7F3 /* LCPlaceholderTextView.h */,
+				95FCBC701EB37ADD0040B7F3 /* LCPlaceholderTextView.m */,
 				957691171EB2193F00D6F000 /* LCPublishView.h */,
 				957691181EB2193F00D6F000 /* LCPublishView.m */,
 				957691191EB2193F00D6F000 /* LCPublishView.xib */,
@@ -773,6 +806,7 @@
 				9588AFE41EB1BB4400BE86C5 /* LCLoginOrRegistVC.xib in Resources */,
 				95D892B91EAFA480006A08C3 /* UI.json in Resources */,
 				95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */,
+				95FCBC7D1EB37C4D0040B7F3 /* LCAddTagToolbar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,23 +871,27 @@
 				9588AFE31EB1BB4400BE86C5 /* LCLoginOrRegistVC.m in Sources */,
 				9576912B1EB2319400D6F000 /* LCTopicItem.m in Sources */,
 				9588AFCE1EB1A14300BE86C5 /* UIImage+Tools.m in Sources */,
+				95FCBC741EB37BF60040B7F3 /* LCAddTagVC.m in Sources */,
 				9588AFD21EB1A41A00BE86C5 /* LCRecommendTagTableViewController.m in Sources */,
 				9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */,
 				952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */,
 				9588AFDA1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
+				95FCBC7E1EB37C4D0040B7F3 /* LCTagButton.m in Sources */,
 				9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */,
 				9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */,
 				9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */,
 				95D892A91EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m in Sources */,
 				9576914F1EB2326E00D6F000 /* LCCmtUserItem.m in Sources */,
 				9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */,
+				95FCBC711EB37ADD0040B7F3 /* LCPlaceholderTextView.m in Sources */,
 				9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */,
 				958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */,
 				957691261EB2310700D6F000 /* LCPictureViewController.m in Sources */,
 				9588AFEA1EB1BC6100BE86C5 /* LCVerticalBtn.m in Sources */,
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
+				95FCBC7F1EB37C4D0040B7F3 /* LCTagTextField.m in Sources */,
 				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
@@ -867,9 +905,10 @@
 				9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */,
 				95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */,
 				9576913F1EB2320000D6F000 /* LCVoiceView.m in Sources */,
-				95D892B61EAFA266006A08C3 /* UIView+ShowWhere.m in Sources */,
+				95D892B61EAFA266006A08C3 /* UIView+LCExtension.m in Sources */,
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */,
+				95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
 				9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */,
@@ -880,6 +919,7 @@
 				957691491EB2325300D6F000 /* LCCmtCell.m in Sources */,
 				95D892B31EAFA266006A08C3 /* UIView+Bounds.m in Sources */,
 				95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */,
+				95FCBC7C1EB37C4D0040B7F3 /* LCAddTagToolbar.m in Sources */,
 				9576915B1EB2333B00D6F000 /* LCConst.m in Sources */,
 				957691501EB2326E00D6F000 /* LCCmtItem.m in Sources */,
 			);

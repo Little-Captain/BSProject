@@ -11,6 +11,8 @@
 #import "LCPublishView.h"
 #import "LCTopWindow.h"
 
+#import "LCMainNavigationC.h"
+
 @interface LCMainTabBarC ()
 
 @end

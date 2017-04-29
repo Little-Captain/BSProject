@@ -41,3 +41,10 @@ UIKIT_EXTERN NSString * const ManSex;
 
 /** TabBarController 的 ViewController 被选中的通知 */
 UIKIT_EXTERN NSString * const UITabBarControllerDidSelectViewControllerNotification;
+
+/** 标签-间距 */
+UIKIT_EXTERN CGFloat const LCTagMargin;
+/** 标签-高度 */
+UIKIT_EXTERN CGFloat const LCTagH;
+/** toolbar bottom height */
+UIKIT_EXTERN CGFloat const LCToolBarBottomH;

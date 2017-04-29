@@ -1,14 +1,14 @@
 //
-//  UIView+ShowWhere.m
+//  UIView+LCExtension.m
 //  BSProject
 //
 //  Created by Liu-Mac on 18/12/2016.
 //  Copyright © 2016 Liu-Mac. All rights reserved.
 //
 
-#import "UIView+ShowWhere.h"
+#import "UIView+LCExtension.h"
 
-@implementation UIView (ShowWhere)
+@implementation UIView (LCExtension)
 
 - (BOOL)isShowingOnKeyWindow {
     
@@ -24,5 +24,11 @@
     return (!self.isHidden) && (self.alpha > 0.01) && (self.window == KeyWindow) && intersects;
     
 }
+
++ (instancetype)viewFromXib {
+    
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+}
+
 
 @end

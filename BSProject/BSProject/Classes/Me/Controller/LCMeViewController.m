@@ -70,8 +70,7 @@
 
 - (void)nightModBtnClick {
     
-    LogFun();
-    
+    LogFun();    
 }
 
 #pragma mark - UITableViewDelegate

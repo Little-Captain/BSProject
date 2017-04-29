@@ -9,6 +9,7 @@
 #import "LCPublishView.h"
 
 #import "LCVerticalBtn.h"
+#import "LCMainNavigationC.h"
 
 #import <POP.h>
 
@@ -125,7 +126,7 @@ static UIWindow *window;
             break;
         case 3:
             [self cancelWithCompletionBlock:^{
-                NSLog(@"段子");
+                [KeyWindow.rootViewController presentViewController:[[LCMainNavigationC alloc] initWithRootViewController:[NSClassFromString(@"LCPublishWordVC") new]] animated:YES completion:nil];
             }];
             break;
         case 4:

@@ -1,5 +1,5 @@
 //
-//  UIView+ShowWhere.h
+//  UIView+LCExtension.h
 //  BSProject
 //
 //  Created by Liu-Mac on 18/12/2016.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (ShowWhere)
+@interface UIView (LCExtension)
 
 - (BOOL)isShowingOnKeyWindow;
+
++ (instancetype)viewFromXib;
 
 @end

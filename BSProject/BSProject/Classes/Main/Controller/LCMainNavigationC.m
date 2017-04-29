@@ -18,14 +18,29 @@
 + (void)initialize
 {
     if (self == [LCMainNavigationC class]) {
+        // 设置导航栏
         UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[LCMainNavigationC class]]];
         [navBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+        [navBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
+        // 设置item
+        UIBarButtonItem *item = [UIBarButtonItem appearance];
+        // UIControlStateNormal
+        NSDictionary *itemAttrs = @{
+                                    NSForegroundColorAttributeName: [UIColor blackColor],
+                                    NSFontAttributeName: [UIFont systemFontOfSize:17]
+                                    };
+        [item setTitleTextAttributes:itemAttrs forState:UIControlStateNormal];
+        // UIControlStateDisabled
+        [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]} forState:UIControlStateDisabled];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 如果自定定制了左边的返回按钮, 就没有系统自带的左划返回功能了!!!
+    // 修改
+    self.interactivePopGestureRecognizer.delegate = nil;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -49,6 +64,7 @@
         [btn sizeToFit];
         // 这样定制了左边按钮在控制器的view加载之前, 我们可以在控制器的loadView中进行重新定制左边按钮
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        // 如果自定定制了左边的返回按钮, 就没有系统自带的左划返回功能了!!!
         
         // 隐藏tabBar
         viewController.hidesBottomBarWhenPushed = YES;

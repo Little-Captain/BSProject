@@ -33,3 +33,10 @@ NSString * const ManSex = @"m";
 
 NSString * const UITabBarControllerDidSelectViewControllerNotification = @"UITabBarControllerDidSelectViewControllerNotification";
 
+/** 标签-间距 */
+CGFloat const LCTagMargin = 5;
+/** 标签-高度 */
+CGFloat const LCTagH = 25;
+/** toolbar bottom height */
+CGFloat const LCToolBarBottomH = 35;
+
