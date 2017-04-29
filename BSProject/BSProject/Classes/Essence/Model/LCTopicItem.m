@@ -75,30 +75,40 @@
         CGFloat textH = [self.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14.0]} context:nil].size.height;
         _cellHeight = EssenceCellTextY + textH + EssenceCellMargin; // Text的最下端
         if (self.type == LCTopicTypePicture) { // 图片帖子
-            CGFloat picX = EssenceCellTextMargin;
-            CGFloat picY = _cellHeight;
-            CGFloat picW = textW;
-            CGFloat picH = textW * self.height.doubleValue / self.width.doubleValue;
-            if (picH > EssencePicMaxH) {
-                picH = EssencePicRecommendH;
-                self.bigPic = YES;
+            // 只有服务器返回的 width 数据为不为零时, 才计算
+            if (self.width.doubleValue != 0) { // self.width.doubleValue == 0 程序会崩溃, 做除法的时候一定要校验
+                
+                CGFloat picX = EssenceCellTextMargin;
+                CGFloat picY = _cellHeight;
+                CGFloat picW = textW;
+                CGFloat picH = textW * self.height.doubleValue / self.width.doubleValue;
+                if (picH > EssencePicMaxH) {
+                    picH = EssencePicRecommendH;
+                    self.bigPic = YES;
+                }
+                _picFrame = CGRectMake(picX, picY, picW, picH);
+                _cellHeight +=  picH + EssenceCellMargin; // Picture的最下端
             }
-            _picFrame = CGRectMake(picX, picY, picW, picH);
-            _cellHeight +=  picH + EssenceCellMargin; // Picture的最下端
         } else if (self.type == LCTopicTypeVideo) { // 视频帖子
-            CGFloat videoX = EssenceCellTextMargin;
-            CGFloat videoY = _cellHeight;
-            CGFloat videoW = textW;
-            CGFloat videoH = textW * self.height.doubleValue / self.width.doubleValue;
-            _videoFrame = CGRectMake(videoX, videoY, videoW, videoH);
-            _cellHeight +=  videoH + EssenceCellMargin; // video的最下端
+            if (self.width.doubleValue != 0) {
+                
+                CGFloat videoX = EssenceCellTextMargin;
+                CGFloat videoY = _cellHeight;
+                CGFloat videoW = textW;
+                CGFloat videoH = textW * self.height.doubleValue / self.width.doubleValue;
+                _videoFrame = CGRectMake(videoX, videoY, videoW, videoH);
+                _cellHeight +=  videoH + EssenceCellMargin; // video的最下端
+            }
         } else if (self.type == LCTopicTypeVoice) { // 声音帖子
-            CGFloat voiceX = EssenceCellTextMargin;
-            CGFloat voiceY = _cellHeight;
-            CGFloat voiceW = textW;
-            CGFloat voiceH = textW * self.height.doubleValue / self.width.doubleValue;
-            _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
-            _cellHeight +=  voiceH + EssenceCellMargin; // video的最下端
+            if (self.width.doubleValue != 0) {
+                
+                CGFloat voiceX = EssenceCellTextMargin;
+                CGFloat voiceY = _cellHeight;
+                CGFloat voiceW = textW;
+                CGFloat voiceH = textW * self.height.doubleValue / self.width.doubleValue;
+                _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+                _cellHeight +=  voiceH + EssenceCellMargin; // video的最下端
+            }
         }
         
         // 如果有评论我们就显示第一个最热的评论

@@ -8,6 +8,7 @@
 
 #import "LCMeViewController.h"
 #import "LCMeFooterView.h"
+#import "LCSettingVC.h"
 
 @interface LCMeViewController ()
 
@@ -65,7 +66,7 @@
 
 - (void)settingBtnClick {
     
-    LogFun();
+    [self.navigationController pushViewController:[[LCSettingVC alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
 }
 
 - (void)nightModBtnClick {

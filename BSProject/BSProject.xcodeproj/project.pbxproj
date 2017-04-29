@@ -77,6 +77,7 @@
 		95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D892D31EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib */; };
 		95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */; };
 		95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D892DA1EAFA810006A08C3 /* LCNewViewController.m */; };
+		95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */; };
 		95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC681EB334050040B7F3 /* LCWebViewController.m */; };
 		95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */; };
 		95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC6D1EB37A820040B7F3 /* LCPublishWordVC.m */; };
@@ -210,6 +211,8 @@
 		95D892D71EAFA7F4006A08C3 /* LCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMeViewController.m; sourceTree = "<group>"; };
 		95D892D91EAFA810006A08C3 /* LCNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNewViewController.h; sourceTree = "<group>"; };
 		95D892DA1EAFA810006A08C3 /* LCNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCNewViewController.m; sourceTree = "<group>"; };
+		95F666C31EB48DBC009F7BB9 /* LCSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSettingVC.h; sourceTree = "<group>"; };
+		95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSettingVC.m; sourceTree = "<group>"; };
 		95FCBC671EB334050040B7F3 /* LCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
 		95FCBC681EB334050040B7F3 /* LCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCWebViewController.m; sourceTree = "<group>"; };
 		95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCWebViewController.xib; sourceTree = "<group>"; };
@@ -611,6 +614,8 @@
 				95FCBC671EB334050040B7F3 /* LCWebViewController.h */,
 				95FCBC681EB334050040B7F3 /* LCWebViewController.m */,
 				95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */,
+				95F666C31EB48DBC009F7BB9 /* LCSettingVC.h */,
+				95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -893,6 +898,7 @@
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
 				95FCBC7F1EB37C4D0040B7F3 /* LCTagTextField.m in Sources */,
 				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
+				95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,

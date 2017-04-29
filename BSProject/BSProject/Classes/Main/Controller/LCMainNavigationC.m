@@ -40,7 +40,8 @@
     
     // 如果自定定制了左边的返回按钮, 就没有系统自带的左划返回功能了!!!
     // 修改
-    self.interactivePopGestureRecognizer.delegate = nil;
+//    self.interactivePopGestureRecognizer.delegate = nil;
+    // 这样会造成界面卡住!!!所以不行!!!
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
