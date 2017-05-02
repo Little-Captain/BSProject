@@ -15,6 +15,9 @@
 /** item */
 @property (nonatomic, strong) LCTopicItem *item;
 
+/** share */
+@property (nonatomic, copy) void(^sharedBlock)(LCTopicItem *item);
+
 + (instancetype)topicCell;
 
 @end

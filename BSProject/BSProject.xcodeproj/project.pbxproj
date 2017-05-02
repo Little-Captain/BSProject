@@ -40,6 +40,7 @@
 		957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */; };
 		957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43571EB82C1300B5F236 /* NSString+LCExtension.m */; };
 		957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */; };
+		957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435D1EB883DB00B5F236 /* LCShareTool.m */; };
 		9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584786E1EB2418900B415D3 /* LCBaseVC.m */; };
 		958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958478711EB2424800B415D3 /* LCEssenceViewController.m */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
@@ -149,6 +150,8 @@
 		957D43571EB82C1300B5F236 /* NSString+LCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LCExtension.m"; sourceTree = "<group>"; };
 		957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerTool.h; sourceTree = "<group>"; };
 		957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
+		957D435C1EB883DB00B5F236 /* LCShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShareTool.h; sourceTree = "<group>"; };
+		957D435D1EB883DB00B5F236 /* LCShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShareTool.m; sourceTree = "<group>"; };
 		9584786D1EB2418900B415D3 /* LCBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseVC.h; sourceTree = "<group>"; };
 		9584786E1EB2418900B415D3 /* LCBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseVC.m; sourceTree = "<group>"; };
 		958478701EB2424800B415D3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 				9576915A1EB2333B00D6F000 /* LCConst.m */,
 				957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */,
 				957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */,
+				957D435C1EB883DB00B5F236 /* LCShareTool.h */,
+				957D435D1EB883DB00B5F236 /* LCShareTool.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -921,6 +926,7 @@
 				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
 				95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
+				957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */,
 				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
 				9576913A1EB2320000D6F000 /* LCTopicCell.m in Sources */,
@@ -1059,7 +1065,7 @@
 				DEVELOPMENT_TEAM = X65GN27YEQ;
 				INFOPLIST_FILE = BSProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LC.BSProject;
+				PRODUCT_BUNDLE_IDENTIFIER = LC.little.captain.BSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1073,7 +1079,7 @@
 				DEVELOPMENT_TEAM = X65GN27YEQ;
 				INFOPLIST_FILE = BSProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LC.BSProject;
+				PRODUCT_BUNDLE_IDENTIFIER = LC.little.captain.BSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

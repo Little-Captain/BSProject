@@ -41,6 +41,7 @@ static LCVoicePlayerTool *_instance;
 
 - (void)setUrlStr:(NSString *)urlStr {
     
+    // 如果两次的播放资源一样, 直接返回
     if (_urlStr == urlStr) { return; }
     
     _urlStr = urlStr;

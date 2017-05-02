@@ -48,6 +48,9 @@
 /** id */
 @property (nonatomic, strong) NSString *ID;
 
+/** 分享到微信的链接 */
+@property (nonatomic, strong) NSString *weixin_url;
+
 /*
  
  图片相关

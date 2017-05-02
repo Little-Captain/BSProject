@@ -4,7 +4,7 @@
 //
 //  Created by Liu-Mac on 5/2/17.
 //  Copyright © 2017 Liu-Mac. All rights reserved.
-//
+//  音频播放器工具类
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>

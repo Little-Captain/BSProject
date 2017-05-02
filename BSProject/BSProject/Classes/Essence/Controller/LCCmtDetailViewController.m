@@ -21,6 +21,8 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 
+#import "LCShareTool.h"
+
 #define TableViewHeaderH 20.0
 
 @interface LCCmtDetailViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -240,6 +242,9 @@
     self.headerCell = cell;
     cell.item = self.item;
     cell.fSize = CGSizeMake(ScreenW, self.item.cellHeight);
+    [cell setSharedBlock:^(LCTopicItem *item){
+        [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:self];
+    }];
     [header addSubview:cell];
     
     self.tableView.tableHeaderView = header;

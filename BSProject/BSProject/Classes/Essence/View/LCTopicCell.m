@@ -224,6 +224,10 @@
         [SVProgressHUD showSuccessWithStatus:@"举报成功!"];
     }];
     
+    UIAlertAction *share = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        !_sharedBlock ? : _sharedBlock(self.item);
+    }];
+    
     UIAlertAction *follow = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
     }];
@@ -232,11 +236,11 @@
     
     
     [alter addAction:report];
+    [alter addAction:share];
     [alter addAction:follow];
     [alter addAction:cancel];
     
     [KeyWindow.rootViewController presentViewController:alter animated:YES completion:nil];
 }
-
 
 @end

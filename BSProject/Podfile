@@ -15,4 +15,11 @@ target 'BSProject' do
     pod 'DACircularProgress'
     pod 'SVProgressHUD'
     pod 'RXCollections'
+  # 友盟分享
+    # U-Share SDK UI模块（分享面板，建议添加）
+    pod ‘UMengUShare/UI’
+    # 集成微信(完整版14.4M)
+    pod ‘UMengUShare/Social/WeChat'
+    # 集成新浪微博(完整版25.3M)
+    pod ‘UMengUShare/Social/Sina'
 end
