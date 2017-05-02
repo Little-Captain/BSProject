@@ -11,6 +11,7 @@
 #import "LCPushGuideView.h"
 
 #import <UMSocialCore/UMSocialCore.h>
+#import <Bugly/Bugly.h>
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // 友盟分享
     /* 打开调试日志 */
     [[UMSocialManager defaultManager] openLog:YES];
     
@@ -29,6 +31,10 @@
     [self configUSharePlatforms];
     
     [self confitUShareSettings];
+    
+    // Bugly
+    // 读取 Info.plist 中的配置
+    [Bugly startWithAppId:nil];
     
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

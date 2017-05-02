@@ -22,4 +22,6 @@ target 'BSProject' do
     pod ‘UMengUShare/Social/WeChat'
     # 集成新浪微博(完整版25.3M)
     pod ‘UMengUShare/Social/Sina'
+  # bugly
+    pod 'Bugly'
 end

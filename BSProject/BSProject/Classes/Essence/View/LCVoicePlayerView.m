@@ -104,7 +104,7 @@
             return;
         }
         // 更新播放时间
-        NSInteger currentTime = [LCVoicePlayerTool sharedInstance].currentTime.value / [LCVoicePlayerTool sharedInstance].currentTime.timescale;
+        NSInteger currentTime = (NSInteger)([LCVoicePlayerTool sharedInstance].currentTime.value / [LCVoicePlayerTool sharedInstance].currentTime.timescale);
         _currentTimeL.text = [NSString musicTimeFormater:currentTime];
         // 更新滑块的位置
         _progressSlider.value = 1.0 * currentTime / _item.voicetime;

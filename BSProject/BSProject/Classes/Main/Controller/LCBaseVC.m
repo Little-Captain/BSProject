@@ -85,7 +85,6 @@
     
     [self scrollViewDidScroll:self.contentView]; // 手动调用滑动, 让其改变titlesView的btn的状态
     [self scrollViewDidEndDecelerating:self.contentView]; // 手动调用滑动减速完成, 让其添加第一个控制器的view
-    
 }
 
 - (void)addAllVces {
