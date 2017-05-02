@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@class LCTopicItem;
+
 @interface LCVoicePlayerView : UIView
 
 /** topic item */
-@property (nonatomic, assign) NSInteger totalTime;
-/** player */
-@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) LCTopicItem *item;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LCTopicItem;
+@class LCTopicItem, LCVoicePlayerView;
 
 @interface LCVoiceView : UIView
 
@@ -16,5 +16,9 @@
 
 /** topic item */
 @property (nonatomic, strong) LCTopicItem *item;
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
+
+/** voicePlayerView */
+@property (nonatomic, weak) LCVoicePlayerView *voicePlayerView;
 
 @end

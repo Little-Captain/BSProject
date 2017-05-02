@@ -71,6 +71,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageV" destination="5nH-4f-eEd" id="LlW-NV-WOe"/>
+                <outlet property="playBtn" destination="Ohw-XL-z5w" id="ZaH-pK-9mC"/>
                 <outlet property="playCountL" destination="Vrd-Vx-5vD" id="Tgf-ak-QUh"/>
                 <outlet property="voiceLengthL" destination="4Qa-uh-oTy" id="pO3-sK-bSQ"/>
             </connections>

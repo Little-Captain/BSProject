@@ -31,6 +31,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+/** headerCell */
+@property (nonatomic, weak) LCTopicCell *headerCell;
+
 /** 最新评论 */
 @property (nonatomic, strong) NSArray *laststCmt;
 
@@ -74,6 +77,14 @@
     [self setUpHeader];
     
     [self setUpRefresher];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:VoicePlayBtnClickNotification object:nil];
+}
+
+- (void)notification:(NSNotification *)noti {
+    
+    LCTopicItem *item = noti.userInfo[@"info"];
+    item.isPlay = YES;
+    self.headerCell.item = item;
 }
 
 - (void)setUpRefresher {
@@ -225,6 +236,7 @@
     header.fSize = CGSizeMake(ScreenW, self.item.cellHeight + EssenceCellMargin);
     
     LCTopicCell *cell = [LCTopicCell topicCell];
+    self.headerCell = cell;
     cell.item = self.item;
     cell.fSize = CGSizeMake(ScreenW, self.item.cellHeight);
     [header addSubview:cell];

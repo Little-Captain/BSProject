@@ -48,3 +48,5 @@ UIKIT_EXTERN CGFloat const LCTagMargin;
 UIKIT_EXTERN CGFloat const LCTagH;
 /** toolbar bottom height */
 UIKIT_EXTERN CGFloat const LCToolBarBottomH;
+
+UIKIT_EXTERN NSString * const VoicePlayBtnClickNotification;

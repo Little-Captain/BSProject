@@ -15,9 +15,11 @@
 #import "LCEssencePicView.h"
 #import "LCVoiceView.h"
 #import "LCVideoView.h"
+#import "LCVoicePlayerView.h"
 
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
+#import <Masonry.h>
 
 @interface LCTopicCell ()
 
@@ -152,6 +154,15 @@
         
         self.picImageV.hidden = YES;
         self.voiceV.hidden = NO;
+        if (item.isPlay) { // 正在播放
+            self.voiceV.playBtn.hidden = YES;
+            self.voiceV.voicePlayerView.item = item;
+            self.voiceV.voicePlayerView.hidden = NO;
+        } else {
+            self.voiceV.playBtn.hidden = NO;
+            self.voiceV.voicePlayerView.item = nil;
+            self.voiceV.voicePlayerView.hidden = YES;
+        }
         self.videoV.hidden = YES;
         
     } else if (item.type == LCTopicTypeVideo) {

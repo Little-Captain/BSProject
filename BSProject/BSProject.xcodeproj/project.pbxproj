@@ -39,6 +39,7 @@
 		957D43521EB8117300B5F236 /* LCVoicePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */; };
 		957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */; };
 		957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43571EB82C1300B5F236 /* NSString+LCExtension.m */; };
+		957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */; };
 		9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584786E1EB2418900B415D3 /* LCBaseVC.m */; };
 		958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958478711EB2424800B415D3 /* LCEssenceViewController.m */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
@@ -146,6 +147,8 @@
 		957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerView.m; sourceTree = "<group>"; };
 		957D43561EB82C1300B5F236 /* NSString+LCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LCExtension.h"; sourceTree = "<group>"; };
 		957D43571EB82C1300B5F236 /* NSString+LCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LCExtension.m"; sourceTree = "<group>"; };
+		957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerTool.h; sourceTree = "<group>"; };
+		957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
 		9584786D1EB2418900B415D3 /* LCBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseVC.h; sourceTree = "<group>"; };
 		9584786E1EB2418900B415D3 /* LCBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseVC.m; sourceTree = "<group>"; };
 		958478701EB2424800B415D3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
@@ -448,6 +451,8 @@
 				95D892A61EAFA156006A08C3 /* Category */,
 				957691591EB2333B00D6F000 /* LCConst.h */,
 				9576915A1EB2333B00D6F000 /* LCConst.m */,
+				957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */,
+				957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -928,6 +933,7 @@
 				95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */,
 				9576913F1EB2320000D6F000 /* LCVoiceView.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+LCExtension.m in Sources */,
+				957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */,
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */,
 				95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */,

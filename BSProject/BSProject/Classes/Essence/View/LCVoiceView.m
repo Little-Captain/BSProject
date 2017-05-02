@@ -22,27 +22,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *voiceLengthL;
 
-/** player */
-@property (nonatomic, strong) AVPlayer *player;
-
-
 @end
 
 @implementation LCVoiceView
-
-- (AVPlayer *)player {
-    
-    if (!_player) {
-        AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:self.item.voiceuri]];
-        AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
-        _player = [AVPlayer playerWithPlayerItem:item];
-        [_player addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-        NSLog(@"%zd", asset.duration.value);
-        NSLog(@"%zd", asset.duration.timescale);
-    }
-    
-    return _player;
-}
 
 + (instancetype)voiceView {
     
@@ -59,6 +41,23 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pictureClick)];
     [self.imageV addGestureRecognizer:tap];
+    
+    [self setUpUI];
+}
+
+- (void)setUpUI {
+    
+    LCVoicePlayerView *voicePlayerView = [LCVoicePlayerView viewFromXib];
+    self.voicePlayerView = voicePlayerView;
+    voicePlayerView.hidden = YES;
+    [self addSubview:voicePlayerView];
+    __weak typeof(voicePlayerView) weakVoicePlayerView = voicePlayerView;
+    [voicePlayerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakVoicePlayerView.superview);
+        make.right.equalTo(weakVoicePlayerView.superview);
+        make.bottom.equalTo(weakVoicePlayerView.superview);
+        make.height.equalTo(@(65));
+    }];
 }
 
 - (void)pictureClick {
@@ -79,25 +78,7 @@
 }
 - (IBAction)playBtnClick:(UIButton *)sender {
     
-    [self.player play];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    
-    if ([change[NSKeyValueChangeNewKey] integerValue] == AVPlayerStatusReadyToPlay) {
-        NSLog(@"准备播放");
-        LCVoicePlayerView *voicePlayerView = [LCVoicePlayerView viewFromXib];
-        voicePlayerView.player = self.player;
-        voicePlayerView.totalTime = self.item.voicetime;
-        [self addSubview:voicePlayerView];
-    
-        [voicePlayerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(voicePlayerView.superview);
-            make.left.equalTo(voicePlayerView.superview);
-            make.bottom.equalTo(voicePlayerView.superview);
-            make.height.equalTo(@(65));
-        }];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:VoicePlayBtnClickNotification object:nil userInfo:@{@"info": self.item}];
 }
 
 @end

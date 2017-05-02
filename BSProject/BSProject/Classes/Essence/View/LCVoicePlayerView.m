@@ -7,82 +7,95 @@
 //
 
 #import "LCVoicePlayerView.h"
+#import "LCTopicItem.h"
+#import "LCVoicePlayerTool.h"
+#import <AVFoundation/AVFoundation.h>
 #import <Masonry.h>
 
 @interface LCVoicePlayerView ()
 
+/** 进度滑块 */
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
+/** 当前时间的 label */
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeL;
+/** 总时间的 label */
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeL;
+/** 播放或暂停的按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
 
 @end
 
 @implementation LCVoicePlayerView {
     
+    // 定时器, 用于更新时间的显示和进度的显示
     NSTimer *_timer;
 }
 
+#pragma mark -
+#pragma mark 重写系统方法
 - (void)awakeFromNib {
     
     [super awakeFromNib];
     
+    // 设置滑块的显示风格
     [_progressSlider setThumbImage:[UIImage imageNamed:@"roundSlider"] forState:UIControlStateNormal];
     [_progressSlider setMaximumTrackImage:[UIImage imageNamed:@"maxthumb"] forState:UIControlStateNormal];
     [_progressSlider setMinimumTrackImage:[UIImage imageNamed:@"minthumb"] forState:UIControlStateNormal];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    NSLog(@"%zd", self.player.currentTime.value/self.player.currentTime.timescale);
-    NSLog(@"%zd", self.player.currentItem.duration.value/self.player.currentItem.duration.timescale);
-}
+#pragma mark -
+#pragma mark 监听属性的设置
 
-- (void)setPlayer:(AVPlayer *)player {
+- (void)setItem:(LCTopicItem *)item {
     
-    _player = player;
+    _item = item;
     
-    // 启动定时器更新时间和定时器显示
-    [self addTimer];
-}
-
-- (void)setTotalTime:(NSInteger)totalTime {
+    if (!item) { return; }
     
-    _totalTime = totalTime;
-    
+    _currentTimeL.text = @"00:00";
     // 设置总时间
-    _totalTimeL.text = [NSString musicTimeFormater:totalTime];
+    _totalTimeL.text = [NSString musicTimeFormater:item.voicetime];
+    // 替换播放的资源
+    [LCVoicePlayerTool sharedInstance].urlStr = item.voiceuri;
+    // 启动定时器
+    [self addTimer];
 }
 
 #pragma mark -
 #pragma mark 定时器相关
 
+/** 添加定时器 */
 - (void)addTimer {
     
     _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        if (!_player.currentTime.timescale || !_totalTime) {
+        if (![LCVoicePlayerTool sharedInstance].currentTime.timescale || !_item.voicetime) {
             return;
         }
         // 更新播放时间
-        NSInteger currentTime = _player.currentTime.value / _player.currentTime.timescale;
+        NSInteger currentTime = [LCVoicePlayerTool sharedInstance].currentTime.value / [LCVoicePlayerTool sharedInstance].currentTime.timescale;
         _currentTimeL.text = [NSString musicTimeFormater:currentTime];
         // 更新滑块的位置
-        _progressSlider.value = 1.0 * currentTime / _totalTime;
+        _progressSlider.value = 1.0 * currentTime / _item.voicetime;
     }];
+    // 加入 runloop
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     // 启动定时器
     [_timer fire];
 }
 
+/** 移除定时器 */
 - (void)removeTimer {
     
+    // 定时器失效
     [_timer invalidate];
+    // 置空定时器
     _timer = nil;
 }
 
 #pragma mark -
 #pragma mark 事件监听
 
+/** 播放或暂停点击 */
 - (IBAction)playOrPauseClick:(UIButton *)sender {
     
     // 改变按钮状态
@@ -90,40 +103,40 @@
     
     if (sender.selected) {
         // 开始播放
-        [_player play];
+        [[LCVoicePlayerTool sharedInstance].player play];
         // 添加定时器
         [self addTimer];
     } else {
         // 设置播放器按钮
         sender.selected = NO;
         // 暂停播放
-        [_player pause];
+        [[LCVoicePlayerTool sharedInstance].player pause];
         // 移除定时器
         [self removeTimer];
     }
 }
 
-// 滑块被点击
+/** 滑块被点击 */
 - (IBAction)touchDown {
     
     // 移除定时器
     [self removeTimer];
 }
 
-// 值改变事件
+/** 滑块值改变事件 */
 - (IBAction)valueChange {
     
     // 更新当前播放显示时间
     // 设置当前时间
-    _currentTimeL.text = [NSString musicTimeFormater:_progressSlider.value * _totalTime];
+    _currentTimeL.text = [NSString musicTimeFormater:_progressSlider.value * _item.voicetime];
 }
 
-// 手指弹开事件
+/** 手指弹开事件 */
 - (IBAction)touchUpInside {
     
     // 更新播放器的播放时间
-    [_player seekToTime:CMTimeMakeWithSeconds(_progressSlider.value * _totalTime, _player.currentTime.timescale) completionHandler:^(BOOL finished) {
-        // 判断如果定时器没有值,则添加定时器
+    [[LCVoicePlayerTool sharedInstance].player seekToTime:CMTimeMakeWithSeconds(_progressSlider.value * _item.voicetime, [LCVoicePlayerTool sharedInstance].currentTime.timescale) completionHandler:^(BOOL finished) {
+        // 判断如果定时器没有值且当前出在播放状态, 则添加定时器
         if (!_timer && _playOrPauseBtn.isSelected) {
             [self addTimer];
         }
@@ -131,8 +144,10 @@
     
 }
 
+/** 监听用户的点击滑块手势 */
 - (IBAction)tapClick:(UITapGestureRecognizer *)sender {
     
+    // 移除定时器
     [self removeTimer];
     
     // 获取点击比例
@@ -140,8 +155,8 @@
     float ratio = 1.0 * point.x / _progressSlider.bounds.size.width;
     
     // 设置播放器的播放时间
-    [_player seekToTime:CMTimeMakeWithSeconds(ratio * _totalTime, _player.currentTime.timescale) completionHandler:^(BOOL finished) {
-        // 判断如果定时器没有值,则添加定时器
+    [[LCVoicePlayerTool sharedInstance].player seekToTime:CMTimeMakeWithSeconds(ratio * _item.voicetime, [LCVoicePlayerTool sharedInstance].currentTime.timescale) completionHandler:^(BOOL finished) {
+        // 判断如果定时器没有值且当前出在播放状态, 则添加定时器
         if (!_timer && _playOrPauseBtn.isSelected) {
             [self addTimer];
         }
@@ -149,7 +164,17 @@
     
     // 更新滑块的位置以及播放显示时间
     _progressSlider.value = ratio;
-    _currentTimeL.text = [NSString musicTimeFormater:ratio * _totalTime];
+    _currentTimeL.text = [NSString musicTimeFormater:ratio * _item.voicetime];
+}
+
+- (void)setHidden:(BOOL)hidden {
+    
+    [super setHidden:hidden];
+    
+    if (!hidden) {
+        _currentTimeL.text = @"00:00";
+        _progressSlider.value = 0.0;
+    }
 }
 
 @end

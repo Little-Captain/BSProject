@@ -32,6 +32,7 @@ CGFloat const CommentBarH = 44;
 NSString * const ManSex = @"m";
 
 NSString * const UITabBarControllerDidSelectViewControllerNotification = @"UITabBarControllerDidSelectViewControllerNotification";
+NSString * const VoicePlayBtnClickNotification = @"VoicePlayBtnClickNotification";
 
 /** 标签-间距 */
 CGFloat const LCTagMargin = 5;

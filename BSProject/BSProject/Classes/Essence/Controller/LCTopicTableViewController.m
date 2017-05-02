@@ -17,6 +17,7 @@
 #import <MJExtension.h>
 #import <MJRefresh.h>
 #import <UIImageView+WebCache.h>
+#import <RXCollection.h>
 
 @interface LCTopicTableViewController ()
 
@@ -45,6 +46,27 @@ static NSString * const ID = @"topic";
     [self setUpRefreshView];
     
     [self.tableView.mj_header beginRefreshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:VoicePlayBtnClickNotification object:nil];
+}
+
+- (void)notification:(NSNotification *)noti {
+    
+    LCTopicItem *item = noti.userInfo[@"info"];
+    self.topics = [self.topics rx_mapWithBlock:^LCTopicItem *(LCTopicItem *each) {
+        if ([each isEqual:item]) {
+            each.isPlay = YES;
+        } else {
+            each.isPlay = NO;
+        }
+        return each;
+    }];
+    [self.tableView reloadData];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)tabBarControllerDidSelectViewController {
