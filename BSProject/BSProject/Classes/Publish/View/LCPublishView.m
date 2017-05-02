@@ -12,6 +12,7 @@
 #import "LCMainNavigationC.h"
 
 #import <POP.h>
+#import <Masonry.h>
 
 @implementation LCPublishView
 
@@ -22,9 +23,15 @@ static UIWindow *window;
 + (void)show {
 
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [window addSubview:[self publishView]];
+    LCPublishView *publishView = [self publishView];
+    [window addSubview:publishView];
+    [publishView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(publishView.superview.mas_top);
+        make.bottom.equalTo(publishView.superview.mas_bottom);
+        make.left.equalTo(publishView.superview.mas_left);
+        make.right.equalTo(publishView.superview.mas_right);
+    }];
     window.hidden = NO;
-    
 }
 
 - (void)awakeFromNib {
