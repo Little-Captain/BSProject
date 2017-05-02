@@ -47,20 +47,21 @@ static NSString * const ID = @"topic";
     
     [self.tableView.mj_header beginRefreshing];
     
+    // 监听 voice play button 的点击事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:VoicePlayBtnClickNotification object:nil];
 }
 
 - (void)notification:(NSNotification *)noti {
     
     LCTopicItem *item = noti.userInfo[@"info"];
+    // 遍历将所有的其他 item 的 isPlayVoice 属性设置 NO
     self.topics = [self.topics rx_mapWithBlock:^LCTopicItem *(LCTopicItem *each) {
-        if ([each isEqual:item]) {
-            each.isPlay = YES;
-        } else {
-            each.isPlay = NO;
+        if (![each isEqual:item]) {
+            each.isPlayVoice = NO;
         }
         return each;
     }];
+    // 刷新表格
     [self.tableView reloadData];
 }
 

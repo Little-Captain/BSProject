@@ -78,6 +78,9 @@
 }
 - (IBAction)playBtnClick:(UIButton *)sender {
     
+    // 设置 播放状态
+    self.item.isPlayVoice = YES;
+    // 发送通知
     [[NSNotificationCenter defaultCenter] postNotificationName:VoicePlayBtnClickNotification object:nil userInfo:@{@"info": self.item}];
 }
 

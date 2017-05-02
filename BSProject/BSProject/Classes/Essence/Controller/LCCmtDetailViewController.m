@@ -77,14 +77,15 @@
     [self setUpHeader];
     
     [self setUpRefresher];
+    
+    // 监听 voice play button 的点击事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:VoicePlayBtnClickNotification object:nil];
 }
 
 - (void)notification:(NSNotification *)noti {
     
-    LCTopicItem *item = noti.userInfo[@"info"];
-    item.isPlay = YES;
-    self.headerCell.item = item;
+    // 将最新的 item 赋值给
+    self.headerCell.item = noti.userInfo[@"info"];
 }
 
 - (void)setUpRefresher {

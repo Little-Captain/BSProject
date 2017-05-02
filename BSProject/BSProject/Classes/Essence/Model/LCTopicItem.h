@@ -123,7 +123,7 @@
 /** 用于存储声音控件的frame */
 @property (nonatomic, assign, readonly) CGRect voiceFrame;
 /** 用于标识是否在播放声音 */
-@property (nonatomic, assign) BOOL isPlay;
+@property (nonatomic, assign) BOOL isPlayVoice;
 
 // 视频帖子相关辅助信息
 

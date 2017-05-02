@@ -154,13 +154,19 @@
         
         self.picImageV.hidden = YES;
         self.voiceV.hidden = NO;
-        if (item.isPlay) { // 正在播放
+        if (item.isPlayVoice) { // 正在播放
+            // playBtn 隐藏
             self.voiceV.playBtn.hidden = YES;
+            // 为 voicePlayerView 设置 模型
             self.voiceV.voicePlayerView.item = item;
+            // voicePlayerView 显示
             self.voiceV.voicePlayerView.hidden = NO;
-        } else {
+        } else { // 暂停
+            // playBtn 显示
             self.voiceV.playBtn.hidden = NO;
+            // 为 voicePlayerView 清空 模型
             self.voiceV.voicePlayerView.item = nil;
+            // voicePlayerView 隐藏
             self.voiceV.voicePlayerView.hidden = YES;
         }
         self.videoV.hidden = YES;
