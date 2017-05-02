@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,12 +40,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohw-XL-z5w">
-                    <rect key="frame" x="156" y="124.5" width="63" height="63"/>
+                    <rect key="frame" x="156" y="255.5" width="63" height="63"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="63" id="3TO-y0-b8q"/>
                         <constraint firstAttribute="height" constant="63" id="cGT-aI-Y20"/>
                     </constraints>
                     <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
+                    <connections>
+                        <action selector="playBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="62N-WX-tA3"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +57,7 @@
                 <constraint firstAttribute="trailing" secondItem="Vrd-Vx-5vD" secondAttribute="trailing" id="8QQ-mn-OqB"/>
                 <constraint firstItem="Ohw-XL-z5w" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AYi-rs-WiG"/>
                 <constraint firstItem="Vrd-Vx-5vD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PVC-Vj-iEQ"/>
-                <constraint firstItem="Ohw-XL-z5w" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PwA-d2-8gB"/>
+                <constraint firstItem="Ohw-XL-z5w" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-25" id="PwA-d2-8gB"/>
                 <constraint firstAttribute="trailing" secondItem="4Qa-uh-oTy" secondAttribute="trailing" id="QOa-k1-z4v"/>
                 <constraint firstItem="1B3-QG-oLt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Z8w-1R-RbP"/>
                 <constraint firstAttribute="trailing" secondItem="5nH-4f-eEd" secondAttribute="trailing" id="fSQ-Fu-o1L"/>

@@ -83,6 +83,8 @@
 
 /** 播放次数 */
 @property (nonatomic, assign) NSInteger playcount;
+/** 音频地址 */
+@property (nonatomic, strong) NSString *voiceuri;
 
 /*
  

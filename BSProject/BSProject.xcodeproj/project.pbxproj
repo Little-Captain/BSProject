@@ -36,6 +36,9 @@
 		957691541EB2329200D6F000 /* LCCmtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957691521EB2329200D6F000 /* LCCmtDetailViewController.m */; };
 		957691551EB2329200D6F000 /* LCCmtDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957691531EB2329200D6F000 /* LCCmtDetailViewController.xib */; };
 		9576915B1EB2333B00D6F000 /* LCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9576915A1EB2333B00D6F000 /* LCConst.m */; };
+		957D43521EB8117300B5F236 /* LCVoicePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */; };
+		957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */; };
+		957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43571EB82C1300B5F236 /* NSString+LCExtension.m */; };
 		9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584786E1EB2418900B415D3 /* LCBaseVC.m */; };
 		958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958478711EB2424800B415D3 /* LCEssenceViewController.m */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
@@ -138,6 +141,11 @@
 		957691531EB2329200D6F000 /* LCCmtDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCCmtDetailViewController.xib; sourceTree = "<group>"; };
 		957691591EB2333B00D6F000 /* LCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCConst.h; sourceTree = "<group>"; };
 		9576915A1EB2333B00D6F000 /* LCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCConst.m; sourceTree = "<group>"; };
+		957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCVoicePlayerView.xib; sourceTree = "<group>"; };
+		957D43531EB814AF00B5F236 /* LCVoicePlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerView.h; sourceTree = "<group>"; };
+		957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerView.m; sourceTree = "<group>"; };
+		957D43561EB82C1300B5F236 /* NSString+LCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LCExtension.h"; sourceTree = "<group>"; };
+		957D43571EB82C1300B5F236 /* NSString+LCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LCExtension.m"; sourceTree = "<group>"; };
 		9584786D1EB2418900B415D3 /* LCBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseVC.h; sourceTree = "<group>"; };
 		9584786E1EB2418900B415D3 /* LCBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseVC.m; sourceTree = "<group>"; };
 		958478701EB2424800B415D3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
@@ -455,6 +463,8 @@
 				95D892AA1EAFA266006A08C3 /* UIViewCategory */,
 				95D892A71EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.h */,
 				95D892A81EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m */,
+				957D43561EB82C1300B5F236 /* NSString+LCExtension.h */,
+				957D43571EB82C1300B5F236 /* NSString+LCExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -544,6 +554,9 @@
 				957691451EB2325300D6F000 /* LCCmtCell.h */,
 				957691461EB2325300D6F000 /* LCCmtCell.m */,
 				957691471EB2325300D6F000 /* LCCmtCell.xib */,
+				957D43531EB814AF00B5F236 /* LCVoicePlayerView.h */,
+				957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */,
+				957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -812,6 +825,7 @@
 				95D892B91EAFA480006A08C3 /* UI.json in Resources */,
 				95D892D51EAFA7D6006A08C3 /* LCFriendTrendsViewController.xib in Resources */,
 				95FCBC7D1EB37C4D0040B7F3 /* LCAddTagToolbar.xib in Resources */,
+				957D43521EB8117300B5F236 /* LCVoicePlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,10 +899,12 @@
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
 				95FCBC7E1EB37C4D0040B7F3 /* LCTagButton.m in Sources */,
 				9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */,
+				957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */,
 				9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */,
 				9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */,
 				95D892A91EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m in Sources */,
 				9576914F1EB2326E00D6F000 /* LCCmtUserItem.m in Sources */,
+				957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */,
 				9588AFCD1EB1A14300BE86C5 /* UIColor+Tools.m in Sources */,
 				95FCBC711EB37ADD0040B7F3 /* LCPlaceholderTextView.m in Sources */,
 				9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */,
