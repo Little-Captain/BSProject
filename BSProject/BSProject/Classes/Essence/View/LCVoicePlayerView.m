@@ -41,6 +41,38 @@
     [_progressSlider setThumbImage:[UIImage imageNamed:@"roundSlider"] forState:UIControlStateNormal];
     [_progressSlider setMaximumTrackImage:[UIImage imageNamed:@"maxthumb"] forState:UIControlStateNormal];
     [_progressSlider setMinimumTrackImage:[UIImage imageNamed:@"minthumb"] forState:UIControlStateNormal];
+    
+    // 监听耳机的插拔事件
+    // 通知的回调的调用线程 : 回调函数在通知的发送线程中调用
+    // 通知在那个线程发送, 回调函数就在那个线程中调用
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioRouteChangeListenerCallback:)   name:AVAudioSessionRouteChangeNotification object:nil];
+}
+
+/** AVAudioSessionRouteChangeNotification 的发送线程 就是 回调函数 的 调用线程 */
+- (void)audioRouteChangeListenerCallback:(NSNotification*)notification {
+    
+    NSDictionary *interuptionDict = notification.userInfo;
+    NSInteger routeChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
+    switch (routeChangeReason) {
+            
+        case AVAudioSessionRouteChangeReasonNewDeviceAvailable:
+            NSLog(@"AVAudioSessionRouteChangeReasonNewDeviceAvailable");
+            NSLog(@"耳机插入");
+            break;
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
+            NSLog(@"AVAudioSessionRouteChangeReasonOldDeviceUnavailable");
+            NSLog(@"耳机拔出，停止播放操作");
+            if (_playOrPauseBtn.selected && !(self.hidden)) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self playOrPauseClick:_playOrPauseBtn];
+                });
+            }
+            break;
+        case AVAudioSessionRouteChangeReasonCategoryChange:
+            // called at start - also when other audio wants to play
+            NSLog(@"AVAudioSessionRouteChangeReasonCategoryChange");
+            break;
+    }
 }
 
 #pragma mark -
