@@ -61,8 +61,6 @@
     [self.progressView setProgress:topicItem.picProgress animated:NO];
     self.progressView.hidden = (topicItem.picProgress >= 1.0) ? YES : NO;
     
-    NSLog(@"%@", topicItem.bigImage);
-    
     [self.imageV yy_setImageWithURL:[NSURL URLWithString:topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
         topicItem.picProgress = 1.0 * receivedSize / expectedSize;
