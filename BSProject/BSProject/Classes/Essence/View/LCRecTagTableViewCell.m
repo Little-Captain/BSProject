@@ -9,8 +9,6 @@
 #import "LCRecTagTableViewCell.h"
 #import "LCRecTagItem.h"
 
-#import <UIImageView+WebCache.h>
-
 @interface LCRecTagTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;

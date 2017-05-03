@@ -10,8 +10,6 @@
 
 #import "LCRecommendRightItem.h"
 
-#import <UIImageView+WebCache.h>
-
 @interface LCRightTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;

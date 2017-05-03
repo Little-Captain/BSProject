@@ -16,7 +16,6 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
-#import <UIImageView+WebCache.h>
 #import <RXCollection.h>
 
 #import "LCShareTool.h"

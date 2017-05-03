@@ -7,7 +7,8 @@
 //
 
 #import "LCSettingVC.h"
-#import <SDImageCache.h>
+#import <YYCache.h>
+#import <YYImageCache.h>
 #import <SVProgressHUD.h>
 
 @interface LCSettingVC ()
@@ -37,9 +38,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
+
+    [[YYImageCache sharedCache].diskCache totalCostWithBlock:^(NSInteger totalCost) {
+        cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", totalCost / 1000.0 / 1000.0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tableView reloadData];
+        });
+    }];
     // 这个 getSize 比较慢
-    cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", [SDImageCache sharedImageCache].getSize / 1000.0 / 1000.0];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -52,7 +58,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) { // 点击了清楚 cell
         [SVProgressHUD showWithStatus:@"正在清理"];
         // 区分: clear(清除) 和 clean(清理)
-        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        [[YYImageCache sharedCache].diskCache removeAllObjectsWithBlock:^{
             [SVProgressHUD showSuccessWithStatus:@"缓存清理完成"];
             // 这个完成回调在主队列中执行
             [self.tableView reloadData];

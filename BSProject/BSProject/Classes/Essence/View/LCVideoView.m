@@ -13,7 +13,7 @@
 #import "LCPictureViewController.h"
 #import "LCVideoPlayerVC.h"
 
-#import <UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
 #import "JFVideoPlayView.h"
 
 @interface LCVideoView ()
@@ -58,7 +58,7 @@
     
     _item = item;
     
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:item.bigImage]];
+    [self.imageV yy_setImageWithURL:[NSURL URLWithString:item.bigImage] placeholder:nil];
     self.playCountL.text = [NSString stringWithFormat:@"%zd次播放", item.playcount];
     self.videoLengthL.text = [NSString stringWithFormat:@"%02zd:%02zd", item.videotime / 60, item.videotime % 60];
     

@@ -17,7 +17,6 @@
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
-#import <UIImageView+WebCache.h>
 
 #define LeftSelectedItem (self.leftList[self.leftTableView.indexPathForSelectedRow.row])
 

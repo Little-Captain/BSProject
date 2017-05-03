@@ -10,9 +10,9 @@
 #import "LCTopicItem.h"
 #import "LCPictureViewController.h"
 #import "LCVoicePlayerView.h"
-#import <UIImageView+WebCache.h>
 #import <Masonry.h>
 #import <AVFoundation/AVFoundation.h>
+#import <UIImageView+YYWebImage.h>
 
 @interface LCVoiceView ()
 
@@ -72,7 +72,7 @@
     
     _item = item;
     
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:item.bigImage]];
+    [self.imageV yy_setImageWithURL:[NSURL URLWithString:item.bigImage] placeholder:nil];
     self.playCountL.text = [NSString stringWithFormat:@"%zd次播放", item.playcount];
     self.voiceLengthL.text = [NSString stringWithFormat:@"%02zd:%02zd", item.voicetime / 60, item.voicetime % 60];
 }

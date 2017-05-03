@@ -11,8 +11,6 @@
 #import "LCCmtItem.h"
 #import "LCCmtUserItem.h"
 
-#import <UIImageView+WebCache.h>
-
 @interface LCCmtCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageV;

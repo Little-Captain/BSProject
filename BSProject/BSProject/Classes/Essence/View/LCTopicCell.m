@@ -17,7 +17,6 @@
 #import "LCVideoView.h"
 #import "LCVoicePlayerView.h"
 
-#import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 #import <Masonry.h>
 

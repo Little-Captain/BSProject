@@ -10,7 +10,7 @@
 #import "JFVideoPlayView.h"
 
 #import <Masonry.h>
-#import <UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
 
 @interface LCVideoPlayerVC () <JFVideoPlayViewDelegate>
 
@@ -46,7 +46,7 @@ static UIWindow *_videoWindow;
     }
     LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
     rootVC.videoPlayerViewFrame = videoFrame;
-    [rootVC.videoPlayView.videoImageV sd_setImageWithURL:[NSURL URLWithString:image]];
+    [rootVC.videoPlayView.videoImageV yy_setImageWithURL:[NSURL URLWithString:image] placeholder:nil];
     rootVC.urlStr = url;
     _videoWindow.hidden = NO;
 }

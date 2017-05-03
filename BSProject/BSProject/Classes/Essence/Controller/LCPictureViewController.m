@@ -11,7 +11,7 @@
 #import "LCCircularProgressView.h"
 #import <Photos/Photos.h>
 
-#import <UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
 #import <SVProgressHUD.h>
 
 #define BSAlbumTitle @"百思不得姐"
@@ -86,27 +86,18 @@
     
 }
 
-//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-//    if (error) {
-//        [SVProgressHUD showErrorWithStatus:@"下载失败!"];
-//    } else {
-//        [SVProgressHUD showSuccessWithStatus:@"下载成功!"];
-//    }
-//}
-
 - (void)setUpImageView {
     [self.progressView setProgress:self.topicItem.picProgress animated:NO];
-    UIImageView *imageV = [[UIImageView alloc] init];
+    UIImageView *imageV = [NSClassFromString(@"YYAnimatedImageView") new];
     self.imageV = imageV;
     imageV.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
     [imageV addGestureRecognizer:tap];
-    [imageV sd_setImageWithURL:[NSURL URLWithString:self.topicItem.bigImage] placeholderImage:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+    [imageV yy_setImageWithURL:[NSURL URLWithString:self.topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
         self.topicItem.picProgress = 1.0 * receivedSize / expectedSize;
         [self.progressView setProgress:self.topicItem.picProgress animated:NO];
-        //        BSLog(@"self:%@ - progress:%.0f", self, 1.0 * receivedSize / expectedSize * 100);
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         self.progressView.hidden = YES;
     }];
     

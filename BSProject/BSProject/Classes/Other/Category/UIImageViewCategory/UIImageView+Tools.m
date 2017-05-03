@@ -7,14 +7,14 @@
 //
 
 #import "UIImageView+Tools.h"
-#import <UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
 
 @implementation UIImageView (Tools)
 
 - (void)setHeader:(NSString *)url {
     
     UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
-    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self yy_setImageWithURL:[NSURL URLWithString:url] placeholder:placeholder options:kNilOptions completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         self.image = image ? [image circleImage] : placeholder;
     }];
 }

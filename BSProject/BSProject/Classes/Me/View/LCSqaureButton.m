@@ -9,7 +9,7 @@
 #import "LCSqaureButton.h"
 #import "LCSquareItem.h"
 
-#import <UIButton+WebCache.h>
+#import <UIButton+YYWebImage.h>
 
 @implementation LCSqaureButton
 
@@ -59,7 +59,7 @@
     
     [self setTitle:square.name forState:UIControlStateNormal];
     // 利用SDWebImage给按钮设置image
-    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal];
+    [self yy_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal options:kNilOptions];
 }
 
 @end

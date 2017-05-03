@@ -10,7 +10,7 @@
 #import "LCTopicItem.h"
 #import "LCPictureViewController.h"
 #import "LCCircularProgressView.h"
-#import <UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
 
 @interface LCEssencePicView ()
 
@@ -61,17 +61,17 @@
     [self.progressView setProgress:topicItem.picProgress animated:NO];
     self.progressView.hidden = (topicItem.picProgress >= 1.0) ? YES : NO;
     
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:topicItem.bigImage] placeholderImage:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+    NSLog(@"%@", topicItem.bigImage);
+    
+    [self.imageV yy_setImageWithURL:[NSURL URLWithString:topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
         topicItem.picProgress = 1.0 * receivedSize / expectedSize;
         [self.progressView setProgress:topicItem.picProgress animated:NO];
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.progressView.hidden = YES;
-        
+    } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
         if (!topicItem.isBigPic) {
-            return;
+            return image;
         }
-    
+        
         CGFloat width = self.imageV.fWidth;
         CGFloat height = EssencePicRecommendH;
         // 开启图形上下文
@@ -82,10 +82,13 @@
         CGFloat drawH = image.size.height * width / image.size.width;
         [image drawInRect:CGRectMake(0, 0, width, drawH)];
         
-        self.imageV.image = UIGraphicsGetImageFromCurrentImageContext();
+        image = UIGraphicsGetImageFromCurrentImageContext();
         
-        UIGraphicsEndImageContext();        
+        UIGraphicsEndImageContext();
         
+        return image;
+    } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        self.progressView.hidden = YES;
     }];
     
     // 通过扩展名判断是不是gif图片
@@ -98,7 +101,6 @@
     } else {
         self.imageV.contentMode = UIViewContentModeScaleToFill;
     }
-    
 }
 
 @end
