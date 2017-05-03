@@ -19,7 +19,17 @@
 {
     if (self == [LCMainNavigationC class]) {
         // 设置导航栏
-        UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[LCMainNavigationC class]]];
+        /*
+         + (instancetype)appearanceWhenContainedIn:(nullable Class <UIAppearanceContainer>)ContainerClass, ... NS_REQUIRES_NIL_TERMINATION NS_DEPRECATED_IOS(5_0, 9_0, "Use +appearanceWhenContainedInInstancesOfClasses: instead") __TVOS_PROHIBITED;
+         + (instancetype)appearanceWhenContainedInInstancesOfClasses:(NSArray<Class <UIAppearanceContainer>> *)containerTypes NS_AVAILABLE_IOS(9_0);
+         */
+        // 系统适配
+        UINavigationBar *navBar = nil;
+        if (CurrentSystemVersion < 9.0) {
+            navBar = [UINavigationBar appearanceWhenContainedIn:[LCMainNavigationC class], nil];
+        } else {
+            navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[LCMainNavigationC class]]];
+        }
         [navBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
         [navBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
         // 设置item

@@ -20,6 +20,8 @@
 #import "UIView+LCExtension.h"
 #import "NSString+LCExtension.h"
 
+#define CurrentSystemVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
+
 #define ScreenW ([UIScreen mainScreen].bounds.size.width)
 #define ScreenH ([UIScreen mainScreen].bounds.size.height)
 #define ScreenB ([UIScreen mainScreen].bounds)
