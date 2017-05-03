@@ -18,9 +18,9 @@ target 'BSProject' do
   # 友盟分享
     # U-Share SDK UI模块（分享面板，建议添加）
     pod ‘UMengUShare/UI’
-    # 集成微信(完整版14.4M)
+    # 微信
     pod ‘UMengUShare/Social/WeChat'
-    # 集成新浪微博(完整版25.3M)
+    # 新浪微博
     pod ‘UMengUShare/Social/Sina'
   # bugly
     pod 'Bugly'
