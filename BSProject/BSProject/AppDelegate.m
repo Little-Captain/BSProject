@@ -12,6 +12,7 @@
 
 #import <UMSocialCore/UMSocialCore.h>
 #import <Bugly/Bugly.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -35,6 +36,11 @@
     // Bugly
     // 读取 Info.plist 中的配置
     [Bugly startWithAppId:nil];
+    
+    // 设置默认扬声器发声, 如果插上耳机, 就使用耳机发声
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
+                                     withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker
+                                           error:nil];
     
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

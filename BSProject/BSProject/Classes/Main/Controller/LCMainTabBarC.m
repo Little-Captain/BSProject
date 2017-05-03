@@ -132,4 +132,10 @@
     [LCPublishView show];
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    // 让应用一般情况下只支持横屏
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

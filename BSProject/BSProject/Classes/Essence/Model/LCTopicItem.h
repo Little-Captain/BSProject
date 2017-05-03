@@ -88,6 +88,8 @@
 @property (nonatomic, assign) NSInteger playcount;
 /** 音频地址 */
 @property (nonatomic, strong) NSString *voiceuri;
+/** 视频播放的url地址 */
+@property (nonatomic, strong) NSString *videouri;
 
 /*
  

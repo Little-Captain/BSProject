@@ -25,10 +25,6 @@ static LCVoicePlayerTool *_instance;
     self = [super init];
     if (self) {
         _player = [[AVPlayer alloc] init];
-        // 设置默认扬声器发声, 如果插上耳机, 就使用耳机发声
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
-                 withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker
-                       error:nil];
     }
     return self;
 }

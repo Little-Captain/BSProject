@@ -11,8 +11,10 @@
 #import "LCTopicItem.h"
 
 #import "LCPictureViewController.h"
+#import "LCVideoPlayerVC.h"
 
 #import <UIImageView+WebCache.h>
+#import "JFVideoPlayView.h"
 
 @interface LCVideoView ()
 
@@ -47,9 +49,8 @@
 
 - (void)pictureClick {
     
-    LCPictureViewController *pictureVC = [[LCPictureViewController alloc] init];
-    pictureVC.topicItem = self.item;
-    [KeyWindow.rootViewController presentViewController:pictureVC animated:YES completion:nil];
+    NSLog(@"%@", NSStringFromCGRect([self convertRect:self.bounds toView:KeyWindow]));
+    [LCVideoPlayerVC showWithVideoFrame:[self convertRect:self.bounds toView:KeyWindow] url:self.item.videouri image:self.item.bigImage];
     
 }
 

@@ -41,6 +41,13 @@
 		957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43571EB82C1300B5F236 /* NSString+LCExtension.m */; };
 		957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */; };
 		957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435D1EB883DB00B5F236 /* LCShareTool.m */; };
+		957D43651EB8D80100B5F236 /* LCVideoPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43641EB8D80100B5F236 /* LCVideoPlayerVC.m */; };
+		957D43731EB8F4CE00B5F236 /* JFVideoPlayView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 957D43681EB8F4CE00B5F236 /* JFVideoPlayView.bundle */; };
+		957D43741EB8F4CE00B5F236 /* JFVideoPlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D43691EB8F4CE00B5F236 /* JFVideoPlayView.xib */; };
+		957D43751EB8F4CE00B5F236 /* JFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D436C1EB8F4CE00B5F236 /* JFButton.m */; };
+		957D43761EB8F4CE00B5F236 /* JFFullVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D436E1EB8F4CE00B5F236 /* JFFullVC.m */; };
+		957D43771EB8F4CE00B5F236 /* JFVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43701EB8F4CE00B5F236 /* JFVideoPlayView.m */; };
+		957D43781EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43721EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.m */; };
 		9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584786E1EB2418900B415D3 /* LCBaseVC.m */; };
 		958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958478711EB2424800B415D3 /* LCEssenceViewController.m */; };
 		9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9588AFAA1EB0346800BE86C5 /* LCMainNavigationC.m */; };
@@ -152,6 +159,18 @@
 		957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
 		957D435C1EB883DB00B5F236 /* LCShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShareTool.h; sourceTree = "<group>"; };
 		957D435D1EB883DB00B5F236 /* LCShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShareTool.m; sourceTree = "<group>"; };
+		957D43631EB8D80100B5F236 /* LCVideoPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVideoPlayerVC.h; sourceTree = "<group>"; };
+		957D43641EB8D80100B5F236 /* LCVideoPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVideoPlayerVC.m; sourceTree = "<group>"; };
+		957D43681EB8F4CE00B5F236 /* JFVideoPlayView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JFVideoPlayView.bundle; sourceTree = "<group>"; };
+		957D43691EB8F4CE00B5F236 /* JFVideoPlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFVideoPlayView.xib; sourceTree = "<group>"; };
+		957D436B1EB8F4CE00B5F236 /* JFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFButton.h; sourceTree = "<group>"; };
+		957D436C1EB8F4CE00B5F236 /* JFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFButton.m; sourceTree = "<group>"; };
+		957D436D1EB8F4CE00B5F236 /* JFFullVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFullVC.h; sourceTree = "<group>"; };
+		957D436E1EB8F4CE00B5F236 /* JFFullVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFullVC.m; sourceTree = "<group>"; };
+		957D436F1EB8F4CE00B5F236 /* JFVideoPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFVideoPlayView.h; sourceTree = "<group>"; };
+		957D43701EB8F4CE00B5F236 /* JFVideoPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFVideoPlayView.m; sourceTree = "<group>"; };
+		957D43711EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+JFVideoPlayer.h"; sourceTree = "<group>"; };
+		957D43721EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+JFVideoPlayer.m"; sourceTree = "<group>"; };
 		9584786D1EB2418900B415D3 /* LCBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseVC.h; sourceTree = "<group>"; };
 		9584786E1EB2418900B415D3 /* LCBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseVC.m; sourceTree = "<group>"; };
 		958478701EB2424800B415D3 /* LCEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEssenceViewController.h; sourceTree = "<group>"; };
@@ -275,6 +294,39 @@
 				9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */,
 			);
 			path = UIImageViewCategory;
+			sourceTree = "<group>";
+		};
+		957D43661EB8F4CE00B5F236 /* JFVideoPlayView */ = {
+			isa = PBXGroup;
+			children = (
+				957D436A1EB8F4CE00B5F236 /* Classes */,
+				957D43671EB8F4CE00B5F236 /* Assets */,
+			);
+			path = JFVideoPlayView;
+			sourceTree = "<group>";
+		};
+		957D43671EB8F4CE00B5F236 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				957D43681EB8F4CE00B5F236 /* JFVideoPlayView.bundle */,
+				957D43691EB8F4CE00B5F236 /* JFVideoPlayView.xib */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		957D436A1EB8F4CE00B5F236 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				957D436B1EB8F4CE00B5F236 /* JFButton.h */,
+				957D436C1EB8F4CE00B5F236 /* JFButton.m */,
+				957D436D1EB8F4CE00B5F236 /* JFFullVC.h */,
+				957D436E1EB8F4CE00B5F236 /* JFFullVC.m */,
+				957D436F1EB8F4CE00B5F236 /* JFVideoPlayView.h */,
+				957D43701EB8F4CE00B5F236 /* JFVideoPlayView.m */,
+				957D43711EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.h */,
+				957D43721EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		9588AFC31EB1A14300BE86C5 /* NSDateCategory */ = {
@@ -450,6 +502,7 @@
 		95D892A51EAFA156006A08C3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				957D43661EB8F4CE00B5F236 /* JFVideoPlayView */,
 				9588AFEB1EB1C23500BE86C5 /* View */,
 				95D892A61EAFA156006A08C3 /* Category */,
 				957691591EB2333B00D6F000 /* LCConst.h */,
@@ -567,6 +620,8 @@
 				957D43531EB814AF00B5F236 /* LCVoicePlayerView.h */,
 				957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */,
 				957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */,
+				957D43631EB8D80100B5F236 /* LCVideoPlayerVC.h */,
+				957D43641EB8D80100B5F236 /* LCVideoPlayerVC.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,7 +876,9 @@
 			files = (
 				9588AFF21EB1C23500BE86C5 /* LCPushGuideView.xib in Resources */,
 				957691551EB2329200D6F000 /* LCCmtDetailViewController.xib in Resources */,
+				957D43731EB8F4CE00B5F236 /* JFVideoPlayView.bundle in Resources */,
 				9576914A1EB2325300D6F000 /* LCCmtCell.xib in Resources */,
+				957D43741EB8F4CE00B5F236 /* JFVideoPlayView.xib in Resources */,
 				952531101EB31D6E00BB5B93 /* LCMeViewController.storyboard in Resources */,
 				95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */,
 				9576913D1EB2320000D6F000 /* LCEssencePicView.xib in Resources */,
@@ -899,6 +956,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				957D43771EB8F4CE00B5F236 /* JFVideoPlayView.m in Sources */,
 				9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */,
 				957691541EB2329200D6F000 /* LCCmtDetailViewController.m in Sources */,
 				95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */,
@@ -924,6 +982,7 @@
 				95FCBC711EB37ADD0040B7F3 /* LCPlaceholderTextView.m in Sources */,
 				9584786F1EB2418900B415D3 /* LCBaseVC.m in Sources */,
 				958478721EB2424800B415D3 /* LCEssenceViewController.m in Sources */,
+				957D43781EB8F4CE00B5F236 /* NSBundle+JFVideoPlayer.m in Sources */,
 				957691261EB2310700D6F000 /* LCPictureViewController.m in Sources */,
 				9588AFEA1EB1BC6100BE86C5 /* LCVerticalBtn.m in Sources */,
 				9588AFAF1EB03E9800BE86C5 /* LCRecommendFTVC.m in Sources */,
@@ -933,6 +992,7 @@
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
 				957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */,
 				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
+				957D43651EB8D80100B5F236 /* LCVideoPlayerVC.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
 				9576913A1EB2320000D6F000 /* LCTopicCell.m in Sources */,
 				9588AFBD1EB19DEF00BE86C5 /* LCRecommendRightItem.m in Sources */,
@@ -942,11 +1002,13 @@
 				95D892B51EAFA266006A08C3 /* UIView+Frame.m in Sources */,
 				9588AFAB1EB0346800BE86C5 /* LCMainNavigationC.m in Sources */,
 				95D892B41EAFA266006A08C3 /* UIView+Center.m in Sources */,
+				957D43761EB8F4CE00B5F236 /* JFFullVC.m in Sources */,
 				9576913F1EB2320000D6F000 /* LCVoiceView.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+LCExtension.m in Sources */,
 				957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */,
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */,
+				957D43751EB8F4CE00B5F236 /* JFButton.m in Sources */,
 				95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
@@ -1081,6 +1143,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = X65GN27YEQ;
 				INFOPLIST_FILE = BSProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

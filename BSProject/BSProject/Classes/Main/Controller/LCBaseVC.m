@@ -91,17 +91,17 @@
     
     // 子控制器控制器类型字符串数组
     NSArray *titles = @[
-                        @"声音",
-                        @"全部",
                         @"视频",
+                        @"全部",
+                        @"声音",
                         @"图片",
                         @"段子"
                         ];
     
     LCTopicType types[5] = {
-        LCTopicTypeVoice,
-        LCTopicTypeAll,
         LCTopicTypeVideo,
+        LCTopicTypeAll,
+        LCTopicTypeVoice,
         LCTopicTypePicture,
         LCTopicTypeWord
     };

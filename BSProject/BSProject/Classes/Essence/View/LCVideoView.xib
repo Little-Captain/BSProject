@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -38,13 +38,13 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohw-XL-z5w">
-                    <rect key="frame" x="156" y="124.5" width="63" height="63"/>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohw-XL-z5w">
+                    <rect key="frame" x="148" y="116" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="63" id="3TO-y0-b8q"/>
-                        <constraint firstAttribute="height" constant="63" id="cGT-aI-Y20"/>
+                        <constraint firstAttribute="width" constant="80" id="3TO-y0-b8q"/>
+                        <constraint firstAttribute="height" constant="80" id="cGT-aI-Y20"/>
                     </constraints>
-                    <state key="normal" image="video-play" backgroundImage="playButton"/>
+                    <state key="normal" image="bannerVideoPlay"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,8 +74,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bannerVideoPlay" width="58" height="59"/>
         <image name="imageBackground" width="75" height="15"/>
-        <image name="playButton" width="63" height="63"/>
-        <image name="video-play" width="71" height="71"/>
     </resources>
 </document>
