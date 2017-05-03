@@ -49,7 +49,6 @@
 
 - (void)pictureClick {
     
-    NSLog(@"%@", NSStringFromCGRect([self convertRect:self.bounds toView:KeyWindow]));
     [LCVideoPlayerVC showWithVideoFrame:[self convertRect:self.bounds toView:KeyWindow] url:self.item.videouri image:self.item.bigImage];
     
 }

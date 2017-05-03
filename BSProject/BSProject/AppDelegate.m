@@ -13,6 +13,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import <Bugly/Bugly.h>
 #import <AVFoundation/AVFoundation.h>
+#import <SVProgressHUD.h>
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -24,7 +25,7 @@
     
     // 友盟分享
     /* 打开调试日志 */
-    [[UMSocialManager defaultManager] openLog:YES];
+    [[UMSocialManager defaultManager] openLog:NO];
     
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"590839e05312dd1f970016bf"];
@@ -41,6 +42,9 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
                                      withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker
                                            error:nil];
+    
+    // SVProgressHUD 的统一配置
+    [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

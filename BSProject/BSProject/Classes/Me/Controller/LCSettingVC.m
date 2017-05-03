@@ -13,6 +13,9 @@
 
 @interface LCSettingVC ()
 
+/** 缓存总大小 */
+@property (nonatomic, assign) NSInteger totalCost;
+
 @end
 
 @implementation LCSettingVC
@@ -21,6 +24,24 @@
     [super viewDidLoad];
     
     self.title = @"设置";
+    
+    [self getDiskCache];
+}
+
+- (void)getDiskCache {
+    
+    [[YYImageCache sharedCache].diskCache totalCostWithBlock:^(NSInteger totalCost) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.totalCost = totalCost;
+        });
+    }];
+}
+
+- (void)setTotalCost:(NSInteger)totalCost {
+    
+    _totalCost = totalCost;
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -39,12 +60,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    [[YYImageCache sharedCache].diskCache totalCostWithBlock:^(NSInteger totalCost) {
-        cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", totalCost / 1000.0 / 1000.0];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [tableView reloadData];
-        });
-    }];
+    cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", _totalCost / 1000.0 / 1000.0];
     // 这个 getSize 比较慢
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -57,11 +73,10 @@
     
     if (indexPath.section == 0 && indexPath.row == 0) { // 点击了清楚 cell
         [SVProgressHUD showWithStatus:@"正在清理"];
-        // 区分: clear(清除) 和 clean(清理)
         [[YYImageCache sharedCache].diskCache removeAllObjectsWithBlock:^{
             [SVProgressHUD showSuccessWithStatus:@"缓存清理完成"];
-            // 这个完成回调在主队列中执行
-            [self.tableView reloadData];
+            // 重新获取缓存大小
+            [self getDiskCache];
         }];
     }
 }

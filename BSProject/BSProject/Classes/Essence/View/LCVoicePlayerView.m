@@ -56,12 +56,10 @@
     switch (routeChangeReason) {
             
         case AVAudioSessionRouteChangeReasonNewDeviceAvailable:
-            NSLog(@"AVAudioSessionRouteChangeReasonNewDeviceAvailable");
-            NSLog(@"耳机插入");
+            // 耳机插入
             break;
         case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
-            NSLog(@"AVAudioSessionRouteChangeReasonOldDeviceUnavailable");
-            NSLog(@"耳机拔出，停止播放操作");
+            // 耳机拔出，停止播放操作
             if (_playOrPauseBtn.selected && !(self.hidden)) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self playOrPauseClick:_playOrPauseBtn];
@@ -70,7 +68,6 @@
             break;
         case AVAudioSessionRouteChangeReasonCategoryChange:
             // called at start - also when other audio wants to play
-            NSLog(@"AVAudioSessionRouteChangeReasonCategoryChange");
             break;
     }
 }

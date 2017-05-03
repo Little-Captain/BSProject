@@ -176,10 +176,10 @@
 
 - (IBAction)backBtnClick {
     
+    if (self.fullScreenBtn.isSelected) {
+        [self switchOrientation:self.fullScreenBtn];
+    }
     if ([self.delegate respondsToSelector:@selector(clickBackButtonInVideoPlayView:)]) {
-        if (self.fullScreenBtn.isSelected) {
-            [self switchOrientation:self.fullScreenBtn];
-        }
         [self.delegate clickBackButtonInVideoPlayView:self];
     }
 }

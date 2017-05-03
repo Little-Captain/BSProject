@@ -111,11 +111,6 @@ static UIWindow *_videoWindow;
 
 #pragma mark -
 #pragma mark JFVideoPlayViewDelegate
-
-- (void)clickBackButtonInVideoPlayView:(JFVideoPlayView *)videoPlayView {
-    
-    NSLog(@"返回");
-}
 - (void)clickShareButtonInVideoPlayView:(JFVideoPlayView *)videoPlayView {
     
     NSLog(@"分享");
