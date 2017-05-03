@@ -61,15 +61,27 @@
     [self.progressView setProgress:topicItem.picProgress animated:NO];
     self.progressView.hidden = (topicItem.picProgress >= 1.0) ? YES : NO;
     
+    // 通过扩展名判断是不是gif图片
+    BOOL isGif = [topicItem.bigImage.pathExtension.lowercaseString isEqualToString:@"gif"];
+    self.gifImageV.hidden = !isGif;
+    
+    self.seeBigBtn.hidden = !topicItem.isBigPic;
+    
+    if (topicItem.isBigPic) {
+        self.imageV.contentMode = UIViewContentModeScaleAspectFill;
+    } else {
+        self.imageV.contentMode = UIViewContentModeScaleToFill;
+    }
+    
     [self.imageV yy_setImageWithURL:[NSURL URLWithString:topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
         topicItem.picProgress = 1.0 * receivedSize / expectedSize;
         [self.progressView setProgress:topicItem.picProgress animated:NO];
-    } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        self.progressView.hidden = YES;
         if (!topicItem.isBigPic) {
-            return image;
-        }
-        
+            return;
+        }        
         CGFloat width = self.imageV.fWidth;
         CGFloat height = EssencePicRecommendH;
         // 开启图形上下文
@@ -80,25 +92,10 @@
         CGFloat drawH = image.size.height * width / image.size.width;
         [image drawInRect:CGRectMake(0, 0, width, drawH)];
         
-        image = UIGraphicsGetImageFromCurrentImageContext();
+        self.imageV.image = UIGraphicsGetImageFromCurrentImageContext();
         
         UIGraphicsEndImageContext();
-        
-        return image;
-    } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        self.progressView.hidden = YES;
     }];
-    
-    // 通过扩展名判断是不是gif图片
-    self.gifImageV.hidden = ![topicItem.bigImage.pathExtension.lowercaseString isEqualToString:@"gif"];
-    
-    self.seeBigBtn.hidden = !topicItem.isBigPic;
-    
-    if (topicItem.isBigPic) {
-        self.imageV.contentMode = UIViewContentModeScaleAspectFill;
-    } else {
-        self.imageV.contentMode = UIViewContentModeScaleToFill;
-    }
 }
 
 @end
