@@ -26,7 +26,7 @@
     if (!_videoPlayView) {
         JFVideoPlayView *videoPlayView = [JFVideoPlayView videoPlayView];
         videoPlayView.delegate = self;
-        [self.view addSubview:videoPlayView];
+        [self.view insertSubview:videoPlayView atIndex:0];
         _videoPlayView = videoPlayView;
     }
     
@@ -68,11 +68,27 @@ static UIWindow *_videoWindow;
     
     self.view.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:0.7];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self setUpUI];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:tap];
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)tap {
+- (void)setUpUI {
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(10, 20, [btn currentImage].size.width * 2, [btn currentImage].size.height * 2);
+    [self.view addSubview:btn];
+}
+
+- (void)closeBtnClick {
+    
+    [self tapAction];
+}
+
+- (void)tapAction {
     
     [LCVideoPlayerVC hidden];
 }

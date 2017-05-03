@@ -171,36 +171,6 @@
 - (void)setUpBasic {
     
     self.title = @"评论";
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon_click"] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(followBtn) forControlEvents:UIControlEventTouchUpInside];
-    btn.frame = CGRectMake(0, 0, 25, 25);
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-}
-
-- (void)followBtn {
-    
-    UIAlertController *alter = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *report = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showSuccessWithStatus:@"举报成功!"];
-    }];
-    
-    UIAlertAction *follow = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-    
-    [alter addAction:report];
-    [alter addAction:follow];
-    [alter addAction:cancel];
-    
-    [KeyWindow.rootViewController presentViewController:alter animated:YES completion:nil];
 }
 
 - (void)setUpTableView {

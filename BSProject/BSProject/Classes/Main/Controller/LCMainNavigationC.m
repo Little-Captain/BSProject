@@ -8,7 +8,7 @@
 
 #import "LCMainNavigationC.h"
 
-@interface LCMainNavigationC ()
+@interface LCMainNavigationC () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -42,6 +42,25 @@
     // 修改
 //    self.interactivePopGestureRecognizer.delegate = nil;
     // 这样会造成界面卡住!!!所以不行!!!
+    
+    // 增加全屏 pop 手势
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:NSSelectorFromString(@"handleNavigationTransition:")];
+    [self.view addGestureRecognizer:pan];
+    // 这样写同样存在界面卡住现象, 当我们在根控制器拖拽时,
+    // 即想移除一个导航控制器的根控制器时, 同样会存在卡死现象
+    // bug解决思路: 通过手势代理, 让其在根控制器中不响应手势操作即可!!!
+    pan.delegate = self;
+}
+
+#pragma mark - 
+#pragma mark UIGestureRecognizerDelegate
+
+// 手势开始时调用, 返回值代表手势是否允许执行
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    
+    // 当当前控制器不是根控制器时, 我们允许手势执行
+    return (self.viewControllers.count > 1);
+    
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
