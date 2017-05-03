@@ -172,7 +172,13 @@
     
     self.title = @"评论";
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(followBtn) image:@"comment_nav_item_share_icon" hightImage:@"comment_nav_item_share_icon_click"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon_click"] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(followBtn) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 25, 25);
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 - (void)followBtn {
