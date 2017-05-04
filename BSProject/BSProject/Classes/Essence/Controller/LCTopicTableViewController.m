@@ -147,7 +147,6 @@ static NSString * const ID = @"topic";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.tableView.mj_header endRefreshing];
     }];
-    
 }
 
 /** 加载更多的帖子 */

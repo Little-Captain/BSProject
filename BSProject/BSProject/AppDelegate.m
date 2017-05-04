@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "LCMainTabBarC.h"
-#import "LCPushGuideView.h"
 
 #import <UMSocialCore/UMSocialCore.h>
 #import <Bugly/Bugly.h>
@@ -46,21 +45,17 @@
     // SVProgressHUD 的统一配置
     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     
+    // 配置 LCMainTabBarC 对象 的 代理
+    [LCMainTabBarC sharedInstance].delegate = self;
+    
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 根控制器
-    LCMainTabBarC *tabBarC = [LCMainTabBarC new];
-    tabBarC.delegate = self;
-    
     // 设置窗口的根控制器
-    self.window.rootViewController = tabBarC;
+    self.window.rootViewController = [NSClassFromString(@"LCAdVC") new];
     
     // 显示窗口
     [self.window makeKeyAndVisible];
-    
-    // 显示引导页
-    [LCPushGuideView show];
     
     return YES;
 }

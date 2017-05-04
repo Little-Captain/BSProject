@@ -39,6 +39,17 @@
     }
 }
 
+static LCMainTabBarC *_instance;
++ (instancetype)sharedInstance {
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [LCMainTabBarC new];
+    });
+    
+    return _instance;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];

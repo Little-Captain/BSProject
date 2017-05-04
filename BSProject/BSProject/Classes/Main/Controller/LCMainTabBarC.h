@@ -10,4 +10,6 @@
 
 @interface LCMainTabBarC : UITabBarController
 
++ (instancetype)sharedInstance;
+
 @end
