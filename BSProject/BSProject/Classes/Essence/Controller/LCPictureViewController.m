@@ -129,4 +129,15 @@
     
 }
 
+#pragma mark - 屏幕方向支持
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate {
+    
+    return YES;
+}
+
 @end

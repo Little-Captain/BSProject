@@ -37,7 +37,7 @@ static UIWindow *window_;
     window_.hidden = NO;
 }
 
-+ (void)hide {
++ (void)hidden {
     
     window_.hidden = YES;
 }

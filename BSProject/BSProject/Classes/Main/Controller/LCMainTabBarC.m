@@ -9,7 +9,7 @@
 #import "LCMainTabBarC.h"
 
 #import "LCPublishView.h"
-#import "LCTopWindow.h"
+//#import "LCTopWindow.h"
 
 #import "LCMainNavigationC.h"
 
@@ -53,7 +53,7 @@
     [self setUpComposeButton];
     
     // 设置顶部的 window 用于控制点击顶部回滚效果
-    [LCTopWindow show];
+//    [LCTopWindow show];
 }
 
 // 创建所有的子控制器
@@ -136,6 +136,11 @@
     
     // 让应用一般情况下只支持横屏
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate {
+    
+    return YES;
 }
 
 @end

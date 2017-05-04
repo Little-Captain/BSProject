@@ -8,6 +8,7 @@
 
 #import "LCVideoPlayerVC.h"
 #import "JFVideoPlayView.h"
+//#import "LCTopWindow.h"
 
 #import <Masonry.h>
 #import <UIImageView+YYWebImage.h>
@@ -46,9 +47,11 @@ static UIWindow *_videoWindow;
     }
     LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
     rootVC.videoPlayerViewFrame = videoFrame;
-    [rootVC.videoPlayView.videoImageV yy_setImageWithURL:[NSURL URLWithString:image] placeholder:nil];
+    rootVC.videoPlayView.bgImageUrl = [NSURL URLWithString:image];
     rootVC.urlStr = url;
     _videoWindow.hidden = NO;
+    
+//    [LCTopWindow hidden];
 }
 
 + (void)hidden {
@@ -58,6 +61,7 @@ static UIWindow *_videoWindow;
         LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
         [rootVC.videoPlayView suspendPlayer];
         _videoWindow.hidden = YES;
+//        [LCTopWindow show];
     }
 }
 
@@ -120,8 +124,8 @@ static UIWindow *_videoWindow;
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    [super shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+- (BOOL)shouldAutorotate {
+    
     return YES;
 }
 

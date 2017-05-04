@@ -11,6 +11,6 @@
 @interface LCTopWindow : NSObject
 
 + (void)show;
-+ (void)hide;
++ (void)hidden;
 
 @end

@@ -34,7 +34,8 @@
 
 /** 原始frame */
 @property (nonatomic, assign) CGRect originFrame;
-/** 背景图片视图 */
-@property (weak, nonatomic) IBOutlet UIImageView *videoImageV;
+
+/** bgImageUrl */
+@property (nonatomic, strong) NSURL *bgImageUrl;
 
 @end

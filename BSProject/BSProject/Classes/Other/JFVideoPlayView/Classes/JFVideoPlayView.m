@@ -11,6 +11,7 @@
 #import "NSBundle+JFVideoPlayer.h"
 #import "Masonry.h"
 #import <AVFoundation/AVFoundation.h>
+#import <YYWebImage.h>
 
 @interface JFVideoPlayView ()
 
@@ -63,9 +64,12 @@
 /* 视图显示的时间 */
 @property (assign, nonatomic) NSTimeInterval showTime;
 
+/** 背景图片视图 */
+@property (weak, nonatomic) IBOutlet UIImageView *videoImageV;
+
 @end
 
-@implementation JFVideoPlayView
+@implementation JFVideoPlayView 
 
 - (JFFullVC *)fullVc {
     
@@ -170,6 +174,20 @@
     // 3.切换到当前的playerItem
     [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
     [self launchPlayer];
+}
+
+- (void)setBgImageUrl:(NSURL *)bgImageUrl {
+    
+    if (!bgImageUrl) {
+        _videoImageV.image = nil;
+        _videoImageV.backgroundColor = [UIColor blackColor];
+        return;
+    }
+    
+    _bgImageUrl = bgImageUrl;
+    
+    _videoImageV.backgroundColor = [UIColor clearColor];
+    [_videoImageV yy_setImageWithURL:bgImageUrl options:kNilOptions];
 }
 
 #pragma mark - 返回按钮点击
@@ -348,6 +366,7 @@
 - (void)videoplayViewSwitchOrientation:(BOOL)isFull {
     
     if (isFull) { // 从非全屏切换到全屏
+        [self setBgImageUrl:nil];
         // 解决约束警告
         // 删除 self 相关的所有原始布局约束
         [self mas_remakeConstraints:^(MASConstraintMaker *make) {}];
@@ -373,7 +392,7 @@
             } completion:nil];
         }];
     } else { // 从全屏切换到非全屏
-        
+        [self setBgImageUrl:_bgImageUrl];
         [self.fullVc dismissViewControllerAnimated:NO completion:^{
             
             [self.containerViewController.view addSubview:self];

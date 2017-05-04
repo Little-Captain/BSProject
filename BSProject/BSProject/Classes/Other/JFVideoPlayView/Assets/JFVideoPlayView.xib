@@ -18,6 +18,7 @@
             <subviews>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bi1-Y9-3lg" userLabel="videoImageV">
                     <rect key="frame" x="0.0" y="0.0" width="603" height="385"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="8po-mg-ZRu" appends="YES" id="J8w-9a-34E"/>
