@@ -9,8 +9,8 @@
 #import "LCPictureViewController.h"
 #import "LCTopicItem.h"
 #import "LCCircularProgressView.h"
-#import <Photos/Photos.h>
 
+#import <Photos/Photos.h>
 #import <UIImageView+YYWebImage.h>
 #import <SVProgressHUD.h>
 
@@ -33,8 +33,12 @@
     [super viewDidLoad];
     
     [self setUpImageView];
-    
 }
+
+#pragma mark -
+#pragma mark 事件监听
+
+/** 保存图片到相册 */
 - (IBAction)savePicture {
     
     if (!self.imageV.image) {
@@ -83,44 +87,6 @@
             [SVProgressHUD showErrorWithStatus:@"保存失败!"];
         }
     }];
-    
-}
-
-- (void)setUpImageView {
-    [self.progressView setProgress:self.topicItem.picProgress animated:NO];
-    UIImageView *imageV = [NSClassFromString(@"YYAnimatedImageView") new];
-    self.imageV = imageV;
-    imageV.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
-    [imageV addGestureRecognizer:tap];
-    [imageV yy_setImageWithURL:[NSURL URLWithString:self.topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        self.progressView.hidden = NO;
-        self.topicItem.picProgress = 1.0 * receivedSize / expectedSize;
-        [self.progressView setProgress:self.topicItem.picProgress animated:NO];
-    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        self.progressView.hidden = YES;
-    }];
-    
-    CGFloat picW = self.topicItem.width.doubleValue;
-    CGFloat picH = self.topicItem.height.doubleValue;
-    // picW    * picH
-    // calPicW * calPicH
-    CGFloat calPicW = ScreenW;
-    CGFloat calPicH = picH * calPicW / picW;
-    
-    imageV.fWidth = calPicW;
-    imageV.fHeight = calPicH;
-    
-    if (calPicH < ScreenH) {
-        imageV.cY = ScreenH * 0.5;
-    } else {
-        imageV.fX = 0;
-        imageV.fY = 0;
-    }
-    
-//    BSLog(@"%@", NSStringFromCGRect(imageV.frame));
-    self.scrollV.contentSize = imageV.fSize;
-    [self.scrollV addSubview:imageV];
 }
 
 - (IBAction)back {
@@ -129,7 +95,55 @@
     
 }
 
+#pragma mark -
+#pragma mark UI 设置
+
+- (void)setUpImageView {
+    
+    // 使用 YYAnimatedImageView 实现 gif 图片播放
+    UIImageView *imageV = [NSClassFromString(@"YYAnimatedImageView") new];
+    self.imageV = imageV;
+    // 支持交互
+    imageV.userInteractionEnabled = YES;
+    // 添加手势, 当点击时, dismiss 掉 self
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
+    [imageV addGestureRecognizer:tap];
+    // 设置图片
+    [imageV yy_setImageWithURL:[NSURL URLWithString:self.topicItem.bigImage] placeholder:nil options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        self.topicItem.picProgress = 1.0 * receivedSize / expectedSize;
+        // 显示加载进度
+        [self.progressView setProgress:self.topicItem.picProgress animated:NO];
+    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        // 隐藏进度视图
+        self.progressView.hidden = YES;
+    }];
+    
+    // 计算 imageV 的尺寸和位置
+    CGFloat picW = self.topicItem.width.doubleValue;
+    CGFloat picH = self.topicItem.height.doubleValue;
+    // picW    * picH
+    // calPicW * calPicH
+    CGFloat calPicW = ScreenW;
+    CGFloat calPicH = picH * calPicW / picW;
+    // 尺寸
+    imageV.fWidth = calPicW;
+    imageV.fHeight = calPicH;
+    // 位置
+    if (calPicH < ScreenH) {
+        imageV.cY = ScreenH * 0.5;
+    } else {
+        imageV.fX = 0;
+        imageV.fY = 0;
+    }
+    // 设置 scrollV 的 contentSize
+    self.scrollV.contentSize = imageV.fSize;
+    // 将 imageV 添加到 scrollV
+    [self.scrollV addSubview:imageV];
+}
+
 #pragma mark - 屏幕方向支持
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     
     return UIInterfaceOrientationMaskPortrait;

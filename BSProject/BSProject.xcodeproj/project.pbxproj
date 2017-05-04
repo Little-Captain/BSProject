@@ -457,6 +457,7 @@
 				95D892BE1EAFA768006A08C3 /* FriendTrends */,
 				9588AFDC1EB1BB2B00BE86C5 /* LoginOrRegist */,
 				95D892C21EAFA768006A08C3 /* Me */,
+				95D972B11EBAF71A001A2DB5 /* Ad */,
 				95D892A51EAFA156006A08C3 /* Other */,
 			);
 			path = Classes;
@@ -794,6 +795,37 @@
 				957691171EB2193F00D6F000 /* LCPublishView.h */,
 				957691181EB2193F00D6F000 /* LCPublishView.m */,
 				957691191EB2193F00D6F000 /* LCPublishView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95D972B11EBAF71A001A2DB5 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				95D972B21EBAF71A001A2DB5 /* Controller */,
+				95D972B31EBAF71A001A2DB5 /* Model */,
+				95D972B41EBAF71A001A2DB5 /* View */,
+			);
+			path = Ad;
+			sourceTree = "<group>";
+		};
+		95D972B21EBAF71A001A2DB5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		95D972B31EBAF71A001A2DB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95D972B41EBAF71A001A2DB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";

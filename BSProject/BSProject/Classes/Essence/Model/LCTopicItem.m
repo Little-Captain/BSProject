@@ -64,8 +64,7 @@
         }
     } else { // 不是今年
         return _create_time;
-    }
-    
+    }    
 }
 
 - (CGFloat)cellHeight {
