@@ -7,11 +7,10 @@
 //
 
 #import "LCMainTabBarC.h"
-
 #import "LCPublishView.h"
-//#import "LCTopWindow.h"
-
 #import "LCMainNavigationC.h"
+
+#import <RXCollection.h>
 
 @interface LCMainTabBarC ()
 
@@ -19,34 +18,33 @@
 
 @implementation LCMainTabBarC
 
-+ (void)initialize
-{
++ (void)initialize {
     // 要加这个判断, 不然如果是子类第一次被使用也会调用这个方法
     if (self == [LCMainTabBarC class]) {
         // 通过appearance统一设置UITabBarItem的文字属性
         // 凡是后面带有UI_APPEARANCE_SELECTOR的方法, 都可以通过appearance对象统一设置
-        NSDictionary *attr = @{
+        // normal 状态下的 title 属性
+        NSDictionary *attrNormal = @{
                                NSFontAttributeName: [UIFont systemFontOfSize:12],
                                NSForegroundColorAttributeName: [UIColor lightGrayColor]
                                };
-        
-        NSDictionary *attrSel = @{
+        // selected 状态下的 title 属性
+        NSDictionary *attrSelected = @{
                                   NSForegroundColorAttributeName: [UIColor darkGrayColor]
                                   };
-        
+        // 对所有的 UITabBarItem 对象统一设置
         UITabBarItem *tabBarItem = [UITabBarItem appearance];
-        
-        [tabBarItem setTitleTextAttributes:attr forState:UIControlStateNormal];
-        [tabBarItem setTitleTextAttributes:attrSel forState:UIControlStateSelected];
+        [tabBarItem setTitleTextAttributes:attrNormal forState:UIControlStateNormal];
+        [tabBarItem setTitleTextAttributes:attrSelected forState:UIControlStateSelected];
     }
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     // 配置tabBar的背景图片
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
-    
     // 设置所有的子控制器
     [self setUpChildViewControllers];
     // 设置中间的发布按钮
@@ -56,7 +54,7 @@
 //    [LCTopWindow show];
 }
 
-// 创建所有的子控制器
+/** 创建所有的子控制器 */
 - (void)setUpChildViewControllers {
     
     // 通过 UI.json 确定界面的显示
@@ -74,43 +72,44 @@
         array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     }
     
-    NSMutableArray *controllers = [NSMutableArray array];
-    for (NSDictionary *dict in array) {
-        [controllers addObject:[self setUpOneViewController:dict]];
-    }
-    
-    self.viewControllers = controllers.copy;
+    // 将 NSDictionary 对象 映射为 UIViewController 对象
+    self.viewControllers = [array rx_mapWithBlock:^UIViewController *(NSDictionary *each) {
+        return [self setUpOneViewController:each];
+    }];
 }
 
-// 创建一个子控制器
+/** 创建一个子控制器 */
 - (UIViewController *)setUpOneViewController:(NSDictionary *)vcInfo {
     
+    // 获取控制器的类名
     NSString *clsName = vcInfo[@"clsName"];
-    
     if (!clsName) {
+        // 获取失败, 返回一个默认的控制器
         return [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:[UIViewController new]];
     }
     
+    // 获取设置控制器需要的其他字段
     NSString *title = vcInfo[@"title"];
     NSString *image = vcInfo[@"image"];
     NSString *selImage = vcInfo[@"selImage"];
-    
+    // 创建控制器对象
     UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
-    
     if (vc == nil) {
+        // 创建失败, 抛出异常
         [NSException exceptionWithName:clsName reason:nil userInfo:nil];
     }
-    
+    // 包装导航控制器, 并进行设置
     UINavigationController *nav = [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:vc];
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     nav.title = title;
     nav.tabBarItem.image = [UIImage imageNamed:image];
     nav.tabBarItem.selectedImage = [[UIImage imageNamed:selImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];    
     
+    // 返回
     return nav;
 }
 
-// 创建中间的发布按钮
+/** 创建中间的发布按钮 */
 - (void)setUpComposeButton {
     
     // 创建一个按钮
@@ -126,18 +125,21 @@
     [self.tabBar addSubview:btn];
 }
 
-// 发布按钮点击事件的监听
+/** 发布按钮点击事件的监听 */
 - (void)publishBtnClick {
     
+    // 显示发布视图
     [LCPublishView show];
 }
 
+/** 当前控制器屏幕方向支持 */
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     
     // 让应用一般情况下只支持横屏
     return UIInterfaceOrientationMaskPortrait;
 }
 
+/** 当进入这个控制器时, 是否自动旋转到支持的屏幕方向 */
 - (BOOL)shouldAutorotate {
     
     return YES;
