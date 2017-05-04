@@ -231,6 +231,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.shareBar.alpha = 1;
         self.playCtrlV.alpha = 1;
+        self.progressSlider.alpha = 1;
     } completion:^(BOOL finished) {
         self.isShowingBarAndCtrlView = YES;
         self.isShowingBarAndCtrlViewOfLast = NO;
@@ -242,6 +243,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.shareBar.alpha = 0;
         self.playCtrlV.alpha = 0;
+        self.progressSlider.alpha = 0;
     } completion:^(BOOL finished) {
         self.isShowingBarAndCtrlView = NO;
         self.isShowingBarAndCtrlViewOfLast = YES;
@@ -338,6 +340,9 @@
     [self addProgressTimer];
     NSTimeInterval currentTime = CMTimeGetSeconds(self.player.currentItem.duration) * self.progressSlider.value;
     [self.player seekToTime:CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    if (self.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
+        [self.player play];
+    }
 }
 
 - (IBAction)startSlide {
