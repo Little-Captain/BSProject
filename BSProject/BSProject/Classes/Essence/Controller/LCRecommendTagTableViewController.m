@@ -59,15 +59,18 @@
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *parameters = @{@"a": @"tags_list", @"c": @"subscribe"};
     [SVProgressHUD show];
-    [[AFHTTPSessionManager manager] GET:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 字典数组转模型数组
-        self.tagItems = [LCRecTagItem mj_objectArrayWithKeyValuesArray:responseObject[@"rec_tags"]];
-        // 刷新表格
-        [self.tableView reloadData];
-        [SVProgressHUD dismiss];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"数据加载失败"];
+
+    __weak typeof(self) weakSelf = self;
+    [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:parameters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            // 字典数组转模型数组
+            weakSelf.tagItems = [LCRecTagItem mj_objectArrayWithKeyValuesArray:result[@"rec_tags"]];
+            // 刷新表格
+            [weakSelf.tableView reloadData];
+            [SVProgressHUD dismiss];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"数据加载失败"];
+        }
     }];
 }
 

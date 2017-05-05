@@ -38,7 +38,7 @@
 /** AFN回话管理者, 这个控制的请求都是用这一个回话管理者, 便于我们管理网络请求,
  比如取消所有的网络请求
  */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic, weak) LCHTTPSessionManager *manager;
 
 @end
 
@@ -49,13 +49,12 @@
     LogFun();
     // 控制器销毁时, 取消所有的网络请求
     [self.manager.operationQueue cancelAllOperations];
-    
 }
 
-- (AFHTTPSessionManager *)manager {
+- (LCHTTPSessionManager *)manager {
     
     if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
+        _manager = [LCHTTPSessionManager sharedInstance];
     }
     
     return _manager;
@@ -114,33 +113,33 @@ static NSString * const rightCellId = @"cellRight";
     // 这时新的类别的数据属性请求不能发送, 就不能显示新的数据了.
     // 主要原因就是header的状态还在刷新状态就切换到另一个类别, 这时开始刷新, 但是header发现
     // 自己就在刷新状态, 所以就不会再进入刷新了, 也就不会再调用这个loadNewUsers方法了
-    [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 取回右侧列表模型
-        // 取回所有请求到的user
-        item.total = [responseObject[@"total"] integerValue];
-        item.currentPage = 1;
-        item.users = [LCRecommendRightItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
-        // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
-        // 不相等, 我们直接丢弃返回的数据
-        if (self.params != paramters) return;
-        
-        // 刷新右侧表格
-        [self.rightTableView reloadData];
-        [self.rightTableView.mj_header endRefreshing];
-        
-        [self checkFooterViewState];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
-        // 而显示error会自动退出
-        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
-        
-        [self.rightTableView.mj_header endRefreshing];
-        
-    }];    
+    __weak typeof(self) weakSelf = self;
+    [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            // 取回右侧列表模型
+            // 取回所有请求到的user
+            item.total = [result[@"total"] integerValue];
+            item.currentPage = 1;
+            item.users = [LCRecommendRightItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            
+            // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
+            // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
+            // 不相等, 我们直接丢弃返回的数据
+            if (weakSelf.params != paramters) return;
+            
+            // 刷新右侧表格
+            [weakSelf.rightTableView reloadData];
+            [weakSelf.rightTableView.mj_header endRefreshing];
+            
+            [weakSelf checkFooterViewState];
+        } else {
+            // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
+            // 而显示error会自动退出
+            [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+            
+            [weakSelf.rightTableView.mj_header endRefreshing];
+        }
+    }];
 }
 
 - (void)loadMoreUsers {
@@ -153,26 +152,27 @@ static NSString * const rightCellId = @"cellRight";
     // 将最新的parameters赋值给self.params
     self.params = paramters;
     
-    [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 取回所有请求到的user
-        item.users = [item.users arrayByAddingObjectsFromArray:[LCRecommendRightItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
-        
-        // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
-        // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
-        // 不相等, 我们直接丢弃返回的数据
-        if (self.params != paramters) return;
-        
-        // 刷新右侧表格
-        [self.rightTableView reloadData];
-        
-        [self checkFooterViewState];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
-        // 而显示error会自动退出
-        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
-        [self.rightTableView.mj_footer endRefreshing];
+    __weak typeof(self) weakSelf = self;
+    [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            // 取回所有请求到的user
+            item.users = [item.users arrayByAddingObjectsFromArray:[LCRecommendRightItem mj_objectArrayWithKeyValuesArray:result[@"list"]]];
+            
+            // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
+            // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
+            // 不相等, 我们直接丢弃返回的数据
+            if (weakSelf.params != paramters) return;
+            
+            // 刷新右侧表格
+            [weakSelf.rightTableView reloadData];
+            
+            [weakSelf checkFooterViewState];
+        } else {
+            // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
+            // 而显示error会自动退出
+            [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+            [weakSelf.rightTableView.mj_footer endRefreshing];
+        }
     }];
     
 }
@@ -183,26 +183,29 @@ static NSString * const rightCellId = @"cellRight";
     [SVProgressHUD show];
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paramters = @{@"a": @"category", @"c": @"subscribe"};
-    [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [SVProgressHUD dismiss];
-        
-        [LCRecommendLeftItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{@"ID": @"id"};
-        }];
-        
-        // 取出左侧列表模型数组
-        self.leftList = [LCRecommendLeftItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        // 刷新表格
-        [self.leftTableView reloadData];
-        // 默认选中第一个行
-        [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-        [self.rightTableView.mj_header beginRefreshing];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
-        // 而显示error会自动退出
-        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            [SVProgressHUD dismiss];
+            
+            [LCRecommendLeftItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{@"ID": @"id"};
+            }];
+            
+            // 取出左侧列表模型数组
+            weakSelf.leftList = [LCRecommendLeftItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            
+            // 刷新表格
+            [weakSelf.leftTableView reloadData];
+            // 默认选中第一个行
+            [weakSelf.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+            [weakSelf.rightTableView.mj_header beginRefreshing];
+        } else {
+            // 这里不用dismiss, 因为如果SVProgressHUD存在, 它内部会就是用这个, 来显示新的
+            // 而显示error会自动退出
+            [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+        }
     }];
     
 }

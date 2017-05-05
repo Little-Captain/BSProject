@@ -39,8 +39,6 @@
 		957D43521EB8117300B5F236 /* LCVoicePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D43511EB8117300B5F236 /* LCVoicePlayerView.xib */; };
 		957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */; };
 		957D43581EB82C1300B5F236 /* NSString+LCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43571EB82C1300B5F236 /* NSString+LCExtension.m */; };
-		957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */; };
-		957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D435D1EB883DB00B5F236 /* LCShareTool.m */; };
 		957D43651EB8D80100B5F236 /* LCVideoPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 957D43641EB8D80100B5F236 /* LCVideoPlayerVC.m */; };
 		957D43731EB8F4CE00B5F236 /* JFVideoPlayView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 957D43681EB8F4CE00B5F236 /* JFVideoPlayView.bundle */; };
 		957D43741EB8F4CE00B5F236 /* JFVideoPlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D43691EB8F4CE00B5F236 /* JFVideoPlayView.xib */; };
@@ -92,6 +90,9 @@
 		95D972B81EBB1645001A2DB5 /* LCAdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972B61EBB1645001A2DB5 /* LCAdVC.m */; };
 		95D972B91EBB1645001A2DB5 /* LCAdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D972B71EBB1645001A2DB5 /* LCAdVC.xib */; };
 		95D972BC1EBB19EF001A2DB5 /* LCAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972BB1EBB19EF001A2DB5 /* LCAdItem.m */; };
+		95D972C21EBC12D1001A2DB5 /* LCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */; };
+		95D972C31EBC12D1001A2DB5 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */; };
+		95D972C61EBC1396001A2DB5 /* LCHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */; };
 		95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */; };
 		95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC681EB334050040B7F3 /* LCWebViewController.m */; };
 		95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */; };
@@ -158,10 +159,6 @@
 		957D43541EB814AF00B5F236 /* LCVoicePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerView.m; sourceTree = "<group>"; };
 		957D43561EB82C1300B5F236 /* NSString+LCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LCExtension.h"; sourceTree = "<group>"; };
 		957D43571EB82C1300B5F236 /* NSString+LCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LCExtension.m"; sourceTree = "<group>"; };
-		957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerTool.h; sourceTree = "<group>"; };
-		957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
-		957D435C1EB883DB00B5F236 /* LCShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShareTool.h; sourceTree = "<group>"; };
-		957D435D1EB883DB00B5F236 /* LCShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShareTool.m; sourceTree = "<group>"; };
 		957D43631EB8D80100B5F236 /* LCVideoPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVideoPlayerVC.h; sourceTree = "<group>"; };
 		957D43641EB8D80100B5F236 /* LCVideoPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVideoPlayerVC.m; sourceTree = "<group>"; };
 		957D43681EB8F4CE00B5F236 /* JFVideoPlayView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JFVideoPlayView.bundle; sourceTree = "<group>"; };
@@ -252,6 +249,12 @@
 		95D972B71EBB1645001A2DB5 /* LCAdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCAdVC.xib; sourceTree = "<group>"; };
 		95D972BA1EBB19EF001A2DB5 /* LCAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAdItem.h; sourceTree = "<group>"; };
 		95D972BB1EBB19EF001A2DB5 /* LCAdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAdItem.m; sourceTree = "<group>"; };
+		95D972BE1EBC12D1001A2DB5 /* LCShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShareTool.h; sourceTree = "<group>"; };
+		95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShareTool.m; sourceTree = "<group>"; };
+		95D972C01EBC12D1001A2DB5 /* LCVoicePlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerTool.h; sourceTree = "<group>"; };
+		95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
+		95D972C41EBC1396001A2DB5 /* LCHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHTTPSessionManager.h; sourceTree = "<group>"; };
+		95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHTTPSessionManager.m; sourceTree = "<group>"; };
 		95F666C31EB48DBC009F7BB9 /* LCSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSettingVC.h; sourceTree = "<group>"; };
 		95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSettingVC.m; sourceTree = "<group>"; };
 		95FCBC671EB334050040B7F3 /* LCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
@@ -511,15 +514,12 @@
 		95D892A51EAFA156006A08C3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				95D972BD1EBC12BC001A2DB5 /* Tool */,
 				957D43661EB8F4CE00B5F236 /* JFVideoPlayView */,
 				9588AFEB1EB1C23500BE86C5 /* View */,
 				95D892A61EAFA156006A08C3 /* Category */,
 				957691591EB2333B00D6F000 /* LCConst.h */,
 				9576915A1EB2333B00D6F000 /* LCConst.m */,
-				957D43591EB85FA400B5F236 /* LCVoicePlayerTool.h */,
-				957D435A1EB85FA400B5F236 /* LCVoicePlayerTool.m */,
-				957D435C1EB883DB00B5F236 /* LCShareTool.h */,
-				957D435D1EB883DB00B5F236 /* LCShareTool.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -843,6 +843,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		95D972BD1EBC12BC001A2DB5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				95D972BE1EBC12D1001A2DB5 /* LCShareTool.h */,
+				95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */,
+				95D972C01EBC12D1001A2DB5 /* LCVoicePlayerTool.h */,
+				95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */,
+				95D972C41EBC1396001A2DB5 /* LCHTTPSessionManager.h */,
+				95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		9E8250A791CC7FD3500F90F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1004,6 +1017,7 @@
 			files = (
 				957D43771EB8F4CE00B5F236 /* JFVideoPlayView.m in Sources */,
 				9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */,
+				95D972C21EBC12D1001A2DB5 /* LCShareTool.m in Sources */,
 				957691541EB2329200D6F000 /* LCCmtDetailViewController.m in Sources */,
 				95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */,
 				9588AFE31EB1BB4400BE86C5 /* LCLoginOrRegistVC.m in Sources */,
@@ -1014,11 +1028,13 @@
 				9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */,
 				952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */,
 				9588AFDA1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.m in Sources */,
+				95D972C61EBC1396001A2DB5 /* LCHTTPSessionManager.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
 				95FCBC7E1EB37C4D0040B7F3 /* LCTagButton.m in Sources */,
 				9588AFCC1EB1A14300BE86C5 /* NSDate+Tools.m in Sources */,
 				957D43551EB814AF00B5F236 /* LCVoicePlayerView.m in Sources */,
+				95D972C31EBC12D1001A2DB5 /* LCVoicePlayerTool.m in Sources */,
 				9588AFB51EB0547500BE86C5 /* LCRecommendLeftItem.m in Sources */,
 				9588AFC11EB19E4E00BE86C5 /* LCRightTableViewCell.m in Sources */,
 				95D892A91EAFA1A5006A08C3 /* UIBarButtonItem+LCExtension.m in Sources */,
@@ -1036,7 +1052,6 @@
 				9588AFF11EB1C23500BE86C5 /* LCPushGuideView.m in Sources */,
 				95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */,
 				95D892A41EAF9256006A08C3 /* LCMainTabBarC.m in Sources */,
-				957D435E1EB883DB00B5F236 /* LCShareTool.m in Sources */,
 				95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */,
 				957D43651EB8D80100B5F236 /* LCVideoPlayerVC.m in Sources */,
 				95D892D81EAFA7F4006A08C3 /* LCMeViewController.m in Sources */,
@@ -1053,7 +1068,6 @@
 				957D43761EB8F4CE00B5F236 /* JFFullVC.m in Sources */,
 				9576913F1EB2320000D6F000 /* LCVoiceView.m in Sources */,
 				95D892B61EAFA266006A08C3 /* UIView+LCExtension.m in Sources */,
-				957D435B1EB85FA400B5F236 /* LCVoicePlayerTool.m in Sources */,
 				9588AFD61EB1A4A300BE86C5 /* LCRecTagItem.m in Sources */,
 				952531191EB3235100BB5B93 /* LCSqaureButton.m in Sources */,
 				957D43751EB8F4CE00B5F236 /* JFButton.m in Sources */,

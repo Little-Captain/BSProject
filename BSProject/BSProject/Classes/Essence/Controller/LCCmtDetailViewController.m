@@ -52,7 +52,7 @@
 @property (nonatomic, assign) NSInteger total;
 
 /** afn 任务管理者 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic, weak) LCHTTPSessionManager *manager;
 
 @end
 
@@ -61,10 +61,10 @@
 #pragma mark -
 #pragma mark 懒加载
 
-- (AFHTTPSessionManager *)manager {
+- (LCHTTPSessionManager *)manager {
     
     if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
+        _manager = [LCHTTPSessionManager sharedInstance];
     }
     
     return _manager;
@@ -73,6 +73,8 @@
 #pragma mark -
 
 - (void)dealloc {
+    
+    LogFun();
     
     // 移除通知
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -85,11 +87,11 @@
         [self.item setValue:@(0) forKey:@"cellHeight"];
     }
     
-    // 取消所有的任务
-    [self.manager invalidateSessionCancelingTasks:YES];
-    
     // 因为 UIMenuController 是共享的, 所以退出时, 要清空 menuItems
     [UIMenuController sharedMenuController].menuItems = nil;
+    
+    // 取消所有的任务
+    [self.manager.operationQueue cancelAllOperations];
 }
 
 - (void)viewDidLoad {
@@ -217,34 +219,35 @@
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paramters = @{@"a": @"dataList", @"c": @"comment", @"data_id": self.item.ID, @"hot": @"1"};
     
-    [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 实测: 当没有任何评论的时候, 服务器返回的数据解析后是一个空的数组!!!
-        if ([responseObject isKindOfClass:[NSArray class]]) {
-            [self.tableView.mj_header endRefreshing]; // 结束刷新, 然后返回
-            return;
-        }
-        
-        self.total = [responseObject[@"total"] integerValue];
-        
-        self.laststCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        self.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
-        
-        self.loadMordID = [self.laststCmt.lastObject ID];
-        
-        [self.tableView reloadData];
-        
-        [self.tableView.mj_header endRefreshing];
-        
-        if (self.laststCmt.count >= self.total) {
-            self.tableView.mj_footer.hidden = YES;
+    __weak typeof(self) weakSelf = self;
+    [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            // 实测: 当没有任何评论的时候, 服务器返回的数据解析后是一个空的数组!!!
+            if ([result isKindOfClass:[NSArray class]]) {
+                [weakSelf.tableView.mj_header endRefreshing]; // 结束刷新, 然后返回
+                return;
+            }
+            
+            weakSelf.total = [result[@"total"] integerValue];
+            
+            weakSelf.laststCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"data"]];
+            weakSelf.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"hot"]];
+            
+            weakSelf.loadMordID = [weakSelf.laststCmt.lastObject ID];
+            
+            [weakSelf.tableView reloadData];
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            
+            if (weakSelf.laststCmt.count >= weakSelf.total) {
+                weakSelf.tableView.mj_footer.hidden = YES;
+            } else {
+                weakSelf.tableView.mj_footer.hidden = NO;
+            }
         } else {
-            self.tableView.mj_footer.hidden = NO;
+            [weakSelf.tableView.mj_header endRefreshing];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.tableView.mj_header endRefreshing];
     }];
-    
 }
 
 /** 加载更多数据 */
@@ -257,26 +260,27 @@
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paramters = @{@"a": @"dataList", @"c": @"comment", @"data_id": self.item.ID, @"hot": @"1", @"lastcid": self.loadMordID};
     
-    [self.manager GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        self.total = [responseObject[@"total"] integerValue];
-        
-        self.laststCmt = [self.laststCmt arrayByAddingObjectsFromArray:[LCCmtItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]];
-        self.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
-        
-        self.loadMordID = [self.laststCmt.lastObject ID];
-        
-        [self.tableView reloadData];
-        
-        if (self.laststCmt.count >= self.total) {
-            self.tableView.mj_footer.hidden = YES;
+    __weak typeof(self) weakSelf = self;
+    [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.total = [result[@"total"] integerValue];
+            
+            weakSelf.laststCmt = [self.laststCmt arrayByAddingObjectsFromArray:[LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"data"]]];
+            weakSelf.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"hot"]];
+            
+            weakSelf.loadMordID = [self.laststCmt.lastObject ID];
+            
+            [weakSelf.tableView reloadData];
+            
+            if (weakSelf.laststCmt.count >= weakSelf.total) {
+                weakSelf.tableView.mj_footer.hidden = YES;
+            } else {
+                [weakSelf.tableView.mj_footer endRefreshing];
+            }
         } else {
-            [self.tableView.mj_footer endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.tableView.mj_footer endRefreshing];
     }];
-    
 }
 
 #pragma mark - 定位 comment 的位置

@@ -24,16 +24,22 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor clearColor];
-        
-        // 参数
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"a"] = @"square";
-        params[@"c"] = @"topic";
-        
-        // 发送请求
-        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            NSArray *squares = [LCSquareItem mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
+        [self loadDataAndCreateSquares];
+    }
+    return self;
+}
+
+- (void)loadDataAndCreateSquares {
+    
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"square";
+    params[@"c"] = @"topic";
+    
+    // 发送请求
+    [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:@"http://api.budejie.com/api/api_open.php" parameters:params completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            NSArray *squares = [LCSquareItem mj_objectArrayWithKeyValuesArray:result[@"square_list"]];
             
             // 这个算法用于过滤重复项
             NSMutableArray<NSString *> *names = [NSMutableArray array];
@@ -45,25 +51,26 @@
                     return YES;
                 }
             }];
-            
             // 创建方块
             [self createSquares:squares];
             // 执行 block 回调
             if (_createCompletedBlock) {
                 _createCompletedBlock(self);
             }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        } else {
             [SVProgressHUD showErrorWithStatus:@"数据加载失败"];
             // 执行 block 回调
             if (_createCompletedBlock) {
                 _createCompletedBlock(nil);
             }
-        }];
-    }
-    return self;
+        }
+    }];
 }
 
 - (void)createSquares:(NSArray *)squares {
+    
+    // 将原有的所有 Square 从 self 中移除
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     // 一行 4 列
     int maxCols = 4;

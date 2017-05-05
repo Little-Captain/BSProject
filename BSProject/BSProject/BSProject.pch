@@ -19,6 +19,7 @@
 #import "UIImageView+Tools.h"
 #import "UIView+LCExtension.h"
 #import "NSString+LCExtension.h"
+#import "LCHTTPSessionManager.h"
 
 #define CurrentSystemVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 

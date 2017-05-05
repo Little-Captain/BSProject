@@ -120,22 +120,21 @@
     NSString *urlStr = @"http://mobads.baidu.com/cpro/ui/mads.php";
     NSDictionary *paramters = @{@"code2": @"phcqnauGuHYkFMRquANhmgN_IauBThfqmgKsUARhIWdGULPxnz3vndtkQW08nau_I1Y1P1Rhmhwz5Hb8nBuL5HDknWRhTA_qmvqVQhGGUhI_py4MQhF1TvChmgKY5H6hmyPW5RFRHzuET1dGULnhuAN85HchUy7s5HDhIywGujY3P1n3mWb1PvDLnvF-Pyf4mHR4nyRvmWPBmhwBPjcLPyfsPHT3uWm4FMPLpHYkFh7sTA-b5yRzPj6sPvRdFhPdTWYsFMKzuykEmyfqnauGuAu95Rnsnbfknbm1QHnkwW6VPjujnBdKfWD1QHnsnbRsnHwKfYwAwiu9mLfqHbD_H70hTv6qnHn1PauVmynqnjclnj0lnj0lnj0lnj0lnj0hThYqniuVujYkFhkC5HRvnB3dFh7spyfqnW0srj64nBu9TjYsFMub5HDhTZFEujdzTLK_mgPCFMP85Rnsnbfknbm1QHnkwW6VPjujnBdKfWD1QHnsnbRsnHwKfYwAwiuBnHfdnjD4rjnvPWYkFh7sTZu-TWY1QW68nBuWUHYdnHchIAYqPHDzFhqsmyPGIZbqniuYThuYTjd1uAVxnz3vnzu9IjYzFh6qP1RsFMws5y-fpAq8uHT_nBuYmycqnau1IjYkPjRsnHb3n1mvnHDkQWD4niuVmybqniu1uy3qwD-HQDFKHakHHNn_HR7fQ7uDQ7PcHzkHiR3_RYqNQD7jfzkPiRn_wdKHQDP5HikPfRb_fNc_NbwPQDdRHzkDiNchTvwW5HnvPj0zQWndnHRvnBsdPWb4ri3kPW0kPHmhmLnqPH6LP1ndm1-WPyDvnHKBrAw9nju9PHIhmH9WmH6zrjRhTv7_5iu85HDhTvd15HDhTLTqP1RsFh4ETjYYPW0sPzuVuyYqn1mYnjc8nWbvrjTdQjRvrHb4QWDvnjDdPBuk5yRzPj6sPvRdgvPsTBu_my4bTvP9TARqnam"};
     
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    mgr.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-    [mgr GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSArray* adArray = responseObject[@"ad"];
-        if (adArray.count==0) return;
-        // 取出第一个字典
-        NSDictionary* adDict = adArray.firstObject;
-        // 字典转模型
-        self.adItem = [LCAdItem mj_objectWithKeyValues:adDict];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self skipBtnClick];
-        
-        NSLog(@"%@", error);
-        
-        NSLog(@"广告加载失败");
+    [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            NSArray* adArray = result[@"ad"];
+            if (adArray.count==0) return;
+            // 取出第一个字典
+            NSDictionary* adDict = adArray.firstObject;
+            // 字典转模型
+            self.adItem = [LCAdItem mj_objectWithKeyValues:adDict];
+        } else {
+            [self skipBtnClick];
+            
+            NSLog(@"%@", result);
+            
+            NSLog(@"广告加载失败");
+        }
     }];
 }
 

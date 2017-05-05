@@ -134,18 +134,19 @@ static NSString * const ID = @"topic";
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paramters = @{@"a": self.category, @"c": @"data", @"type": @(self.type)};
     
-    [[AFHTTPSessionManager manager] GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        self.currentMaxtime = responseObject[@"info"][@"maxtime"];
-        
-        self.topics = [LCTopicItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        [self.tableView reloadData];
-        
-        [self.tableView.mj_header endRefreshing];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.tableView.mj_header endRefreshing];
+    __weak typeof(self) weakSelf = self;
+    [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.currentMaxtime = result[@"info"][@"maxtime"];
+            
+            weakSelf.topics = [LCTopicItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            
+            [weakSelf.tableView reloadData];
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+        } else {
+            [weakSelf.tableView.mj_header endRefreshing];
+        }
     }];
 }
 
@@ -159,20 +160,20 @@ static NSString * const ID = @"topic";
     NSString *urlStr = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paramters = @{@"a": self.category, @"c": @"data", @"type": @(self.type), @"maxtime": self.currentMaxtime};
     
-    [[AFHTTPSessionManager manager] GET:urlStr parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        self.currentMaxtime = responseObject[@"info"][@"maxtime"];
-        
-        self.topics = [self.topics arrayByAddingObjectsFromArray:[LCTopicItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
-        
-        [self.tableView reloadData];
-        
-        [self.tableView.mj_footer endRefreshing];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.tableView.mj_footer endRefreshing];
+    __weak typeof(self) weakSelf = self;
+    [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.currentMaxtime = result[@"info"][@"maxtime"];
+            
+            weakSelf.topics = [weakSelf.topics arrayByAddingObjectsFromArray:[LCTopicItem mj_objectArrayWithKeyValuesArray:result[@"list"]]];
+            
+            [weakSelf.tableView reloadData];
+            
+            [weakSelf.tableView.mj_footer endRefreshing];
+        } else {
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
     }];
-    
 }
 
 #pragma mark - Table view data source
