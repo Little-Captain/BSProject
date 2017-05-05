@@ -29,6 +29,7 @@ static LCHTTPSessionManager *_instance;
     
     LCHTTPSessionManager *mgr = [super manager];
     // 设置解析响应数据支持的类型
+    mgr.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     mgr.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
     
     return mgr;

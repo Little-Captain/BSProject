@@ -19,7 +19,9 @@
 #import "UIImageView+Tools.h"
 #import "UIView+LCExtension.h"
 #import "NSString+LCExtension.h"
-#import "LCHTTPSessionManager.h"
+
+// 第三方框架
+#import <LCNetworking.h>
 
 #define CurrentSystemVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 

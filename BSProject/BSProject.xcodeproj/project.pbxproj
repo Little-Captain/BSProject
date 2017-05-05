@@ -92,7 +92,6 @@
 		95D972BC1EBB19EF001A2DB5 /* LCAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972BB1EBB19EF001A2DB5 /* LCAdItem.m */; };
 		95D972C21EBC12D1001A2DB5 /* LCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */; };
 		95D972C31EBC12D1001A2DB5 /* LCVoicePlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */; };
-		95D972C61EBC1396001A2DB5 /* LCHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */; };
 		95F666C51EB48DBC009F7BB9 /* LCSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */; };
 		95FCBC691EB334050040B7F3 /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FCBC681EB334050040B7F3 /* LCWebViewController.m */; };
 		95FCBC6B1EB337600040B7F3 /* LCWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */; };
@@ -253,8 +252,6 @@
 		95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShareTool.m; sourceTree = "<group>"; };
 		95D972C01EBC12D1001A2DB5 /* LCVoicePlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVoicePlayerTool.h; sourceTree = "<group>"; };
 		95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCVoicePlayerTool.m; sourceTree = "<group>"; };
-		95D972C41EBC1396001A2DB5 /* LCHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHTTPSessionManager.h; sourceTree = "<group>"; };
-		95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHTTPSessionManager.m; sourceTree = "<group>"; };
 		95F666C31EB48DBC009F7BB9 /* LCSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSettingVC.h; sourceTree = "<group>"; };
 		95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSettingVC.m; sourceTree = "<group>"; };
 		95FCBC671EB334050040B7F3 /* LCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
@@ -850,8 +847,6 @@
 				95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */,
 				95D972C01EBC12D1001A2DB5 /* LCVoicePlayerTool.h */,
 				95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */,
-				95D972C41EBC1396001A2DB5 /* LCHTTPSessionManager.h */,
-				95D972C51EBC1396001A2DB5 /* LCHTTPSessionManager.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1028,7 +1023,6 @@
 				9588AFB91EB087A400BE86C5 /* LCLeftTableViewCell.m in Sources */,
 				952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */,
 				9588AFDA1EB1A4BA00BE86C5 /* LCRecTagTableViewCell.m in Sources */,
-				95D972C61EBC1396001A2DB5 /* LCHTTPSessionManager.m in Sources */,
 				95D8928B1EAF8BD6006A08C3 /* AppDelegate.m in Sources */,
 				957691481EB2325300D6F000 /* LCCmtHeaderView.m in Sources */,
 				95FCBC7E1EB37C4D0040B7F3 /* LCTagButton.m in Sources */,

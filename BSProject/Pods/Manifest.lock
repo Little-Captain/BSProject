@@ -16,6 +16,8 @@ PODS:
     - AFNetworking/NSURLSession
   - Bugly (2.4.8)
   - DACircularProgress (2.3.1)
+  - LCNetworking (1.1.0):
+    - AFNetworking
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
@@ -46,9 +48,9 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
-  - AFNetworking
   - Bugly
   - DACircularProgress
+  - LCNetworking (~> 1.1.0)
   - Masonry
   - MJExtension
   - MJRefresh
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: da3c02408c14838d498429320545a8e439392978
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  LCNetworking: 83a1898d8450de090514cb31b845722623e94e70
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -75,6 +78,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 4c32be584cd7fb13974ce4134263c7b37e881006
+PODFILE CHECKSUM: 3d3e3572dfcf9b88832aa7706635a014d01e09c3
 
 COCOAPODS: 1.2.0

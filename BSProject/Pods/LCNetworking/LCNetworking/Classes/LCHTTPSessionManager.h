@@ -6,8 +6,7 @@
 //  Copyright © 2017 Liu-Mac. All rights reserved.
 //
 
-#import <AFNetworking.h>
-
+#import <AFNetworking/AFNetworking.h>
 
 /**
  请求方式

@@ -6,7 +6,7 @@ target 'BSProject' do
   # use_frameworks!
 
   # Pods for BSProject
-    pod 'AFNetworking'
+    pod 'LCNetworking', '~>1.1.0'
     pod 'pop'
     pod 'Masonry'
     pod 'MJRefresh'
