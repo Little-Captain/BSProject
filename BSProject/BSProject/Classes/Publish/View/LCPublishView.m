@@ -49,20 +49,14 @@ static UIWindow *window;
     // 动画完全完成时, 才能交互
     self.userInteractionEnabled = NO;
     
-    UIImageView *imageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
-    CGFloat centerX = ScreenW * 0.51;
-    CGFloat centerY = ScreenH * 0.2;
-    imageV.center = CGPointMake(centerX, centerY - ScreenH);
-    [self addSubview:imageV];
-    
     NSArray *picNames = @[
-                         @"publish-video",
-                         @"publish-audio",
-                         @"publish-picture",
-                         @"publish-text",
-                         @"publish-offline",
-                         @"publish-review"
-                         ];
+                          @"publish-video",
+                          @"publish-audio",
+                          @"publish-picture",
+                          @"publish-text",
+                          @"publish-offline",
+                          @"publish-review"
+                          ];
     NSArray *titles = @[
                         @"视频",
                         @"音频",
@@ -72,16 +66,27 @@ static UIWindow *window;
                         @"点赞"
                         ];
     
-    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-    animation.springSpeed = 15;
-    animation.springBounciness = 15;
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerY)];
-    animation.beginTime = CACurrentMediaTime() + (picNames.count + 1) * 0.2;
-    animation.completionBlock = ^(POPAnimation *anim, BOOL finished){
-        self.userInteractionEnabled = YES; // 这时最后一个动画的控件, 当这个动画完成时, 我们就允许用户交互了
-    };
-    [imageV pop_addAnimation:animation forKey:nil];
+    // 添加 slogan 控件
+    [self addSubview:({
+        UIImageView *imageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+        CGFloat centerX = ScreenW * 0.51;
+        CGFloat centerY = ScreenH * 0.2;
+        imageV.center = CGPointMake(centerX, centerY - ScreenH);
+        [imageV pop_addAnimation:({
+            POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            animation.springSpeed = 15;
+            animation.springBounciness = 15;
+            animation.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerY)];
+            animation.beginTime = CACurrentMediaTime() + (picNames.count + 1) * 0.2;
+            animation.completionBlock = ^(POPAnimation *anim, BOOL finished){
+                self.userInteractionEnabled = YES; // 这时最后一个动画的控件, 当这个动画完成时, 我们就允许用户交互了
+            };
+            animation;
+        }) forKey:nil];
+        imageV;
+    })];
     
+    // 添加所有的按钮控件
     NSInteger row = 2; // 行
     NSInteger col = 3; // 列
     CGFloat btnW = 72.0;
@@ -90,24 +95,27 @@ static UIWindow *window;
     CGFloat YStart = (ScreenH - btnH * 2) / row;
     CGFloat btnMargin = (ScreenW - btnW * col - edgeMargin * (col - 1)) / (col - 1);
     for (int i = 0; i < picNames.count; ++i) {
-        LCVerticalBtn *btn = [LCVerticalBtn buttonWithType:UIButtonTypeCustom];
-        CGFloat btnX = edgeMargin + (btnW + btnMargin) * (i % col);
-        CGFloat btnY = YStart + (i / col) * btnH;
-        btn.frame = CGRectMake(btnX, btnY - ScreenH, btnW, btnH);
-        [btn setImage:[UIImage imageNamed:picNames[i]] forState:UIControlStateNormal];
-        [btn setTitle:titles[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = i;
-        [self addSubview:btn];
-        POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-        animation.springSpeed = 15;
-        animation.springBounciness = 15;
-        animation.toValue = [NSValue valueWithCGRect:CGRectMake(btnX, btnY, btnW, btnH)];
-        animation.beginTime = CACurrentMediaTime() + (picNames.count - i) * 0.25;
-        [btn pop_addAnimation:animation forKey:nil];
+        [self addSubview:({
+            LCVerticalBtn *button = [LCVerticalBtn buttonWithType:UIButtonTypeCustom];
+            CGFloat btnX = edgeMargin + (btnW + btnMargin) * (i % col);
+            CGFloat btnY = YStart + (i / col) * btnH;
+            button.frame = CGRectMake(btnX, btnY - ScreenH, btnW, btnH);
+            [button setImage:[UIImage imageNamed:picNames[i]] forState:UIControlStateNormal];
+            [button setTitle:titles[i] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = i;
+            [button pop_addAnimation:({
+                POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+                animation.springSpeed = 15;
+                animation.springBounciness = 15;
+                animation.toValue = [NSValue valueWithCGRect:CGRectMake(btnX, btnY, btnW, btnH)];
+                animation.beginTime = CACurrentMediaTime() + (picNames.count - i) * 0.25;
+                animation;
+            }) forKey:nil];
+            button;
+        })];
     }
-    
 }
 
 // 当用户点击了按钮我们要做两件事
@@ -172,17 +180,18 @@ static UIWindow *window;
     NSInteger count = self.subviews.count;
     for (int index = 2; index < count; ++index) {
         UIView *view = self.subviews[index];
-        POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewFrame];
-        animation.toValue = [NSValue valueWithCGRect:CGRectMake(view.fX, view.fY + ScreenH, view.fWidth, view.fHeight)];
-        animation.beginTime = CACurrentMediaTime() + (count - index) * 0.2;
-        [view pop_addAnimation:animation forKey:nil];
-        if (index == 2) {
-            animation.completionBlock = ^(POPAnimation *anim, BOOL finished){
-                // 这种写法很简洁, 但是不好理解
-                (!completionBlock) ? : completionBlock();
-                window = nil;
-            };
-        }
+        [view pop_addAnimation:({
+            POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewFrame];
+            animation.toValue = [NSValue valueWithCGRect:CGRectMake(view.fX, view.fY + ScreenH, view.fWidth, view.fHeight)];
+            animation.beginTime = CACurrentMediaTime() + (count - index) * 0.2;
+            if (index == 2) {
+                animation.completionBlock = ^(POPAnimation *anim, BOOL finished){
+                    (!completionBlock) ? : completionBlock();
+                    window = nil;
+                };
+            }
+            animation;
+        }) forKey:nil];
     }
     
 }

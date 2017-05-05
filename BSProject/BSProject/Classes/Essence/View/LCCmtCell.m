@@ -63,10 +63,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    UIImageView *imageV = [[UIImageView alloc] init];
-    imageV.image = [UIImage imageOfResizableWithName:@"mainCellBackground"];
-    self.backgroundView = imageV;
+    
+    self.backgroundView = ({
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageOfResizableWithName:@"mainCellBackground"];
+        imageView;
+    });
 }
 
 #pragma mark - 重写响应者相关方法

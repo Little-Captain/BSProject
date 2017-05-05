@@ -38,10 +38,13 @@
 - (UILabel *)placeholderLabel {
     
     if (!_placeholderLabel) {
-        UILabel *placeholderLabel = [UILabel new];
-        placeholderLabel.numberOfLines = 0;
-        placeholderLabel.fX = 4;
-        placeholderLabel.fY = 7;
+        UILabel *placeholderLabel = ({
+            UILabel *label = [UILabel new];
+            label.numberOfLines = 0;
+            label.fX = 4;
+            label.fY = 7;
+            label;
+        });
         [self addSubview:placeholderLabel];
         _placeholderLabel = placeholderLabel;
     }

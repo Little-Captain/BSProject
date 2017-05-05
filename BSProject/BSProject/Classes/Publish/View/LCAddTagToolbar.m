@@ -35,11 +35,14 @@
     [super awakeFromNib];
     
     // 添加一个加号按钮
-    UIButton *addButton = [[UIButton alloc] init];
-    [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [addButton setImage:[UIImage imageNamed:@"tag_add_icon"] forState:UIControlStateNormal];
-    addButton.fSize = addButton.currentImage.size;
-    addButton.fX = LCTagMargin;
+    UIButton *addButton = ({
+        UIButton *button = [[UIButton alloc] init];
+        [button addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [button setImage:[UIImage imageNamed:@"tag_add_icon"] forState:UIControlStateNormal];
+        button.fSize = button.currentImage.size;
+        button.fX = LCTagMargin;
+        button;
+    });
     [self.topView addSubview:addButton];
     self.addButton = addButton;
     
@@ -48,20 +51,20 @@
 
 - (void)addButtonClick {
     
-    LCAddTagVC *vc = [[LCAddTagVC alloc] init];
-    
-    __weak typeof(self) weakSelf = self;
-    [vc setTagsBlock:^(NSArray *tags) {
-        
-        [weakSelf createTagLabels:tags];
-    }];
-    vc.tags = [self.tagLabels valueForKeyPath:@"text"];
     UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
     // a (modal)--> b
     // a 的 presentedViewController == b
     // b 的 presentingViewController == a
     UINavigationController *nav = (UINavigationController *)root.presentedViewController;
-    [nav pushViewController:vc animated:YES];
+    [nav pushViewController:({
+        LCAddTagVC *vc = [[LCAddTagVC alloc] init];
+        vc.tags = [self.tagLabels valueForKeyPath:@"text"];
+        __weak typeof(self) weakSelf = self;
+        [vc setTagsBlock:^(NSArray *tags) {
+            [weakSelf createTagLabels:tags];
+        }];
+        vc;
+    }) animated:YES];
 }
 
 /**
@@ -73,39 +76,39 @@
     [self.tagLabels removeAllObjects];
     
     for (int i = 0; i<tags.count; i++) {
-        UILabel *tagLabel = [[UILabel alloc] init];
-        [self.tagLabels addObject:tagLabel];
-        tagLabel.backgroundColor = LCTagBg;
-        tagLabel.textAlignment = NSTextAlignmentCenter;
-        tagLabel.text = tags[i];
-        tagLabel.font = LCTagFont;
-        // 应该要先设置文字和字体后，再进行计算
-        [tagLabel sizeToFit];
-        tagLabel.fWidth += 2 * LCTagMargin;
-        tagLabel.fHeight = LCTagH;
-        tagLabel.textColor = [UIColor whiteColor];
-        [self.topView addSubview:tagLabel];
-        
-        // 设置位置
-        if (i == 0) { // 最前面的标签
-            
-            tagLabel.fX = 0;
-            tagLabel.fY = 0;
-        } else { // 其他标签
-            
-            UILabel *lastTagLabel = self.tagLabels[i - 1];
-            // 计算当前行左边的宽度
-            CGFloat leftWidth = CGRectGetMaxX(lastTagLabel.frame) + LCTagMargin;
-            // 计算当前行右边的宽度
-            CGFloat rightWidth = self.topView.fWidth - leftWidth;
-            if (rightWidth >= tagLabel.fWidth) { // 按钮显示在当前行
-                tagLabel.fY = lastTagLabel.fY;
-                tagLabel.fX = leftWidth;
-            } else { // 按钮显示在下一行
-                tagLabel.fX = 0;
-                tagLabel.fY = CGRectGetMaxY(lastTagLabel.frame) + LCTagMargin;
+        UILabel *tagLabel = ({
+            UILabel *label = [[UILabel alloc] init];
+            label.backgroundColor = LCTagBg;
+            label.textAlignment = NSTextAlignmentCenter;
+            label.text = tags[i];
+            label.font = LCTagFont;
+            // 应该要先设置文字和字体后，再进行计算
+            [label sizeToFit];
+            label.fWidth += 2 * LCTagMargin;
+            label.fHeight = LCTagH;
+            label.textColor = [UIColor whiteColor];
+            // 设置位置
+            if (i == 0) { // 最前面的标签
+                label.fX = 0;
+                label.fY = 0;
+            } else { // 其他标签                
+                UILabel *previousLabel = self.tagLabels[i - 1];
+                // 计算当前行左边的宽度
+                CGFloat leftWidth = CGRectGetMaxX(previousLabel.frame) + LCTagMargin;
+                // 计算当前行右边的宽度
+                CGFloat rightWidth = self.topView.fWidth - leftWidth;
+                if (rightWidth >= label.fWidth) { // 按钮显示在当前行
+                    label.fY = previousLabel.fY;
+                    label.fX = leftWidth;
+                } else { // 按钮显示在下一行
+                    label.fX = 0;
+                    label.fY = CGRectGetMaxY(previousLabel.frame) + LCTagMargin;
+                }
             }
-        }
+            label;
+        });
+        [self.topView addSubview:tagLabel];
+        [self.tagLabels addObject:tagLabel];
     }
 
     // 最后一个标签

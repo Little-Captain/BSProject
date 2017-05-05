@@ -88,22 +88,24 @@
     
     // 如果childViewControllers的个数大于0, 代表根控制器已经push了
     if (self.childViewControllers.count > 0) { // 非根控制器
-        // 这里定制左边的按钮, 让其成为返回按钮
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
-        [btn setTitle:@"返回" forState:UIControlStateNormal];
-        [btn setTitle:@"返回" forState:UIControlStateHighlighted];
-        // 调整content的内容边距, 这样可以让btn看上去左移了
-        // 这样调整后的按钮外部的内容是可以点击的
-        // 调整为-11的原因是, 开始我们的按钮距离左边的距离是16, 这样可以让按钮看上去距离左边为5
-        btn.contentEdgeInsets = UIEdgeInsetsMake(0, -11, 0, 0);
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-        [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        [btn sizeToFit];
         // 这样定制了左边按钮在控制器的view加载之前, 我们可以在控制器的loadView中进行重新定制左边按钮
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:({
+            // 这里定制左边的按钮, 让其成为返回按钮
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+            [btn setTitle:@"返回" forState:UIControlStateNormal];
+            [btn setTitle:@"返回" forState:UIControlStateHighlighted];
+            // 调整content的内容边距, 这样可以让btn看上去左移了
+            // 这样调整后的按钮外部的内容是可以点击的
+            // 调整为-11的原因是, 开始我们的按钮距离左边的距离是16, 这样可以让按钮看上去距离左边为5
+            btn.contentEdgeInsets = UIEdgeInsetsMake(0, -11, 0, 0);
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+            [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+            [btn sizeToFit];
+            btn;
+        })];
         
         // 如果自定定制了左边的返回按钮, 就没有系统自带的左划返回功能了!!!
         

@@ -78,15 +78,12 @@
     }
     
     return _fullVc;
-    
 }
 
 + (instancetype)videoPlayView {
     
     // .bundle .framework 都是 bundle!!!
-    JFVideoPlayView *videoPlayView = [[NSBundle videoPlayerFramework] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
-    
-    return videoPlayView;
+    return [[NSBundle videoPlayerFramework] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
 }
 
 - (void)awakeFromNib {

@@ -78,20 +78,22 @@
     CGFloat buttonW = ScreenW / maxCols;
     CGFloat buttonH = buttonW;
     for (int i = 0; i<squares.count; ++i) {
-        // 创建按钮
-        LCSqaureButton *button = [LCSqaureButton buttonWithType:UIButtonTypeCustom];
-        // 监听点击
-        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        // 传递模型
-        button.square = squares[i];
-        [self addSubview:button];
-        // 计算frame
-        int col = i % maxCols;
-        int row = i / maxCols;
-        button.fX      = col * buttonW;
-        button.fY      = row * buttonH;
-        button.fWidth  = buttonW;
-        button.fHeight = buttonH;
+        [self addSubview:({
+            // 创建按钮
+            LCSqaureButton *button = [LCSqaureButton buttonWithType:UIButtonTypeCustom];
+            // 监听点击
+            [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+            // 传递模型
+            button.square = squares[i];
+            // 计算frame
+            int col = i % maxCols;
+            int row = i / maxCols;
+            button.fX      = col * buttonW;
+            button.fY      = row * buttonH;
+            button.fWidth  = buttonW;
+            button.fHeight = buttonH;
+            button;
+        })];
     }
     // 总页数 == (总个数 - 1) / 每页最大数 + 1
     // 总行数 == (总个数 - 1) / 每页最大数 + 1
@@ -106,14 +108,17 @@
     // 如果不是网址, 就直接返回
     if (![button.square.url hasPrefix:@"http"]) return;
     
-    LCWebViewController *web = [[LCWebViewController alloc] init];
-    web.url = button.square.url;
-    web.title = button.square.name;
-    
-    // 取出当前的导航控制器
-    UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    UINavigationController *nav = (UINavigationController *)tabBarVc.selectedViewController;
-    [nav pushViewController:web animated:YES];
+    // 取出 tab bar 控制器
+    UITabBarController *tabBarC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    // 取出 导航控制器
+    UINavigationController *nav = (UINavigationController *)tabBarC.selectedViewController;
+    // push 网页控制器
+    [nav pushViewController:({
+        LCWebViewController *webVC = [[LCWebViewController alloc] init];
+        webVC.url = button.square.url;
+        webVC.title = button.square.name;
+        webVC;
+    }) animated:YES];
 }
 
 @end

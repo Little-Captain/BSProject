@@ -39,12 +39,17 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    WKWebView *webView = [[WKWebView alloc] init];
-    // 通过 KVO 监听网页加载进度
-    [webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    self.webView = webView;
+    WKWebView *webView = ({
+        WKWebView *webView = [[WKWebView alloc] init];
+        // 通过 KVO 监听网页加载进度
+        [webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+        webView.navigationDelegate = self;
+        webView;
+    });
     [self.view insertSubview:webView atIndex:0];
-    webView.navigationDelegate = self;
+    self.webView = webView;
+    
+    // 布局
     [webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_progressV.mas_bottom);
         make.bottom.equalTo(_toolBar.mas_top);

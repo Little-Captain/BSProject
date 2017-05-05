@@ -24,9 +24,11 @@
     NSString *oldVersion = [[NSUserDefaults standardUserDefaults] valueForKey:versionKey];
     
     if (currentVersion != oldVersion) {
-        LCPushGuideView *pushGuideView = [LCPushGuideView pushGuideView];
-        pushGuideView.frame = KeyWindow.bounds;
-        [KeyWindow addSubview:pushGuideView];
+        [KeyWindow addSubview:({
+            LCPushGuideView *pushGuideView = [LCPushGuideView pushGuideView];
+            pushGuideView.frame = KeyWindow.bounds;
+            pushGuideView;
+        })];
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:versionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }

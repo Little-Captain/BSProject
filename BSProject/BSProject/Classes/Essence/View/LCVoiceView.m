@@ -47,9 +47,11 @@
 
 - (void)setUpUI {
     
-    LCVoicePlayerView *voicePlayerView = [LCVoicePlayerView viewFromXib];
-    self.voicePlayerView = voicePlayerView;
-    voicePlayerView.hidden = YES;
+    LCVoicePlayerView *voicePlayerView = ({
+        LCVoicePlayerView *voicePlayerView = [LCVoicePlayerView viewFromXib];
+        voicePlayerView.hidden = YES;
+        voicePlayerView;
+    });
     [self addSubview:voicePlayerView];
     __weak typeof(voicePlayerView) weakVoicePlayerView = voicePlayerView;
     [voicePlayerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,13 +60,16 @@
         make.bottom.equalTo(weakVoicePlayerView.superview);
         make.height.equalTo(@(65));
     }];
+    self.voicePlayerView = voicePlayerView;
 }
 
-- (void)pictureClick {
+- (void)pictureClick {   
     
-    LCPictureViewController *pictureVC = [[LCPictureViewController alloc] init];
-    pictureVC.topicItem = self.item;
-    [KeyWindow.rootViewController presentViewController:pictureVC animated:YES completion:nil];
+    [KeyWindow.rootViewController presentViewController:({
+        LCPictureViewController *pictureVC = [[LCPictureViewController alloc] init];
+        pictureVC.topicItem = self.item;
+        pictureVC;
+    }) animated:YES completion:nil];
     
 }
 

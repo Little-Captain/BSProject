@@ -40,15 +40,16 @@
     if (!adItem.w) return;
     // 计算高度
     CGFloat h = adItem.h * ScreenW / adItem.w;
-    UIImageView* adImageView = [NSClassFromString(@"YYAnimatedImageView") new];
-    adImageView.frame = CGRectMake(0, 0, ScreenW, h);
-    adImageView.userInteractionEnabled = YES;
-    [self.view insertSubview:adImageView atIndex:0];
-    [adImageView yy_setImageWithURL:[NSURL URLWithString:adItem.w_picurl] options:kNilOptions];
-    
-    // 给 adImageView 增加一个点击手势
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAdImageV)];
-    [adImageView addGestureRecognizer:tap];
+    [self.view insertSubview:({
+        UIImageView* imageView = [NSClassFromString(@"YYAnimatedImageView") new];
+        imageView.frame = CGRectMake(0, 0, ScreenW, h);
+        imageView.userInteractionEnabled = YES;
+        // 给 adImageView 增加一个点击手势
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAdImageV)];
+        [imageView addGestureRecognizer:tap];
+        [imageView yy_setImageWithURL:[NSURL URLWithString:adItem.w_picurl] options:kNilOptions];
+        imageView;
+    }) atIndex:0];    
     
     // 启动定时器
     [self.timer fire];

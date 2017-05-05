@@ -45,9 +45,12 @@
 
 - (void)setupToolbar {
     
-    LCAddTagToolbar *toolbar = [LCAddTagToolbar viewFromXib];
-    toolbar.fWidth = self.view.fWidth;
-    toolbar.fY = self.view.fHeight - toolbar.fHeight;
+    LCAddTagToolbar *toolbar = ({
+        LCAddTagToolbar *toolbar = [LCAddTagToolbar viewFromXib];
+        toolbar.fWidth = self.view.fWidth;
+        toolbar.fY = self.view.fHeight - toolbar.fHeight;
+        toolbar;
+    });
     [self.view addSubview:toolbar];
     self.toolbar = toolbar;
     
@@ -56,10 +59,13 @@
 
 - (void)setupTextView {
     
-    LCPlaceholderTextView *textView = [[LCPlaceholderTextView alloc] init];
-    textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
-    textView.frame = self.view.bounds;
-    textView.delegate = self;
+    LCPlaceholderTextView *textView = ({
+        LCPlaceholderTextView *textView = [[LCPlaceholderTextView alloc] init];
+        textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
+        textView.frame = self.view.bounds;
+        textView.delegate = self;
+        textView;
+    });
     [self.view addSubview:textView];
     self.textView = textView;
 }

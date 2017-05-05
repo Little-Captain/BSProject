@@ -22,21 +22,19 @@
     
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         
-        self.contentView.backgroundColor = BSGlobalColor;
-        
-        UILabel *label = [[UILabel alloc] init];
-        
-        label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        
-        label.fX = EssenceCellMargin;
-        label.fWidth = ScreenW - 2 * EssenceCellMargin;
-        
-        label.textColor = LCColor(67, 67, 67);
-        label.font = [UIFont systemFontOfSize:14.0];
-        
+        UILabel *label = ({
+            UILabel *label = [[UILabel alloc] init];
+            label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            label.fX = EssenceCellMargin;
+            label.fWidth = ScreenW - 2 * EssenceCellMargin;
+            label.textColor = LCColor(67, 67, 67);
+            label.font = [UIFont systemFontOfSize:14.0];
+            label;
+        });        
+        [self.contentView addSubview:label];
         self.label = label;
         
-        [self.contentView addSubview:label];
+        self.contentView.backgroundColor = BSGlobalColor;
     }
     
     return self;

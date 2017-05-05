@@ -52,19 +52,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
 
-    cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", _totalCost / 1000.0 / 1000.0];
-    // 这个 getSize 比较慢
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    return cell;
+    return ({
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.textLabel.text = [@"清理缓存" stringByAppendingFormat:@"(已使用%.2fM)", _totalCost / 1000.0 / 1000.0];
+        // 这个 getSize 比较慢
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell;
+    });
 }
 
 #pragma mark - Table view delegate

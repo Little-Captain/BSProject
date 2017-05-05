@@ -39,11 +39,16 @@ static UIWindow *_videoWindow;
     
     if (!_videoWindow) {
         
-        _videoWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        _videoWindow.windowLevel = UIWindowLevelAlert;
-        LCVideoPlayerVC *videoVC = [self new];
-        videoVC.videoPlayView.containerViewController = videoVC;
-        _videoWindow.rootViewController = videoVC;
+        _videoWindow = ({
+            UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            window.windowLevel = UIWindowLevelAlert;
+            window.rootViewController = ({
+                LCVideoPlayerVC *videoVC = [self new];
+                videoVC.videoPlayView.containerViewController = videoVC;
+                videoVC;
+            });
+            window;
+        });
     }
     LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
     rootVC.videoPlayerViewFrame = videoFrame;
@@ -80,11 +85,13 @@ static UIWindow *_videoWindow;
 
 - (void)setUpUI {
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-    btn.frame = CGRectMake(10, 20, [btn currentImage].size.width * 2, [btn currentImage].size.height * 2);
-    [self.view addSubview:btn];
+    [self.view addSubview:({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [button setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
+        button.frame = CGRectMake(10, 20, [button currentImage].size.width * 2, [button currentImage].size.height * 2);
+        button;
+    })];
 }
 
 - (void)closeBtnClick {

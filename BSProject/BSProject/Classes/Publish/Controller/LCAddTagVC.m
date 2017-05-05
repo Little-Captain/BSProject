@@ -44,16 +44,19 @@
     
     if (!_addButton) {
         
-        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        addButton.fWidth = self.contentView.fWidth;
-        addButton.fHeight = 35;
-        [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        addButton.titleLabel.font = LCTagFont;
-        addButton.contentEdgeInsets = UIEdgeInsetsMake(0, LCTagMargin, 0, LCTagMargin);
-        // 让按钮内部的文字和图片都左对齐
-        addButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        addButton.backgroundColor = LCTagBg;
+        UIButton *addButton = ({
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.fWidth = self.contentView.fWidth;
+            button.fHeight = 35;
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            button.titleLabel.font = LCTagFont;
+            button.contentEdgeInsets = UIEdgeInsetsMake(0, LCTagMargin, 0, LCTagMargin);
+            // 让按钮内部的文字和图片都左对齐
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            button.backgroundColor = LCTagBg;
+            button;
+        });
         [self.contentView addSubview:addButton];
         _addButton = addButton;
     }
@@ -82,28 +85,33 @@
 
 - (void)setupContentView {
     
-    UIView *contentView = [[UIView alloc] init];
-    contentView.fX = LCTagMargin;
-    contentView.fWidth = self.view.fWidth - 2 * contentView.fX;
-    contentView.fY = 64 + LCTagMargin;
-    contentView.fHeight = ScreenH;
+    UIView *contentView = ({
+        UIView *view = [[UIView alloc] init];
+        view.fX = LCTagMargin;
+        view.fWidth = self.view.fWidth - 2 * view.fX;
+        view.fY = 64 + LCTagMargin;
+        view.fHeight = ScreenH;
+        view;
+    });
     [self.view addSubview:contentView];
     self.contentView = contentView;
 }
 
 - (void)setupTextFiled {
     
-    __weak typeof(self) weakSelf = self;
-    LCTagTextField *textField = [[LCTagTextField alloc] init];
-    textField.fWidth = self.contentView.fWidth;
-    textField.deleteBlock = ^{
-        if (weakSelf.textField.hasText) return;
-        
-        [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
-    };
-    textField.delegate = self;
-    [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
-    [textField becomeFirstResponder];
+    LCTagTextField *textField = ({
+        LCTagTextField *textField = [[LCTagTextField alloc] init];
+        textField.fWidth = self.contentView.fWidth;
+        textField.delegate = self;
+        [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
+        [textField becomeFirstResponder];
+        __weak typeof(self) weakSelf = self;
+        textField.deleteBlock = ^{
+            if (weakSelf.textField.hasText) return;
+            [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
+        };
+        textField;
+    });
     [self.contentView addSubview:textField];
     self.textField = textField;
 }
@@ -171,9 +179,12 @@
     }
     
     // 添加一个"标签按钮"
-    LCTagButton *tagButton = [LCTagButton buttonWithType:UIButtonTypeCustom];
-    [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
+    LCTagButton *tagButton = ({
+        LCTagButton *button = [LCTagButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:self.textField.text forState:UIControlStateNormal];
+        button;
+    });
     [self.contentView addSubview:tagButton];
     [self.tagButtons addObject:tagButton];
     

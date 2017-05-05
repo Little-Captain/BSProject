@@ -48,10 +48,11 @@
 
 - (void)pictureClick {
     
-    LCPictureViewController *pictureVC = [[LCPictureViewController alloc] init];
-    pictureVC.topicItem = self.topicItem;
-    [KeyWindow.rootViewController presentViewController:pictureVC animated:YES completion:nil];
-    
+    [KeyWindow.rootViewController presentViewController:({
+        LCPictureViewController *pictureVC = [[LCPictureViewController alloc] init];
+        pictureVC.topicItem = self.topicItem;
+        pictureVC;
+    }) animated:YES completion:nil];
 }
 
 - (void)setTopicItem:(LCTopicItem *)topicItem {

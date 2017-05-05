@@ -18,16 +18,16 @@ static UIWindow *window_;
 
 + (void)setUpWindow {
     
-    window_ = [[UIWindow alloc] init];
-    window_.frame = CGRectMake(0, 20, ScreenW, TopWindowH);
-    window_.backgroundColor = [UIColor clearColor];
-    window_.windowLevel = UIWindowLevelAlert;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTopWindow)];
-    
-    [window_ addGestureRecognizer:tap];
-    
-    window_.rootViewController = [[UIViewController alloc] init];    
+    window_ = ({
+        UIWindow *window = [[UIWindow alloc] init];
+        window_.frame = CGRectMake(0, 20, ScreenW, TopWindowH);
+        window_.backgroundColor = [UIColor clearColor];
+        window_.windowLevel = UIWindowLevelAlert;
+        window_.rootViewController = [[UIViewController alloc] init];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTopWindow)];
+        [window_ addGestureRecognizer:tap];
+        window;
+    });
 }
 
 + (void)show {

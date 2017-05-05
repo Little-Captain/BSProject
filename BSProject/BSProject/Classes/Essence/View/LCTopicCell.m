@@ -105,10 +105,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    UIImageView *imageV = [[UIImageView alloc] init];
-    imageV.image = [UIImage imageOfResizableWithName:@"mainCellBackground"];
-    self.backgroundView = imageV;
+    
+    self.backgroundView = ({
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageOfResizableWithName:@"mainCellBackground"];
+        imageView;
+    });
 }
 
 - (void)setItem:(LCTopicItem *)item {
@@ -217,29 +219,20 @@
 
 - (IBAction)followBtn {
     
-    UIAlertController *alter = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *report = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showSuccessWithStatus:@"举报成功!"];
-    }];
-    
-    UIAlertAction *share = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        !_sharedBlock ? : _sharedBlock(self.item);
-    }];
-    
-    UIAlertAction *follow = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-    
-    [alter addAction:report];
-    [alter addAction:share];
-    [alter addAction:follow];
-    [alter addAction:cancel];
-    
-    [KeyWindow.rootViewController presentViewController:alter animated:YES completion:nil];
+    [KeyWindow.rootViewController presentViewController:({
+        UIAlertController *alter = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        [alter addAction:[UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [SVProgressHUD showSuccessWithStatus:@"举报成功!"];
+        }]];
+        [alter addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            !_sharedBlock ? : _sharedBlock(self.item);
+        }]];
+        [alter addAction:[UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
+        }]];
+        [alter addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        alter;
+    }) animated:YES completion:nil];
 }
 
 @end

@@ -185,15 +185,17 @@ static NSString * const ID = @"topic";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LCTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    LCTopicItem *item = self.topics[indexPath.row];
-    cell.item = item;
-    [cell setSharedBlock:^(LCTopicItem *item){
-        [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:self];
-    }];
-    
-    return cell;
+    return ({
+        LCTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        
+        LCTopicItem *item = self.topics[indexPath.row];
+        cell.item = item;
+        __weak typeof(self) weakSelf = self;
+        [cell setSharedBlock:^(LCTopicItem *item){
+            [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:weakSelf];
+        }];
+        cell;
+    });
 }
 
 #pragma mark - Table view delegate

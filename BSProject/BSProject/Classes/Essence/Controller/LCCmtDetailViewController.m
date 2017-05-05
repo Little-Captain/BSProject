@@ -152,25 +152,28 @@
         [self.item setValue:@(0) forKey:@"cellHeight"];
     }
     
-    // 为header包装一层view
-    UIView *header = [[UIView alloc] init];
-    
-    header.backgroundColor = BSGlobalColor;
-    header.fSize = CGSizeMake(ScreenW, self.item.cellHeight + EssenceCellMargin);
-    
-    LCTopicCell *cell = [LCTopicCell topicCell];
-    self.headerCell = cell;
-    cell.item = self.item;
-    cell.fSize = CGSizeMake(ScreenW, self.item.cellHeight);
-    [cell setSharedBlock:^(LCTopicItem *item){
-        [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:self];
-    }];
-    
-    // 将 cell 加入 header
-    [header addSubview:cell];
-    
     // 设置 table view 的 header
-    self.tableView.tableHeaderView = header;
+    self.tableView.tableHeaderView = ({
+        // 为header包装一层view
+        UIView *header = [[UIView alloc] init];
+        
+        header.backgroundColor = BSGlobalColor;
+        header.fSize = CGSizeMake(ScreenW, self.item.cellHeight + EssenceCellMargin);
+        
+        // 将 cell 加入 header
+        [header addSubview:({
+            LCTopicCell *cell = [LCTopicCell topicCell];
+            cell.item = self.item;
+            cell.fSize = CGSizeMake(ScreenW, self.item.cellHeight);
+            __weak typeof(self) weakSelf = self;
+            [cell setSharedBlock:^(LCTopicItem *item){
+                [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:weakSelf];
+            }];
+            self.headerCell = cell;
+            cell;
+        })];
+        header;
+    });
 }
 
 /** 设置刷新控件 */
@@ -354,11 +357,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LCCmtCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cmtcell"];
     
-    cell.item = [self itemWithIndexPath:indexPath];
     
-    return  cell;
+    return  ({
+        LCCmtCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cmtcell"];
+        cell.item = [self itemWithIndexPath:indexPath];
+        cell;
+    });
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -368,15 +373,16 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    LCCmtHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"headerView"];
-    
-    if (section == 0) {
-        headerView.title = self.hotCmt.count ? @"最热评论" : @"最新评论";
-    } else {
-        headerView.title = @"最新评论";
-    }
-    
-    return headerView;
+    return ({
+        LCCmtHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"headerView"];
+        
+        if (section == 0) {
+            headerView.title = self.hotCmt.count ? @"最热评论" : @"最新评论";
+        } else {
+            headerView.title = @"最新评论";
+        }
+        headerView;
+    });
 }
 
 # pragma mark - scroll view delegate

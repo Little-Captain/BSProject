@@ -36,12 +36,15 @@
     
     if (!_titlesView) {
         
-        UIView *titlesView = [[UIView alloc] init];
-        titlesView.fWidth = self.view.fWidth; // 宽度为整个屏幕宽度
-        titlesView.fHeight = EssenceTitleViewH; // 高度设置为35.0
-        titlesView.fX = 0; // x
-        titlesView.fY = EssenceTitleViewY; // y设置为20.0 + 44.0
-        titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7]; // 背景颜色
+        UIView *titlesView = ({
+            UIView *view = [[UIView alloc] init];
+            view.fWidth = self.view.fWidth; // 宽度为整个屏幕宽度
+            view.fHeight = EssenceTitleViewH; // 高度设置为35.0
+            view.fX = 0; // x
+            view.fY = EssenceTitleViewY; // y设置为20.0 + 44.0
+            view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7]; // 背景颜色
+            view;
+        });
         [self.view addSubview:titlesView];
         _titlesView = titlesView;
     }
@@ -53,10 +56,13 @@
     
     if (!_indicateView) {
         
-        UIView *indicateView = [[UIView alloc] init];
-        indicateView.backgroundColor = TitleSelColor; // 设置指示器颜色为红色
-        indicateView.fHeight = 2.0; // 高度
-        indicateView.fY = self.titlesView.fHeight - indicateView.fHeight; // y
+        UIView *indicateView = ({
+            UIView *view = [[UIView alloc] init];
+            view.backgroundColor = TitleSelColor; // 设置指示器颜色为红色
+            view.fHeight = 2.0; // 高度
+            view.fY = self.titlesView.fHeight - view.fHeight; // y
+            view;
+        });
         [self.titlesView addSubview:indicateView];
         _indicateView = indicateView;
     }
@@ -112,16 +118,18 @@
     
     // 遍历添加子控制器
     [typeDicts enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) {
-        // 创建 topic 控制器
-        LCTopicTableViewController *vc = [[LCTopicTableViewController alloc] init];
-        // 设置 标题
-        vc.title = dict.allKeys[0];
-        // 设置 帖子类型
-        vc.type = [dict[vc.title] unsignedIntegerValue];
-        // 设置 topic 控制器的类别
-        vc.category = category;
         // 添加子控制器
-        [self addChildViewController:vc];
+        [self addChildViewController:({
+            // 创建 topic 控制器
+            LCTopicTableViewController *vc = [[LCTopicTableViewController alloc] init];
+            // 设置 标题
+            vc.title = dict.allKeys[0];
+            // 设置 帖子类型
+            vc.type = [dict[vc.title] unsignedIntegerValue];
+            // 设置 topic 控制器的类别
+            vc.category = category;
+            vc;
+        })];
     }];    
 }
 
@@ -144,22 +152,24 @@
     
     // 遍历创建和设置按钮的属性
     for (NSInteger i = 0; i < count; ++i) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-        // 绑定一个tag便于后面使用
-        btn.tag = i;
-        // 设置frame
-        btn.frame = CGRectMake(btnW * i, 0, btnW, btnH);
-        // 指定按钮标题
-        [btn setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
-        // 指定按钮未选中的颜色
-        [btn setTitleColor:TitleDeSelColor forState:UIControlStateNormal];
-        // 指定按钮选中后的颜色
-        [btn setTitleColor:TitleSelColor forState:UIControlStateDisabled];
-        // 指定点击按钮后的动作
-        [btn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        // 让按钮内的titleLabel自适应尺寸
-        [btn.titleLabel sizeToFit];
-        [self.titlesView addSubview:btn];
+        [self.titlesView addSubview:({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+            // 绑定一个tag便于后面使用
+            btn.tag = i;
+            // 设置frame
+            btn.frame = CGRectMake(btnW * i, 0, btnW, btnH);
+            // 指定按钮标题
+            [btn setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
+            // 指定按钮未选中的颜色
+            [btn setTitleColor:TitleDeSelColor forState:UIControlStateNormal];
+            // 指定按钮选中后的颜色
+            [btn setTitleColor:TitleSelColor forState:UIControlStateDisabled];
+            // 指定点击按钮后的动作
+            [btn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            // 让按钮内的titleLabel自适应尺寸
+            [btn.titleLabel sizeToFit];
+            btn;
+        })];
     }
 }
 
@@ -169,17 +179,18 @@
     // 取消自动调整 ScrollView 的内边距
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 创建 contentView
-    UIScrollView *contentView = [[UIScrollView alloc] init];
-    // 设置代理
-    contentView.delegate = self;
-    // 设置 frame
-    contentView.frame = self.view.bounds;
-    
-    // 设置内容 size
-    contentView.contentSize = CGSizeMake(contentView.fWidth * self.childViewControllers.count, 0);
-    // 启动分页效果
-    contentView.pagingEnabled = YES;
-    
+    UIScrollView *contentView = ({
+        UIScrollView *scrollView = [[UIScrollView alloc] init];
+        // 设置代理
+        scrollView.delegate = self;
+        // 设置 frame
+        scrollView.frame = self.view.bounds;
+        // 设置内容 size
+        scrollView.contentSize = CGSizeMake(scrollView.fWidth * self.childViewControllers.count, 0);
+        // 启动分页效果
+        scrollView.pagingEnabled = YES;
+        scrollView;
+    });    
     self.contentView = contentView;
     // 成为 view 的第一个 子视图
     [self.view insertSubview:contentView atIndex:0];

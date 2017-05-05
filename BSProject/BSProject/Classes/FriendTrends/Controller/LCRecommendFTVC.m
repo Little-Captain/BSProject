@@ -249,22 +249,19 @@ static NSString * const rightCellId = @"cellRight";
 // 返回具体的cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (tableView == self.leftTableView) {
+    return (tableView == self.leftTableView) ? ({
         LCLeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:leftCellId];
-        
         LCRecommendLeftItem *item = self.leftList[indexPath.row];
         cell.textLabel.text = item.name;
-        
-        return cell;
-    } else {
+        cell;
+    }) : ({
         LCRightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellId];
         LCRecommendLeftItem *lItem = LeftSelectedItem;
         // 取出右侧cell的模型
         LCRecommendRightItem *rItem = lItem.users[indexPath.row];
         cell.item = rItem;
-        
-        return cell;
-    }
+        cell;
+    });
 }
 
 #pragma mark - UITableViewDelegate

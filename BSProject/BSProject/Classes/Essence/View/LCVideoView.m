@@ -31,7 +31,6 @@
 + (instancetype)videoView {
     
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].firstObject;
-    
 }
 
 - (void)awakeFromNib {
@@ -43,14 +42,12 @@
     self.imageV.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pictureClick)];
-    [self.imageV addGestureRecognizer:tap];
-    
+    [self.imageV addGestureRecognizer:tap];    
 }
 
 - (void)pictureClick {
     
     [LCVideoPlayerVC showWithVideoFrame:[self convertRect:self.bounds toView:KeyWindow] url:self.item.videouri image:self.item.bigImage];
-    
 }
 
 - (void)setItem:(LCTopicItem *)item {

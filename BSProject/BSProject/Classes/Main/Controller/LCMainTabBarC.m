@@ -103,37 +103,41 @@ static LCMainTabBarC *_instance;
     NSString *title = vcInfo[@"title"];
     NSString *image = vcInfo[@"image"];
     NSString *selImage = vcInfo[@"selImage"];
-    // 创建控制器对象
-    UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
-    if (vc == nil) {
-        // 创建失败, 抛出异常
-        [NSException exceptionWithName:clsName reason:nil userInfo:nil];
-    }
-    // 包装导航控制器, 并进行设置
-    UINavigationController *nav = [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:vc];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    nav.title = title;
-    nav.tabBarItem.image = [UIImage imageNamed:image];
-    nav.tabBarItem.selectedImage = [[UIImage imageNamed:selImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];    
     
     // 返回
-    return nav;
+    return ({
+        // 创建控制器对象
+        UIViewController *vc = [[NSClassFromString(clsName) alloc] init];
+        if (vc == nil) {
+            // 创建失败, 抛出异常
+            [NSException exceptionWithName:clsName reason:nil userInfo:nil];
+        }
+        // 包装导航控制器, 并进行设置
+        UINavigationController *nav = [[NSClassFromString(@"LCMainNavigationC") alloc] initWithRootViewController:vc];
+        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+        nav.title = title;
+        nav.tabBarItem.image = [UIImage imageNamed:image];
+        nav.tabBarItem.selectedImage = [[UIImage imageNamed:selImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        nav;
+    });
 }
 
 /** 创建中间的发布按钮 */
 - (void)setUpComposeButton {
     
-    // 创建一个按钮
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(publishBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    // 计算按钮的宽度
-    CGFloat w = self.tabBar.bWidth / self.childViewControllers.count;
-    // 设置按钮的 frame
-    btn.frame = CGRectInset(self.tabBar.bounds, w * 2.0, 0);
     // 添加到 tabbar 上
-    [self.tabBar addSubview:btn];
+    [self.tabBar addSubview:({
+        // 创建一个按钮
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [btn addTarget:self action:@selector(publishBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        // 计算按钮的宽度
+        CGFloat w = self.tabBar.bWidth / self.childViewControllers.count;
+        // 设置按钮的 frame
+        btn.frame = CGRectInset(self.tabBar.bounds, w * 2.0, 0);
+        btn;
+    })];
 }
 
 /** 发布按钮点击事件的监听 */

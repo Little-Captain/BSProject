@@ -48,11 +48,13 @@
     // 配置 LCMainTabBarC 对象 的 代理
     [LCMainTabBarC sharedInstance].delegate = self;
     
-    // 创建窗口
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    // 设置窗口的根控制器
-    self.window.rootViewController = [NSClassFromString(@"LCAdVC") new];
+    self.window = ({
+        // 创建窗口
+        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        // 设置窗口的根控制器
+        window.rootViewController = [NSClassFromString(@"LCAdVC") new];
+        window;
+    });
     
     // 显示窗口
     [self.window makeKeyAndVisible];
