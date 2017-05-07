@@ -65,6 +65,8 @@
 /** 标记是否正在滑动 */
 @property (nonatomic, assign) BOOL isSliding;
 
+@property (weak, nonatomic) IBOutlet UIButton *coverBtn;
+
 @end
 
 @implementation LCVideoPlayView
@@ -144,6 +146,31 @@
     [self.progressSlider setThumbImage:[NSBundle imageOfroundSlider] forState:UIControlStateNormal];
     [self.progressSlider setMaximumTrackImage:[NSBundle imageOfmaxthumb] forState:UIControlStateNormal];
     [self.progressSlider setMinimumTrackImage:[NSBundle imageOfminthumb] forState:UIControlStateNormal];
+    
+    // 设置 cover 上的 按钮的 图片
+    [self.coverBtn setImage:[NSBundle imageOfvideoReplay] forState:UIControlStateNormal];
+}
+
+#pragma mark -
+#pragma mark cover button 控制
+
+- (void)showCoverBtn {
+    
+    [self pause];
+    self.coverBtn.hidden = NO;
+    self.isSlideFastForwardDisabled = YES;
+    self.isSlideToChangeVolumeDisabled = YES;
+    self.progressSlider.userInteractionEnabled = NO;
+    self.playOrPauseBtn.userInteractionEnabled = NO;
+}
+
+- (void)hideCoverBtn {
+    
+    self.coverBtn.hidden = YES;
+    self.isSlideFastForwardDisabled = NO;
+    self.isSlideToChangeVolumeDisabled = NO;
+    self.progressSlider.userInteractionEnabled = YES;
+    self.playOrPauseBtn.userInteractionEnabled = YES;
 }
 
 #pragma mark -
@@ -156,10 +183,16 @@
     NSInteger sec = (NSInteger)round(second);
 
     _currentTime.text = [NSString stringWithFormat:@"%02zd:%02zd", sec / 60, sec % 60];
-    _progressV.progress = second / CMTimeGetSeconds(self.assetToPlay.duration);
+    
+    CGFloat duration = CMTimeGetSeconds(self.assetToPlay.duration);
+    _progressV.progress = second / duration;
     
     if (!_isSliding) {
-        _progressSlider.value = second / CMTimeGetSeconds(self.assetToPlay.duration);
+        _progressSlider.value = _progressV.progress;
+    }
+    
+    if (second >= duration) {
+        [self showCoverBtn];
     }
 }
 
@@ -181,6 +214,9 @@
     
     [super setAssetToPlay:assetToPlay];
     
+    _currentTime.text = @"00:00";
+    _progressSlider.value = 0;
+    _progressV.progress = 0;
     NSInteger sec = CMTimeGetSeconds(assetToPlay.duration);
     _totalTime.text = [NSString stringWithFormat:@"%02zd:%02zd", sec / 60, sec % 60];
 }
@@ -247,7 +283,7 @@
     
     self.showTime += 1;
     
-    if (self.showTime >= 10.0) {
+    if (self.showTime >= 5.0) {
         
         [self tapAction];
         self.showTime = 0;
@@ -281,6 +317,8 @@
 - (void)playnow {
     
     if (!self.isPlaying) {
+        [self hideCoverBtn];
+        _isSliding = NO;
         [self centerBtnClick:nil];
     }
 }
@@ -324,6 +362,7 @@
     [self moveToSecond:currentTime shouldPlay:YES];
     
     _isSliding = NO;
+    [self addShowTimer];
 }
 
 - (IBAction)sliding {
@@ -336,6 +375,16 @@
 - (IBAction)startSlide {
     
     _isSliding = YES;
+    [self removeShowTimer];
+}
+
+#pragma mark -
+#pragma mark 重新播放按钮的监听
+
+- (IBAction)replayBtnClick {
+    
+    [self replay];
+    [self hideCoverBtn];
 }
 
 #pragma mark - 切换屏幕的方向

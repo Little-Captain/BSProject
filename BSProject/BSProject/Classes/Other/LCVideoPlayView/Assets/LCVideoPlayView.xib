@@ -235,17 +235,29 @@
                         <constraint firstAttribute="height" constant="54" id="xbI-Iq-uII"/>
                     </constraints>
                 </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks9-df-E2I" customClass="LCButton">
+                    <rect key="frame" x="261" y="152" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="ZGU-Io-YDt"/>
+                        <constraint firstAttribute="width" constant="80" id="iiT-BC-zDv"/>
+                    </constraints>
+                    <connections>
+                        <action selector="replayBtnClick" destination="iN0-l3-epB" eventType="touchUpInside" id="6SW-O9-5sy"/>
+                    </connections>
+                </button>
             </subviews>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="YQ0-YT-uJM" secondAttribute="trailing" id="0T1-VT-Ntz"/>
                 <constraint firstItem="KhW-y5-XVQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Eg-rQ-1xT"/>
-                <constraint firstItem="bZt-Q6-00r" firstAttribute="centerX" secondItem="PRI-FR-Ejk" secondAttribute="centerX" id="3Xk-Rw-7Ag"/>
+                <constraint firstItem="ks9-df-E2I" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7q4-Jq-Ivd"/>
                 <constraint firstAttribute="bottom" secondItem="YQ0-YT-uJM" secondAttribute="bottom" id="CQr-Fl-vlV"/>
                 <constraint firstItem="YQ0-YT-uJM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DU5-LK-VGO"/>
                 <constraint firstAttribute="trailing" secondItem="ff3-Ad-XtP" secondAttribute="trailing" id="E2E-kG-bYW"/>
                 <constraint firstItem="YQ0-YT-uJM" firstAttribute="top" secondItem="PRI-FR-Ejk" secondAttribute="bottom" constant="-8" id="Gyh-5D-wBh"/>
+                <constraint firstItem="bZt-Q6-00r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Luy-wS-vsR"/>
                 <constraint firstItem="ff3-Ad-XtP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oag-cq-Uug"/>
+                <constraint firstItem="ks9-df-E2I" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Q22-qX-csM"/>
                 <constraint firstItem="PRI-FR-Ejk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QrH-0R-Ush"/>
                 <constraint firstItem="bZt-Q6-00r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RQA-8x-7BU"/>
                 <constraint firstAttribute="bottom" secondItem="KhW-y5-XVQ" secondAttribute="bottom" id="ZRW-dN-Abf"/>
@@ -260,6 +272,7 @@
                 <outlet property="barrageBtn" destination="OMT-IO-Nhz" id="8o1-vo-dts"/>
                 <outlet property="centerPlayBtn" destination="bZt-Q6-00r" id="V99-Zv-RGk"/>
                 <outlet property="commitBtn" destination="UBt-qP-MYO" id="gcK-7l-rgl"/>
+                <outlet property="coverBtn" destination="ks9-df-E2I" id="yxT-py-Wmd"/>
                 <outlet property="currentTime" destination="Pe4-dF-1yq" id="1fF-kO-Ubj"/>
                 <outlet property="fullScreenBtn" destination="LwY-Lw-3mE" id="cyC-9e-pnA"/>
                 <outlet property="playCtrlBar" destination="YQ0-YT-uJM" id="7Of-sB-LBr"/>
