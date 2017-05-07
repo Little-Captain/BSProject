@@ -23,8 +23,14 @@
              @"smallImage": @"image0",
              @"midImage": @"image1",
              @"bigImage": @"image2",
-             @"ID": @"id",
-             @"top_cmt": @"top_cmt[0]"
+             @"ID": @"id"
+             };
+}
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    
+    return @{
+             @"top_cmts" : @"LCCmtItem"
              };
 }
 
@@ -109,8 +115,8 @@
         }
         
         // 如果有评论我们就显示第一个最热的评论
-        if (self.top_cmt) {
-            LCCmtItem *cmtItem = self.top_cmt;
+        if (self.top_cmts.count) {
+            LCCmtItem *cmtItem = self.top_cmts.firstObject;
             NSString *cmtStr = [NSString stringWithFormat:@"%@: %@", cmtItem.user.username, cmtItem.content];
             CGFloat cmtH = [cmtStr boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.0]} context:nil].size.height;
             _cellHeight += CommentTitleH + cmtH + EssenceCellMargin;

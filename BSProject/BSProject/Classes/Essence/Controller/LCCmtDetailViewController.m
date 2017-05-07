@@ -46,7 +46,7 @@
 @property (nonatomic, strong) NSString *loadMordID;
 
 /** 缓存最热评论数据, 用于返回时恢复模型数据 */
-@property (nonatomic, strong) LCCmtItem *save_top_cmt;
+@property (nonatomic, strong) NSArray *save_top_cmts;
 
 /** 评论总数 */
 @property (nonatomic, assign) NSInteger total;
@@ -80,9 +80,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     // 如果缓存了最热评论
-    if (self.save_top_cmt) {
+    if (self.save_top_cmts) {
         // 恢复数据
-        self.item.top_cmt = self.save_top_cmt;
+        self.item.top_cmts = self.save_top_cmts;
         // 设置 cellHeight 为0, 以便后面再计算 cell 高度
         [self.item setValue:@(0) forKey:@"cellHeight"];
     }
@@ -143,11 +143,11 @@
 - (void)setUpHeader {
     
     // 如果有最热评论数据
-    if (self.item.top_cmt) {
+    if (self.item.top_cmts) {
         // 缓存数据
-        self.save_top_cmt = self.item.top_cmt;
+        self.save_top_cmts = self.item.top_cmts;
         // 清空评论数据
-        self.item.top_cmt = nil;
+        self.item.top_cmts = nil;
         // 设置cellHeight为0, 以便后面再计算cell高度
         [self.item setValue:@(0) forKey:@"cellHeight"];
     }

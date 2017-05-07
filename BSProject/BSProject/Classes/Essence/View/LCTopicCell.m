@@ -130,9 +130,9 @@
     [self.commentBtn setTitle:[self titleStandardWithCount:item.comment placeholder:@"评论"] forState:UIControlStateNormal];
     
     // 如果有评论我们就显示第一个最热的评论
-    if (item.top_cmt) {
+    if (item.top_cmts.count) {
         self.cmtContentV.hidden = NO;
-        LCCmtItem *cmtItem = item.top_cmt;
+        LCCmtItem *cmtItem = item.top_cmts.firstObject;
         self.cmtL.text = [NSString stringWithFormat:@"%@: %@", cmtItem.user.username, cmtItem.content];
     } else {
         self.cmtContentV.hidden = YES;
