@@ -7,25 +7,25 @@
 //
 
 #import "LCVideoPlayerVC.h"
-#import "JFVideoPlayView.h"
+#import "LCVideoPlayView.h"
 //#import "LCTopWindow.h"
 
 #import <Masonry.h>
 #import <UIImageView+YYWebImage.h>
 
-@interface LCVideoPlayerVC () <JFVideoPlayViewDelegate>
+@interface LCVideoPlayerVC () <LCVideoPlayViewDelegate>
 
 /** videoPlayView */
-@property (nonatomic, weak) JFVideoPlayView *videoPlayView;
+@property (nonatomic, weak) LCVideoPlayView *videoPlayView;
 
 @end
 
 @implementation LCVideoPlayerVC
 
-- (JFVideoPlayView *)videoPlayView {
+- (LCVideoPlayView *)videoPlayView {
     
     if (!_videoPlayView) {
-        JFVideoPlayView *videoPlayView = [JFVideoPlayView videoPlayView];
+        LCVideoPlayView *videoPlayView = [LCVideoPlayView videoPlayView];
         videoPlayView.delegate = self;
         [self.view insertSubview:videoPlayView atIndex:0];
         _videoPlayView = videoPlayView;
@@ -52,7 +52,6 @@ static UIWindow *_videoWindow;
     }
     LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
     rootVC.videoPlayerViewFrame = videoFrame;
-    rootVC.videoPlayView.bgImageUrl = [NSURL URLWithString:image];
     rootVC.urlStr = url;
     _videoWindow.hidden = NO;
     
@@ -64,7 +63,7 @@ static UIWindow *_videoWindow;
     if (_videoWindow) {
         
         LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
-        [rootVC.videoPlayView suspendPlayer];
+        [rootVC.videoPlayView suspendnow];
         _videoWindow.hidden = YES;
 //        [LCTopWindow show];
     }
@@ -119,9 +118,18 @@ static UIWindow *_videoWindow;
 
 - (void)setUrlStr:(NSString *)urlStr {
     
+    if (!urlStr) return;
+    
+    if (_urlStr == urlStr) {
+        [self.videoPlayView playnow];
+        return;
+    }
+    
     _urlStr = urlStr;
     
-    self.videoPlayView.urlString = urlStr;
+    self.videoPlayView.assetToPlay = [AVAsset assetWithURL:[NSURL URLWithString:urlStr]];
+    
+    [self.videoPlayView playnow];
 }
 
 #pragma mark - 屏幕方向支持
@@ -138,7 +146,7 @@ static UIWindow *_videoWindow;
 
 #pragma mark -
 #pragma mark JFVideoPlayViewDelegate
-- (void)clickShareButtonInVideoPlayView:(JFVideoPlayView *)videoPlayView {
+- (void)clickShareButtonInVideoPlayView:(LCVideoPlayView *)videoPlayView {
     
     NSLog(@"分享");
 }

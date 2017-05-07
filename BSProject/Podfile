@@ -15,6 +15,7 @@ target 'BSProject' do
     pod 'SVProgressHUD'
     pod 'RXCollections'
     pod 'YYWebImage'
+    pod 'CTVideoPlayerView'
   # 友盟分享
     # U-Share SDK UI模块（分享面板，建议添加）
     pod ‘UMengUShare/UI’

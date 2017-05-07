@@ -14,7 +14,7 @@
 #import "LCVideoPlayerVC.h"
 
 #import <UIImageView+YYWebImage.h>
-#import "JFVideoPlayView.h"
+#import "LCVideoPlayView.h"
 
 @interface LCVideoView ()
 

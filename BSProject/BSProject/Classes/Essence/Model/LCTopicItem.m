@@ -124,4 +124,11 @@
     return _cellHeight;
 }
 
+- (void)setVideouri:(NSString *)videouri {
+    
+    _videouri = videouri;
+    
+    NSLog(@"%@", videouri);
+}
+
 @end

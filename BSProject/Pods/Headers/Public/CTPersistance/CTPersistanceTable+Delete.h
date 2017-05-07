@@ -1,0 +1,1 @@
+../../../CTPersistance/CTPersistance/CTPersistance/Table/Categories/Delete/CTPersistanceTable+Delete.h
