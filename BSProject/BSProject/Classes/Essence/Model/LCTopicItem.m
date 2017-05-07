@@ -23,7 +23,8 @@
              @"smallImage": @"image0",
              @"midImage": @"image1",
              @"bigImage": @"image2",
-             @"ID": @"id"
+             @"ID": @"id",
+             @"top_cmts": @"top_cmt"
              };
 }
 

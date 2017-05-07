@@ -119,8 +119,6 @@
     
     _item = item;
     
-    NSLog(@"%@", item.yy_modelDescription);
-    
     self.sina_vImageV.hidden = !item.isSina_v;
     
     [self.profile_imageV setHeader:item.profile_image];
