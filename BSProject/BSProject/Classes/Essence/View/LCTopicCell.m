@@ -20,6 +20,8 @@
 #import <SVProgressHUD.h>
 #import <Masonry.h>
 
+#import <YYModel.h>
+
 @interface LCTopicCell ()
 
 /** 头像 */
@@ -116,6 +118,8 @@
 - (void)setItem:(LCTopicItem *)item {
     
     _item = item;
+    
+    NSLog(@"%@", item.yy_modelDescription);
     
     self.sina_vImageV.hidden = !item.isSina_v;
     

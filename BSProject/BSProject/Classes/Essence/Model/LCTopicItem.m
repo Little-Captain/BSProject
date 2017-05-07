@@ -30,7 +30,7 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     
     return @{
-             @"top_cmts" : @"LCCmtItem"
+             @"top_cmts" : [LCCmtItem class]
              };
 }
 
