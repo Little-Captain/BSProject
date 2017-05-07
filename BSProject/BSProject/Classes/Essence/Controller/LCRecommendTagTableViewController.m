@@ -12,7 +12,7 @@
 #import "LCRecTagTableViewCell.h"
 
 #import <SVProgressHUD.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 #import <AFNetworking.h>
 
 @interface LCRecommendTagTableViewController ()
@@ -64,7 +64,7 @@
     [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:parameters completion:^(id result, BOOL isSuccess) {
         if (isSuccess) {
             // 字典数组转模型数组
-            weakSelf.tagItems = [LCRecTagItem mj_objectArrayWithKeyValuesArray:result[@"rec_tags"]];
+            weakSelf.tagItems = [NSArray yy_modelArrayWithClass:[LCRecTagItem class] json:result[@"rec_tags"]];
             // 刷新表格
             [weakSelf.tableView reloadData];
             [SVProgressHUD dismiss];

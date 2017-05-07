@@ -12,7 +12,7 @@
 #import "LCPushGuideView.h"
 
 #import <AFNetworking.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 #import <YYWebImage.h>
 
 @interface LCAdVC ()
@@ -128,7 +128,7 @@
             // 取出第一个字典
             NSDictionary* adDict = adArray.firstObject;
             // 字典转模型
-            self.adItem = [LCAdItem mj_objectWithKeyValues:adDict];
+            self.adItem = [LCAdItem yy_modelWithJSON:adDict];
         } else {
             [self skipBtnClick];
             

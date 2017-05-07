@@ -18,7 +18,7 @@
 #import <SVProgressHUD.h>
 #import <MJRefresh.h>
 #import <AFNetworking.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 
 #define TableViewHeaderH (20.0)
 
@@ -232,9 +232,8 @@
             }
             
             weakSelf.total = [result[@"total"] integerValue];
-            
-            weakSelf.laststCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"data"]];
-            weakSelf.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"hot"]];
+            weakSelf.laststCmt = [NSArray yy_modelArrayWithClass:[LCCmtItem class] json:result[@"data"]];
+            weakSelf.hotCmt = [NSArray yy_modelArrayWithClass:[LCCmtItem class] json:result[@"hot"]];
             
             weakSelf.loadMordID = [weakSelf.laststCmt.lastObject ID];
             
@@ -268,8 +267,8 @@
         if (isSuccess) {
             weakSelf.total = [result[@"total"] integerValue];
             
-            weakSelf.laststCmt = [self.laststCmt arrayByAddingObjectsFromArray:[LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"data"]]];
-            weakSelf.hotCmt = [LCCmtItem mj_objectArrayWithKeyValuesArray:result[@"hot"]];
+            weakSelf.laststCmt = [self.laststCmt arrayByAddingObjectsFromArray:[NSArray yy_modelArrayWithClass:[LCCmtItem class] json:result[@"data"]]];
+            weakSelf.hotCmt = [NSArray yy_modelArrayWithClass:[LCCmtItem class] json:result[@"hot"]];
             
             weakSelf.loadMordID = [self.laststCmt.lastObject ID];
             

@@ -14,7 +14,7 @@
 #import "LCShareTool.h"
 
 #import <AFNetworking.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 #import <MJRefresh.h>
 #import <RXCollection.h>
 
@@ -138,8 +138,7 @@ static NSString * const ID = @"topic";
     [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
         if (isSuccess) {
             weakSelf.currentMaxtime = result[@"info"][@"maxtime"];
-            
-            weakSelf.topics = [LCTopicItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            weakSelf.topics = [NSArray yy_modelArrayWithClass:[LCTopicItem class] json:result[@"list"]];
             
             [weakSelf.tableView reloadData];
             
@@ -164,8 +163,7 @@ static NSString * const ID = @"topic";
     [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
         if (isSuccess) {
             weakSelf.currentMaxtime = result[@"info"][@"maxtime"];
-            
-            weakSelf.topics = [weakSelf.topics arrayByAddingObjectsFromArray:[LCTopicItem mj_objectArrayWithKeyValuesArray:result[@"list"]]];
+            weakSelf.topics = [weakSelf.topics arrayByAddingObjectsFromArray:[NSArray yy_modelArrayWithClass:[LCTopicItem class] json:result[@"list"]]];
             
             [weakSelf.tableView reloadData];
             

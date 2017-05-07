@@ -7,7 +7,6 @@
 //
 
 #import "LCTopicItem.h"
-
 #import "LCCmtItem.h"
 #import "LCCmtUserItem.h"
 
@@ -18,7 +17,7 @@
     CGFloat _cellHeight;
 }
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
++ (NSDictionary *)modelCustomPropertyMapper {
     
     return @{
              @"smallImage": @"image0",
@@ -27,7 +26,6 @@
              @"ID": @"id",
              @"top_cmt": @"top_cmt[0]"
              };
-    
 }
 
 // 将日期格式化返回

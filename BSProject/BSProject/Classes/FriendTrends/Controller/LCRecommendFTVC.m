@@ -15,7 +15,7 @@
 
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 #import <MJRefresh.h>
 
 #define LeftSelectedItem (self.leftList[self.leftTableView.indexPathForSelectedRow.row])
@@ -120,7 +120,7 @@ static NSString * const rightCellId = @"cellRight";
             // 取回所有请求到的user
             item.total = [result[@"total"] integerValue];
             item.currentPage = 1;
-            item.users = [LCRecommendRightItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            item.users = [NSArray yy_modelArrayWithClass:[LCRecommendRightItem class] json:result[@"list"]];
             
             // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
             // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
@@ -156,8 +156,7 @@ static NSString * const rightCellId = @"cellRight";
     [self.manager request:LCHttpMethodGET urlStr:urlStr parameters:paramters completion:^(id result, BOOL isSuccess) {
         if (isSuccess) {
             // 取回所有请求到的user
-            item.users = [item.users arrayByAddingObjectsFromArray:[LCRecommendRightItem mj_objectArrayWithKeyValuesArray:result[@"list"]]];
-            
+            item.users = [item.users arrayByAddingObjectsFromArray:[NSArray yy_modelArrayWithClass:[LCRecommendRightItem class] json:result[@"list"]]];
             // 将self.params(存放的是最新的paramters)和当时发送网络请求是捕获的paramters
             // 进行对比, 如果相等表示我们的请求是最新的请求, 返回的数据是我们的需要显示的数据
             // 不相等, 我们直接丢弃返回的数据
@@ -189,12 +188,8 @@ static NSString * const rightCellId = @"cellRight";
         if (isSuccess) {
             [SVProgressHUD dismiss];
             
-            [LCRecommendLeftItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                return @{@"ID": @"id"};
-            }];
-            
             // 取出左侧列表模型数组
-            weakSelf.leftList = [LCRecommendLeftItem mj_objectArrayWithKeyValuesArray:result[@"list"]];
+            weakSelf.leftList = [NSArray yy_modelArrayWithClass:[LCRecommendLeftItem class] json:result[@"list"]];
             
             // 刷新表格
             [weakSelf.leftTableView reloadData];

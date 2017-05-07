@@ -13,7 +13,7 @@
 #import "LCWebViewController.h"
 
 #import <AFNetworking.h>
-#import <MJExtension.h>
+#import <YYModel.h>
 #import <SVProgressHUD.h>
 #import <RXCollection.h>
 
@@ -39,7 +39,7 @@
     // 发送请求
     [[LCHTTPSessionManager sharedInstance] request:LCHttpMethodGET urlStr:@"http://api.budejie.com/api/api_open.php" parameters:params completion:^(id result, BOOL isSuccess) {
         if (isSuccess) {
-            NSArray *squares = [LCSquareItem mj_objectArrayWithKeyValuesArray:result[@"square_list"]];
+            NSArray *squares = [NSArray yy_modelArrayWithClass:[LCSquareItem class] json:result[@"square_list"]];
             
             // 这个算法用于过滤重复项
             NSMutableArray<NSString *> *names = [NSMutableArray array];

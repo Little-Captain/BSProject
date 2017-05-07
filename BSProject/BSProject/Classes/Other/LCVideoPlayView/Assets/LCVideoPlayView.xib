@@ -246,6 +246,7 @@
                     </connections>
                 </button>
             </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="YQ0-YT-uJM" secondAttribute="trailing" id="0T1-VT-Ntz"/>

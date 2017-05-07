@@ -10,11 +10,11 @@ target 'BSProject' do
     pod 'pop'
     pod 'Masonry'
     pod 'MJRefresh'
-    pod 'MJExtension'
     pod 'DACircularProgress'
     pod 'SVProgressHUD'
     pod 'RXCollections'
     pod 'YYWebImage'
+    pod 'YYModel'
     pod 'CTVideoPlayerView'
   # 友盟分享
     # U-Share SDK UI模块（分享面板，建议添加）

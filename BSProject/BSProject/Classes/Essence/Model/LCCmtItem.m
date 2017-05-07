@@ -7,15 +7,14 @@
 //
 
 #import "LCCmtItem.h"
-#import <MJExtension.h>
 
 @implementation LCCmtItem
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
++ (NSDictionary *)modelCustomPropertyMapper {
     
     return @{
              @"ID": @"id"
-             };    
+             };
 }
 
 @end
