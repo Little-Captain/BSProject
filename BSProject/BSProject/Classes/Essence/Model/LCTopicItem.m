@@ -10,6 +10,8 @@
 #import "LCCmtItem.h"
 #import "LCCmtUserItem.h"
 
+#import <BlocksKit.h>
+
 @implementation LCTopicItem {
     // cellHeight为readonly属性, 我们又实现了它的get方法
     // 所以Xcode不会为我们生成下划线成员变量
@@ -23,16 +25,20 @@
              @"smallImage": @"image0",
              @"midImage": @"image1",
              @"bigImage": @"image2",
-             @"ID": @"id",
-             @"top_cmts": @"top_cmt"
+             @"ID": @"id"
              };
 }
 
-+ (NSDictionary *)modelContainerPropertyGenericClass {
+- (NSDictionary *)modelCustomWillTransformFromDictionary:(NSDictionary *)dic {
     
-    return @{
-             @"top_cmts" : [LCCmtItem class]
-             };
+    return [dic bk_map:^id(id key, id obj) {
+        // 有最热评论时, 服务器返回的是一个数组
+        // 模型中是一个评论对象, 所以要映射下, 取出第一个来
+        if ([key isEqualToString:@"top_cmt"]) {
+            return [obj firstObject];
+        }
+        return obj;
+    }];
 }
 
 // 将日期格式化返回
@@ -116,8 +122,8 @@
         }
         
         // 如果有评论我们就显示第一个最热的评论
-        if (self.top_cmts.count) {
-            LCCmtItem *cmtItem = self.top_cmts.firstObject;
+        if (self.top_cmt) {
+            LCCmtItem *cmtItem = self.top_cmt;
             NSString *cmtStr = [NSString stringWithFormat:@"%@: %@", cmtItem.user.username, cmtItem.content];
             CGFloat cmtH = [cmtStr boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.0]} context:nil].size.height;
             _cellHeight += CommentTitleH + cmtH + EssenceCellMargin;

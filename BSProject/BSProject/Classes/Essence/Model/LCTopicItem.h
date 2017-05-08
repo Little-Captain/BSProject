@@ -98,7 +98,7 @@
  */
 
 /** 评论数组 */
-@property (nonatomic, strong) NSArray *top_cmts;
+@property (nonatomic, strong) LCCmtItem *top_cmt;
 
 /*
  
