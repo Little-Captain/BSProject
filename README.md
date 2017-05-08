@@ -23,26 +23,27 @@
 * `设置`模块实现了基本的缓存清理功能
 * 实现 App 启动页面的`广告`功能
 * 实现`新浪分享`功能
+* 实现`新浪微博登录`功能, 实现`登录逻辑`
 * 集成了`Bugly`
 
 ## 即将实现功能...
 
 * `SQLite` 数据库`缓存`功能
 * `换肤`功能
-* `第三方登录`
 * ...
 
 ## 第三方框架和技术
 
-* `AFNetworking` : 网络请求
+* `LCNetworking` : 网络请求, 对 AFNetworking 的封装, 解决内存泄漏问题
 * `YYWebImage` : 图片下载和图片缓存
 * `pop` : 动画
 * `Masonry` : 自动布局
 * `MJRefresh` : 上拉下拉刷新
-* `MJExtension` : 字典转模型
+* `YYModel` : 字典转模型
 * `DACircularProgress` : 进度控件
 * `SVProgressHUD` : HUD
-* `RXCollections` : Objective-C 函数式编程框架
+* `BlocksKit` : Objective-C 函数式编程框架
+* `CTVideoPlayerView` : 视频播放器框架
 * 友盟分享
   * UMengUShare/UI : U-Share SDK UI模块（分享面板，建议添加）
   * UMengUShare/Social/WeChat : 微信
@@ -54,3 +55,5 @@
 * 如果有 bug 欢迎联系我, 也可以在 github 上 pull request
 * e-mail : littlecaptain@foxmail.com
 * 项目地址 : https://github.com/Little-Captain/BSProject
+
+
