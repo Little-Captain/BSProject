@@ -7,6 +7,7 @@
 //
 
 #import "LCLoginOrRegistVC.h"
+#import "LCThirdLoginTool.h"
 
 @interface LCLoginOrRegistVC ()
 
@@ -49,6 +50,11 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
+}
+
+- (IBAction)sinaLogin {
+    
+    [LCThirdLoginTool getUserInfoForPlatform:UMSocialPlatformType_Sina vc:self];
 }
 
 @end

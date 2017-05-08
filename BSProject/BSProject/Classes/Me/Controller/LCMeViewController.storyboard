@@ -83,6 +83,10 @@
                             <outlet property="delegate" destination="cdT-j5-F4n" id="dQS-Ph-beg"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="headIconImageV" destination="rgl-7u-9xY" id="Os5-EL-yjS"/>
+                        <outlet property="nameL" destination="VhM-nc-uiv" id="uJT-lG-ddF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifB-1G-evM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

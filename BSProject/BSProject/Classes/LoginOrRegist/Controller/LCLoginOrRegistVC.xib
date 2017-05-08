@@ -87,6 +87,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="微博" image="login_sina_icon"/>
                             <state key="highlighted" image="login_sina_icon_click"/>
+                            <connections>
+                                <action selector="sinaLogin" destination="-1" eventType="touchUpInside" id="Hee-71-Lu7"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-fj-2tb" customClass="LCVerticalBtn">
                             <rect key="frame" x="42.5" y="40.5" width="70" height="90"/>

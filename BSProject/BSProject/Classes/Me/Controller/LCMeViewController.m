@@ -9,8 +9,14 @@
 #import "LCMeViewController.h"
 #import "LCMeFooterView.h"
 #import "LCSettingVC.h"
+#import "LCUserInfoItem.h"
+
+#import <YYWebImage.h>
 
 @interface LCMeViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *headIconImageV;
+@property (weak, nonatomic) IBOutlet UILabel *nameL;
 
 @end
 
@@ -27,6 +33,20 @@
     [self setUpNav];
     
     [self setUpTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // 获取用户信息
+    // 获取归档路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"user"];
+    // 解档
+    LCUserInfoItem *user = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    
+    [_headIconImageV yy_setImageWithURL:[NSURL URLWithString:user.iconurl] placeholder:[UIImage imageNamed:@"setup-head-default"]];
+    _nameL.text = user.name ? user.name : @"登录/注册";
 }
 
 - (void)setUpNav {
@@ -86,5 +106,9 @@
         NSLog(@"离线下载");
     }
 }
+
+#pragma mark - UITableViewDataSource
+
+
 
 @end
