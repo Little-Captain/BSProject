@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LCFriendTrendsViewController">
             <connections>
+                <outlet property="loginBtn" destination="91i-Ln-yb9" id="TIL-Go-alR"/>
+                <outlet property="textL" destination="MDT-pK-3J2" id="ttq-52-88K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,6 +49,7 @@
                     <state key="normal" title="立即登录/注册" backgroundImage="friendsTrend_login">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <state key="selected" title="已登录"/>
                     <state key="highlighted" backgroundImage="friendsTrend_login_click">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

@@ -9,7 +9,9 @@
 #import "LCMeViewController.h"
 #import "LCMeFooterView.h"
 #import "LCSettingVC.h"
+#import "LCUserTool.h"
 #import "LCUserInfoItem.h"
+#import "LCUserInfoVC.h"
 
 #import <YYWebImage.h>
 
@@ -40,10 +42,7 @@
     [super viewWillAppear:animated];
     
     // 获取用户信息
-    // 获取归档路径
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"user"];
-    // 解档
-    LCUserInfoItem *user = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    LCUserInfoItem *user = [LCUserTool getLogInUser];
     
     [_headIconImageV yy_setImageWithURL:[NSURL URLWithString:user.iconurl] placeholder:[UIImage imageNamed:@"setup-head-default"]];
     _nameL.text = user.name ? user.name : @"登录/注册";
@@ -99,7 +98,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        [self presentViewController:[NSClassFromString(@"LCLoginOrRegistVC") new] animated:YES completion:nil];
+        [LCUserTool getLogInUser] ? ({
+            LCUserInfoVC *vc = [UIStoryboard storyboardWithName:@"LCUserInfoVC" bundle:nil].instantiateInitialViewController;
+            vc.userInfo = [LCUserTool getLogInUser];
+            [self.navigationController pushViewController:vc animated:YES];
+        }) : ({
+            [self presentViewController:[NSClassFromString(@"LCLoginOrRegistVC") new] animated:YES completion:nil];
+        });
     }
     
     if (indexPath.section == 1 && indexPath.row == 0) {

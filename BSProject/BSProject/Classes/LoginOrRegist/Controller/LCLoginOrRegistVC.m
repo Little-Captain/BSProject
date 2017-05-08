@@ -7,7 +7,9 @@
 //
 
 #import "LCLoginOrRegistVC.h"
-#import "LCThirdLoginTool.h"
+#import "LCUserTool.h"
+
+#import <SVProgressHUD.h>
 
 @interface LCLoginOrRegistVC ()
 
@@ -54,7 +56,15 @@
 
 - (IBAction)sinaLogin {
     
-    [LCThirdLoginTool getUserInfoForPlatform:UMSocialPlatformType_Sina vc:self];
+    
+    [LCUserTool loginUseSinaWithVc:nil completion:^(BOOL isSuccess) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+        isSuccess ? ({
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+        }) : ({
+            [SVProgressHUD showSuccessWithStatus:@"登录失败"];
+        });
+    }];
 }
 
 @end

@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1050AD973BA5F624C08BBDDE /* libPods-BSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A678001E41D4256AA322B72 /* libPods-BSProject.a */; };
-		9520D8E91EC001A30021AB0A /* LCThirdLoginTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520D8E81EC001A30021AB0A /* LCThirdLoginTool.m */; };
 		9520D8EC1EC0094D0021AB0A /* LCUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520D8EB1EC0094D0021AB0A /* LCUserInfoItem.m */; };
+		9520D8EF1EC0132A0021AB0A /* LCUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520D8EE1EC0132A0021AB0A /* LCUserTool.m */; };
+		9520D8F21EC01A320021AB0A /* LCUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520D8F11EC01A320021AB0A /* LCUserInfoVC.m */; };
+		9520D8F41EC01A400021AB0A /* LCUserInfoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9520D8F31EC01A400021AB0A /* LCUserInfoVC.storyboard */; };
 		9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */; };
 		952531101EB31D6E00BB5B93 /* LCMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9525310F1EB31D6E00BB5B93 /* LCMeViewController.storyboard */; };
 		952531131EB322DB00BB5B93 /* LCSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 952531121EB322DB00BB5B93 /* LCSquareItem.m */; };
@@ -108,10 +110,13 @@
 
 /* Begin PBXFileReference section */
 		5A678001E41D4256AA322B72 /* libPods-BSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9520D8E71EC001A30021AB0A /* LCThirdLoginTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCThirdLoginTool.h; sourceTree = "<group>"; };
-		9520D8E81EC001A30021AB0A /* LCThirdLoginTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCThirdLoginTool.m; sourceTree = "<group>"; };
 		9520D8EA1EC0094D0021AB0A /* LCUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserInfoItem.h; sourceTree = "<group>"; };
 		9520D8EB1EC0094D0021AB0A /* LCUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserInfoItem.m; sourceTree = "<group>"; };
+		9520D8ED1EC0132A0021AB0A /* LCUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserTool.h; sourceTree = "<group>"; };
+		9520D8EE1EC0132A0021AB0A /* LCUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserTool.m; sourceTree = "<group>"; };
+		9520D8F01EC01A320021AB0A /* LCUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserInfoVC.h; sourceTree = "<group>"; };
+		9520D8F11EC01A320021AB0A /* LCUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserInfoVC.m; sourceTree = "<group>"; };
+		9520D8F31EC01A400021AB0A /* LCUserInfoVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LCUserInfoVC.storyboard; sourceTree = "<group>"; };
 		9525310C1EB2F2F900BB5B93 /* UIImageView+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Tools.h"; sourceTree = "<group>"; };
 		9525310D1EB2F2F900BB5B93 /* UIImageView+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Tools.m"; sourceTree = "<group>"; };
 		9525310F1EB31D6E00BB5B93 /* LCMeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LCMeViewController.storyboard; sourceTree = "<group>"; };
@@ -708,6 +713,9 @@
 				95FCBC6A1EB337600040B7F3 /* LCWebViewController.xib */,
 				95F666C31EB48DBC009F7BB9 /* LCSettingVC.h */,
 				95F666C41EB48DBC009F7BB9 /* LCSettingVC.m */,
+				9520D8F01EC01A320021AB0A /* LCUserInfoVC.h */,
+				9520D8F11EC01A320021AB0A /* LCUserInfoVC.m */,
+				9520D8F31EC01A400021AB0A /* LCUserInfoVC.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -853,10 +861,10 @@
 			children = (
 				95D972BE1EBC12D1001A2DB5 /* LCShareTool.h */,
 				95D972BF1EBC12D1001A2DB5 /* LCShareTool.m */,
-				9520D8E71EC001A30021AB0A /* LCThirdLoginTool.h */,
-				9520D8E81EC001A30021AB0A /* LCThirdLoginTool.m */,
 				95D972C01EBC12D1001A2DB5 /* LCVoicePlayerTool.h */,
 				95D972C11EBC12D1001A2DB5 /* LCVoicePlayerTool.m */,
+				9520D8ED1EC0132A0021AB0A /* LCUserTool.h */,
+				9520D8EE1EC0132A0021AB0A /* LCUserTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -938,6 +946,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9588AFF21EB1C23500BE86C5 /* LCPushGuideView.xib in Resources */,
+				9520D8F41EC01A400021AB0A /* LCUserInfoVC.storyboard in Resources */,
 				957691551EB2329200D6F000 /* LCCmtDetailViewController.xib in Resources */,
 				9576914A1EB2325300D6F000 /* LCCmtCell.xib in Resources */,
 				952531101EB31D6E00BB5B93 /* LCMeViewController.storyboard in Resources */,
@@ -1023,6 +1032,7 @@
 				9576911A1EB2193F00D6F000 /* LCPublishView.m in Sources */,
 				95D972C21EBC12D1001A2DB5 /* LCShareTool.m in Sources */,
 				957691541EB2329200D6F000 /* LCCmtDetailViewController.m in Sources */,
+				9520D8EF1EC0132A0021AB0A /* LCUserTool.m in Sources */,
 				95D892DB1EAFA810006A08C3 /* LCNewViewController.m in Sources */,
 				95818DA91EBEC14400514C38 /* NSBundle+LCVideoPlayer.m in Sources */,
 				95818DA61EBEC14400514C38 /* LCButton.m in Sources */,
@@ -1079,6 +1089,7 @@
 				95FCBC6E1EB37A820040B7F3 /* LCPublishWordVC.m in Sources */,
 				9588AFB21EB0435B00BE86C5 /* Foundation+Log.m in Sources */,
 				9588AFE91EB1BC6100BE86C5 /* LCTextField.m in Sources */,
+				9520D8F21EC01A320021AB0A /* LCUserInfoVC.m in Sources */,
 				9525310E1EB2F2F900BB5B93 /* UIImageView+Tools.m in Sources */,
 				9576913C1EB2320000D6F000 /* LCEssencePicView.m in Sources */,
 				9588AFF31EB1C23500BE86C5 /* LCTopWindow.m in Sources */,
@@ -1089,7 +1100,6 @@
 				95D892D41EAFA7D6006A08C3 /* LCFriendTrendsViewController.m in Sources */,
 				95FCBC7C1EB37C4D0040B7F3 /* LCAddTagToolbar.m in Sources */,
 				9576915B1EB2333B00D6F000 /* LCConst.m in Sources */,
-				9520D8E91EC001A30021AB0A /* LCThirdLoginTool.m in Sources */,
 				957691501EB2326E00D6F000 /* LCCmtItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
