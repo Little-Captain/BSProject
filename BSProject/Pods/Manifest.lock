@@ -36,8 +36,8 @@ PODS:
     - CTPersistance
     - HandyFrame
   - DACircularProgress (2.3.1)
-  - HandyFrame (1.1.2)
-  - LCNetworking (1.1.0):
+  - HandyFrame (1.1.3)
+  - LCNetworking (1.2.0):
     - AFNetworking
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - Bugly
   - CTVideoPlayerView
   - DACircularProgress
-  - LCNetworking (~> 1.1.0)
+  - LCNetworking
   - Masonry
   - MJRefresh
   - pop
@@ -90,8 +90,8 @@ SPEC CHECKSUMS:
   CTPersistance: 014b70669d11034848459bef8e3798eb8af9a985
   CTVideoPlayerView: e66df1b5939c6db2af3aa203b4b5a66755e71ed6
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  HandyFrame: d505faced4d4fb820d66bd88b654dbf7b88da424
-  LCNetworking: 83a1898d8450de090514cb31b845722623e94e70
+  HandyFrame: 5fef3c197c383332d7d5c838b3f7a85ce2f8f9cc
+  LCNetworking: a48abd1e879146f7d8e4bb73ca090eb48d6cdb79
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -102,6 +102,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: e96cea541ffbbe82dec1852417d69521ad3ff08f
+PODFILE CHECKSUM: a05ca69c2a35279c4ff07fcf343e5b2cfbe40baa
 
 COCOAPODS: 1.2.0

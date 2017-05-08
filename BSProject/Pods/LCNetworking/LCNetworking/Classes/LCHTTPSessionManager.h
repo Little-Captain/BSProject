@@ -8,6 +8,8 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+
+
 /**
  请求方式
 
@@ -18,6 +20,8 @@ typedef NS_ENUM(NSUInteger, LCHttpMethod) {
     LCHttpMethodGET,
     LCHttpMethodPOST
 };
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface LCHTTPSessionManager : AFHTTPSessionManager
 
@@ -34,29 +38,77 @@ typedef NS_ENUM(NSUInteger, LCHttpMethod) {
 + (instancetype)sharedInstance;
 
 /**
- 封装 AFN 的 GET / POST
+ GET / POST : 不监听进度
  
- @param method 网络请求方式
- @param urlStr URL 字符串
+ @param method     网络请求方式
+ @param URLString  URL 字符串
  @param parameters 请求参数
  @param completion 请求完成后的回调闭包
  isSuccess == YES : result 为 响应的具体数据
  isSuccess == NO  : result 为 错误信息对象(NSError)
  */
-- (void)request:(LCHttpMethod)method urlStr:(NSString *)urlStr parameters:(NSDictionary *)parameters completion:(void (^)(id result, BOOL isSuccess))completion;
+- (nullable NSURLSessionDataTask *)request:(LCHttpMethod)method
+                                    urlStr:(NSString *)URLString
+                                parameters:(nullable id)parameters
+                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
 /**
- 封装 AFN 的上传文件方法
-
- @param urlStr URL 字符串
+ GET / POST : 监听进度
+ 
+ @param method     网络请求方式
+ @param URLString  URL 字符串
  @param parameters 请求参数
- @param name 接收上传数据的服务器字段(要咨询公司的服务器人员)
- @param fileName 保存在服务器的文件名(需要和服务器人员约定, 本方法内部实现使用这个参数决定上传的 MimeType)
- @param data 要上传的二进制数据
+ @param progress   请求进度回调: progress 为进度值
  @param completion 请求完成后的回调闭包
-                   isSuccess == YES : result 为 响应的具体数据
-                   isSuccess == NO  : result 为 错误信息对象(NSError)
+ isSuccess == YES : result 为 响应的具体数据
+ isSuccess == NO  : result 为 错误信息对象(NSError)
  */
-- (void)upload:(NSString *)urlStr parameters:(NSDictionary *)parameters name:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data completion:(void(^)(id result, BOOL isSuccess))completion;
+- (nullable NSURLSessionDataTask *)request:(LCHttpMethod)method
+                                    urlStr:(NSString *)URLString
+                                parameters:(nullable id)parameters
+                                  progress:(nullable void (^)(float progress))progress
+                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
+
+/**
+ 上传文件方法 : 不监听进度
+
+ @param URLString  URL 字符串
+ @param parameters 请求参数
+ @param name       接收上传数据的服务器字段(要咨询公司的服务器人员)
+ @param fileName   保存在服务器的文件名(需要和服务器人员约定, 本方法内部实现使用这个参数决定上传的 MimeType)
+ @param data       要上传的二进制数据
+ @param completion 请求完成后的回调闭包
+ isSuccess == YES : result 为 响应的具体数据
+ isSuccess == NO  : result 为 错误信息对象(NSError)
+ */
+- (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
+                               parameters:(nullable id)parameters
+                                     name:(NSString *)name
+                                 fileName:(nullable NSString *)fileName
+                                     data:(NSData *)data
+                               completion:(nullable void (^)(id result, BOOL isSuccess))completion;
+
+/**
+ 上传文件方法 : 监听进度
+ 
+ @param URLString  URL 字符串
+ @param parameters 请求参数
+ @param name       接收上传数据的服务器字段(要咨询公司的服务器人员)
+ @param fileName   保存在服务器的文件名(需要和服务器人员约定, 本方法内部实现使用这个参数决定上传的 MimeType)
+ @param data       要上传的二进制数据
+ @param progress   请求进度回调: progress 为进度值
+ @param completion 请求完成后的回调闭包
+ isSuccess == YES : result 为 响应的具体数据
+ isSuccess == NO  : result 为 错误信息对象(NSError)
+ */
+- (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
+                               parameters:(nullable id)parameters
+                                     name:(NSString *)name
+                                 fileName:(nullable NSString *)fileName
+                                     data:(NSData *)data
+                                 progress:(nullable void (^)(float progress))progress
+                               completion:(nullable void (^)(id result, BOOL isSuccess))completion;
+
+NS_ASSUME_NONNULL_END
 
 @end

@@ -10,6 +10,7 @@
 
 typedef void(^SuccessCallbackBlock)(NSURLSessionDataTask * task, id responseObject);
 typedef void(^FailureCallbackBlock)(NSURLSessionDataTask * task, NSError * error);
+typedef void(^ProgressCallbackBlock)(NSProgress * downloadProgress);
 
 @implementation LCHTTPSessionManager
 
@@ -35,36 +36,69 @@ static LCHTTPSessionManager *_instance;
     return mgr;
 }
 
-- (void)request:(LCHttpMethod)method urlStr:(NSString *)urlStr parameters:(NSDictionary *)parameters completion:(void (^)(id responseObject, BOOL isSuccess))completion {
+- (NSURLSessionDataTask *)request:(LCHttpMethod)method
+                           urlStr:(NSString *)URLString
+                       parameters:(id)parameters
+                       completion:(void (^)(id _Nonnull, BOOL))completion {
     
-    SuccessCallbackBlock successBlock = ^(NSURLSessionDataTask * task, id responseObject) {
-        completion(responseObject, YES);
-    };
-    FailureCallbackBlock failureBlock = ^(NSURLSessionDataTask * task, NSError * error) {
-        completion(error, NO);
-    };
-    
-    if (method == LCHttpMethodGET) {
-        [self GET:urlStr parameters:parameters progress:nil success:successBlock failure:failureBlock];
-    }
-    
-    if (method == LCHttpMethodPOST) {
-        [self POST:urlStr parameters:parameters progress:nil success:successBlock failure:failureBlock];
-    }
+    return [self request:method urlStr:URLString parameters:parameters progress:nil completion:completion];
 }
 
-- (void)upload:(NSString *)urlStr parameters:(NSDictionary *)parameters name:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data completion:(void (^)(id, BOOL))completion {
+- (NSURLSessionDataTask *)request:(LCHttpMethod)method
+                           urlStr:(NSString *)URLString
+                       parameters:(id)parameters
+                         progress:(void (^)(float))progress
+                       completion:(void (^)(id _Nonnull, BOOL))completion {
+    
+    SuccessCallbackBlock successBlock = ^(NSURLSessionDataTask * task, id responseObject) {
+        !completion ? : completion(responseObject, YES);
+    };
+    FailureCallbackBlock failureBlock = ^(NSURLSessionDataTask * task, NSError * error) {
+        !completion ? : completion(error, NO);
+    };
+    
+    ProgressCallbackBlock progressBlock = ^(NSProgress * downloadProgress) {
+        !progress ? : progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+    };
+    
+    return (method == LCHttpMethodGET) ? ({
+        [self GET:URLString parameters:parameters progress:progressBlock success:successBlock failure:failureBlock];
+    }) : ({
+        [self POST:URLString parameters:parameters progress:progressBlock success:successBlock failure:failureBlock];
+    });
+}
+
+- (NSURLSessionDataTask *)upload:(NSString *)URLString
+                      parameters:(id)parameters
+                            name:(NSString *)name
+                        fileName:(NSString *)fileName
+                            data:(NSData *)data
+                      completion:(void (^)(id _Nonnull, BOOL))completion {
+    return [self upload:URLString parameters:parameters name:name fileName:fileName data:data progress:nil completion:completion];
+}
+
+- (NSURLSessionDataTask *)upload:(NSString *)URLString
+                      parameters:(id)parameters
+                            name:(NSString *)name
+                        fileName:(NSString *)fileName
+                            data:(NSData *)data
+                        progress:(void (^)(float))progress
+                      completion:(void (^)(id _Nonnull, BOOL))completion {
     
     fileName = fileName ? fileName : @"文件名客户端未指定";
     
     SuccessCallbackBlock successBlock = ^(NSURLSessionDataTask * task, id responseObject) {
-        completion(responseObject, YES);
+        !completion ? : completion(responseObject, YES);
     };
     FailureCallbackBlock failureBlock = ^(NSURLSessionDataTask * task, NSError * error) {
-        completion(error, NO);
+        !completion ? : completion(error, NO);
     };
     
-    [self POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    ProgressCallbackBlock progressBlock = ^(NSProgress * downloadProgress) {
+        !progress ? : progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+    };
+    
+    return [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         // 创建 formData
         /*
          1. data: 要上传的二进制数据
@@ -77,7 +111,7 @@ static LCHTTPSessionManager *_instance;
                                     name:name
                                 fileName:fileName
                                 mimeType:mimeTypeForPathExtension([fileName pathExtension])];
-    } progress:nil success:successBlock failure:failureBlock];
+    } progress:progressBlock success:successBlock failure:failureBlock];
 }
 
 #pragma mark -
