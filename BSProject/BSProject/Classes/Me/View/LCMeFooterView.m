@@ -15,7 +15,7 @@
 #import <AFNetworking.h>
 #import <YYModel.h>
 #import <SVProgressHUD.h>
-#import <RXCollection.h>
+#import <BlocksKit.h>
 
 @implementation LCMeFooterView
 
@@ -43,11 +43,11 @@
             
             // 这个算法用于过滤重复项
             NSMutableArray<NSString *> *names = [NSMutableArray array];
-            squares = [squares rx_filterWithBlock:^BOOL(LCSquareItem *each) {
-                if ([names containsObject:each.name]) {
+            squares = [squares bk_select:^BOOL(LCSquareItem *obj) {
+                if ([names containsObject:obj.name]) {
                     return NO;
                 } else {
-                    [names addObject:each.name];
+                    [names addObject:obj.name];
                     return YES;
                 }
             }];

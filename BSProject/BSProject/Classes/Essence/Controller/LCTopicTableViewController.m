@@ -16,7 +16,7 @@
 #import <AFNetworking.h>
 #import <YYModel.h>
 #import <MJRefresh.h>
-#import <RXCollection.h>
+#import <BlocksKit.h>
 
 @interface LCTopicTableViewController ()
 
@@ -76,12 +76,12 @@ static NSString * const ID = @"topic";
 - (void)voicePlayBtnClick:(NSNotification *)notification {
     
     LCTopicItem *item = notification.userInfo[@"info"];
-    // 遍历将所有的其他 item 的 isPlayVoice 属性设置 NO
-    self.topics = [self.topics rx_mapWithBlock:^LCTopicItem *(LCTopicItem *each) {
-        if (![each isEqual:item]) {
-            each.isPlayVoice = NO;
+    // 遍历将所有的其他 item 的 isPlayVoice 属性设置 NO    
+    self.topics = [self.topics bk_map:^LCTopicItem *(LCTopicItem *obj) {
+        if (![obj isEqual:item]) {
+            obj.isPlayVoice = NO;
         }
-        return each;
+        return obj;
     }];
     // 刷新表格
     [self.tableView reloadData];

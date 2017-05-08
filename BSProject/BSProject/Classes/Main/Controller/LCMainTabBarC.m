@@ -10,7 +10,7 @@
 #import "LCPublishView.h"
 #import "LCMainNavigationC.h"
 
-#import <RXCollection.h>
+#import <BlocksKit.h>
 
 @interface LCMainTabBarC ()
 
@@ -83,9 +83,9 @@ static LCMainTabBarC *_instance;
         array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     }
     
-    // 将 NSDictionary 对象 映射为 UIViewController 对象
-    self.viewControllers = [array rx_mapWithBlock:^UIViewController *(NSDictionary *each) {
-        return [self setUpOneViewController:each];
+    // 将 NSDictionary 对象 映射为 UIViewController 对象    
+    self.viewControllers = [array bk_map:^UIViewController *(NSDictionary * obj) {
+        return [self setUpOneViewController:obj];
     }];
 }
 

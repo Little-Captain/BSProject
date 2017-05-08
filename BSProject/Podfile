@@ -12,7 +12,7 @@ target 'BSProject' do
     pod 'MJRefresh'
     pod 'DACircularProgress'
     pod 'SVProgressHUD'
-    pod 'RXCollections'
+    pod 'BlocksKit'
     pod 'YYWebImage'
     pod 'YYModel'
     pod 'CTVideoPlayerView'
