@@ -11,7 +11,7 @@
 #import "LCMainTabBarC.h"
 #import "LCPushGuideView.h"
 
-#import <AFNetworking.h>
+#import <LCNetworking.h>
 #import <YYModel.h>
 #import <YYWebImage.h>
 

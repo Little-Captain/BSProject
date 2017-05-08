@@ -8,7 +8,6 @@
 
 #import "LCShareTool.h"
 #import "LCTopicItem.h"
-#import <UMSocialCore/UMSocialCore.h>
 
 @implementation LCShareTool
 

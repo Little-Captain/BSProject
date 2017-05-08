@@ -9,6 +9,8 @@
 #import "LCBaseVC.h"
 #import "LCTopicTableViewController.h"
 
+#import <BlocksKit.h>
+
 // titleBtn 选中的文字颜色
 #define TitleSelColor (LCColor(225, 60, 27))
 // titleBtn 默认的文字颜色
@@ -117,7 +119,7 @@
     }
     
     // 遍历添加子控制器
-    [typeDicts enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) {
+    [typeDicts bk_each:^(NSDictionary *dict) {
         // 添加子控制器
         [self addChildViewController:({
             // 创建 topic 控制器
@@ -130,7 +132,7 @@
             vc.category = category;
             vc;
         })];
-    }];    
+    }];
 }
 
 /** 设置导航栏 */

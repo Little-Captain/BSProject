@@ -7,7 +7,6 @@
 //
 
 #import "LCVoicePlayerTool.h"
-#import <AVFoundation/AVFoundation.h>
 
 static LCVoicePlayerTool *_instance;
 

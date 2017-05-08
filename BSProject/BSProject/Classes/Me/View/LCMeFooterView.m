@@ -12,9 +12,10 @@
 #import "LCSqaureButton.h"
 #import "LCWebViewController.h"
 
-#import <AFNetworking.h>
+#import <LCNetworking.h>
 #import <YYModel.h>
 #import <SVProgressHUD.h>
+#import <BlocksKit.h>
 
 @implementation LCMeFooterView
 

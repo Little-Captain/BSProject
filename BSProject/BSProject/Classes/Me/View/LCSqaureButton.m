@@ -9,7 +9,7 @@
 #import "LCSqaureButton.h"
 #import "LCSquareItem.h"
 
-#import <UIButton+YYWebImage.h>
+#import <YYWebImage.h>
 
 @implementation LCSqaureButton
 

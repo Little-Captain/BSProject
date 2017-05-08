@@ -11,7 +11,8 @@
 #import "LCCircularProgressView.h"
 
 #import <Photos/Photos.h>
-#import <UIImageView+YYWebImage.h>
+
+#import <YYWebImage.h>
 #import <SVProgressHUD.h>
 
 #define BSAlbumTitle @"百思不得姐"

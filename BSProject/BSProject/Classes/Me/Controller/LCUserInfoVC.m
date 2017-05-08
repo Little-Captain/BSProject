@@ -9,7 +9,9 @@
 #import "LCUserInfoVC.h"
 #import "LCUserInfoItem.h"
 #import "LCUserTool.h"
+
 #import <YYWebImage.h>
+#import <SVProgressHUD.h>
 
 @interface LCUserInfoVC ()
 
@@ -39,6 +41,8 @@
 - (IBAction)logoutBtnClick {
     
     [LCUserTool clearUserInfo];
+    
+    [SVProgressHUD showSuccessWithStatus:@"退出成功"];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

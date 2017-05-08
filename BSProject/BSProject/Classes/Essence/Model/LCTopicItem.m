@@ -10,6 +10,8 @@
 #import "LCCmtItem.h"
 #import "LCCmtUserItem.h"
 
+#import <BlocksKit.h>
+
 @implementation LCTopicItem {
     // cellHeight为readonly属性, 我们又实现了它的get方法
     // 所以Xcode不会为我们生成下划线成员变量

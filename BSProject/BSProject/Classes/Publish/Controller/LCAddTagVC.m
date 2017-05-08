@@ -14,6 +14,7 @@
 #import "LCTagTextField.h"
 
 #import <SVProgressHUD.h>
+#import <BlocksKit.h>
 
 @interface LCAddTagVC () <UITextFieldDelegate>
 

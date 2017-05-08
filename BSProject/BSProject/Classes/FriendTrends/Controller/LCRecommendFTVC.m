@@ -13,7 +13,7 @@
 #import "LCLeftTableViewCell.h"
 #import "LCRightTableViewCell.h"
 
-#import <AFNetworking.h>
+#import <LCNetworking.h>
 #import <SVProgressHUD.h>
 #import <YYModel.h>
 #import <MJRefresh.h>

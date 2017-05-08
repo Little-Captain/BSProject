@@ -17,7 +17,7 @@
 
 #import <SVProgressHUD.h>
 #import <MJRefresh.h>
-#import <AFNetworking.h>
+#import <LCNetworking.h>
 #import <YYModel.h>
 
 #define TableViewHeaderH (20.0)

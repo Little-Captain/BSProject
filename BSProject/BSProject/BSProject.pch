@@ -20,10 +20,6 @@
 #import "UIView+LCExtension.h"
 #import "NSString+LCExtension.h"
 
-// 第三方框架
-#import <LCNetworking.h>
-#import <BlocksKit.h>
-
 #define CurrentSystemVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 
 #define ScreenW ([UIScreen mainScreen].bounds.size.width)

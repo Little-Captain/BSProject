@@ -7,6 +7,7 @@
 //
 
 #import "LCUserInfoItem.h"
+
 #import <YYModel.h>
 
 @implementation LCUserInfoItem

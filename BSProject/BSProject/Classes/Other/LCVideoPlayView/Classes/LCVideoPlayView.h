@@ -7,7 +7,7 @@
 //  视频播放器的核心
 
 #import <UIKit/UIKit.h>
-#import <CTVideoPlayerView/CTVideoViewCommonHeader.h>
+#import <CTVideoViewCommonHeader.h>
 
 @class LCVideoPlayView;
 

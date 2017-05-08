@@ -13,7 +13,7 @@
 
 #import <SVProgressHUD.h>
 #import <YYModel.h>
-#import <AFNetworking.h>
+#import <LCNetworking.h>
 
 @interface LCRecommendTagTableViewController ()
 
