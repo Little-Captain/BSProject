@@ -109,6 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
                                  progress:(nullable void (^)(float progress))progress
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
-NS_ASSUME_NONNULL_END
 
 @end
+
+NS_ASSUME_NONNULL_END

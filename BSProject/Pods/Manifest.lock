@@ -31,7 +31,7 @@ PODS:
     - BlocksKit/DynamicDelegate
   - Bugly (2.4.8)
   - CTPersistance (1.3.7)
-  - CTVideoPlayerView (1.3.1):
+  - CTVideoPlayerView (1.3.3):
     - AFNetworking
     - CTPersistance
     - HandyFrame
@@ -88,7 +88,7 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: da3c02408c14838d498429320545a8e439392978
   CTPersistance: 014b70669d11034848459bef8e3798eb8af9a985
-  CTVideoPlayerView: e66df1b5939c6db2af3aa203b4b5a66755e71ed6
+  CTVideoPlayerView: 37c8e610db35d8926ca2dc9f6af8750a96c19f45
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HandyFrame: 5fef3c197c383332d7d5c838b3f7a85ce2f8f9cc
   LCNetworking: a48abd1e879146f7d8e4bb73ca090eb48d6cdb79

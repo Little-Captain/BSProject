@@ -27,7 +27,7 @@
     if (!_videoPlayView) {
         LCVideoPlayView *videoPlayView = [LCVideoPlayView videoPlayView];
         videoPlayView.delegate = self;
-        [self.view insertSubview:videoPlayView atIndex:0];
+        [self.view addSubview:videoPlayView];
         _videoPlayView = videoPlayView;
     }
     
@@ -54,8 +54,6 @@ static UIWindow *_videoWindow;
     rootVC.videoPlayerViewFrame = videoFrame;
     rootVC.urlStr = url;
     _videoWindow.hidden = NO;
-    
-//    [LCTopWindow hidden];
 }
 
 + (void)hidden {
@@ -65,7 +63,6 @@ static UIWindow *_videoWindow;
         LCVideoPlayerVC *rootVC = (LCVideoPlayerVC *)_videoWindow.rootViewController;
         [rootVC.videoPlayView suspendnow];
         _videoWindow.hidden = YES;
-//        [LCTopWindow show];
     }
 }
 
@@ -91,6 +88,16 @@ static UIWindow *_videoWindow;
         button.frame = CGRectMake(10, 20, [button currentImage].size.width * 2, [button currentImage].size.height * 2);
         button;
     })];
+}
+
+- (void)viewWillLayoutSubviews {
+    
+    [super viewWillLayoutSubviews];
+    
+    // 保证 videoPlayView 为 view 的第一个子视图
+    if (![self.view.subviews.firstObject isKindOfClass:NSClassFromString(@"LCVideoPlayView")] && _videoPlayView) {
+        [self.view insertSubview:_videoPlayView atIndex:0];
+    }
 }
 
 - (void)closeBtnClick {
