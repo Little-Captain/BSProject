@@ -10,8 +10,6 @@
 #import "LCPublishView.h"
 #import "LCMainNavigationC.h"
 
-#import <BlocksKit.h>
-
 @interface LCMainTabBarC ()
 
 @end

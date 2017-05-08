@@ -15,7 +15,6 @@
 #import <AFNetworking.h>
 #import <YYModel.h>
 #import <SVProgressHUD.h>
-#import <BlocksKit.h>
 
 @implementation LCMeFooterView
 

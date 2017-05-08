@@ -16,7 +16,6 @@
 #import <AFNetworking.h>
 #import <YYModel.h>
 #import <MJRefresh.h>
-#import <BlocksKit.h>
 
 @interface LCTopicTableViewController ()
 

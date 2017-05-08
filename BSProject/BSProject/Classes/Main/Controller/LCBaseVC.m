@@ -213,13 +213,13 @@
 - (void)changeBtnStatusWithIndex:(NSInteger)index {
     
     // 得到应该选中的btn
-    UIButton *shouldSelBtn = nil;
-    for (UIButton *btn in self.titlesView.subviews) {
+    UIButton *shouldSelBtn = [self.titlesView.subviews bk_match:^BOOL(UIButton *btn) {
         if ([btn isKindOfClass:[UIButton class]] && btn.tag == index) {
-            shouldSelBtn = btn;
-            break;
+            return YES;
         }
-    }
+        return NO;
+    }];
+    
     // 如果为空直接返回
     if (!shouldSelBtn) { return; }
     

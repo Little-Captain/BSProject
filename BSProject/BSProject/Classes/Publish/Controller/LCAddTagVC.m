@@ -76,11 +76,10 @@
 
 - (void)setupTags {
     
-    for (NSString *tag in self.tags) {
-        
+    [self.tags bk_each:^(NSString *tag) {
         self.textField.text = tag;
         [self addButtonClick];
-    }
+    }];
 }
 
 - (void)setupContentView {
