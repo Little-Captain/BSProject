@@ -19,7 +19,6 @@
 
 #import <SVProgressHUD.h>
 #import <Masonry.h>
-
 #import <YYModel.h>
 
 @interface LCTopicCell ()
