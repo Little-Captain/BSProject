@@ -93,6 +93,10 @@ static NSString * const ID = @"topic";
 /** 设置 TableView */
 - (void)setUpTableView {
     
+    // 开启栅格化, 也就是在滚动时, 以图片的方式进行绘制
+    self.tableView.layer.shouldRasterize = YES;
+    self.tableView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    
     // 设置contentInset, 让tableView的内容不被导航条和tabBar挡住
     CGFloat top = EssenceTitleViewY + EssenceTitleViewH;
     CGFloat bottom = self.tabBarController.tabBar.fHeight;
