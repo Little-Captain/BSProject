@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
 
 @class LCTopicItem;
 
 @interface LCShareTool : NSObject
 
-+ (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType item:(LCTopicItem *)item vc:(UIViewController *)vc;
++ (void)showShareMenuViewInWindowWithVc:(UIViewController *)vc item:(LCTopicItem *)item;
 
 @end

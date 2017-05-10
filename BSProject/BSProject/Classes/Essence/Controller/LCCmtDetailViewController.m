@@ -167,7 +167,8 @@
             cell.fSize = CGSizeMake(ScreenW, self.item.cellHeight);
             __weak typeof(self) weakSelf = self;
             [cell setSharedBlock:^(LCTopicItem *item){
-                [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:weakSelf];
+//                [LCShareTool shareWebPageToPlatformType:UMSocialPlatformType_Sina item:item vc:weakSelf];
+                [LCShareTool showShareMenuViewInWindowWithVc:weakSelf item:item];
             }];
             self.headerCell = cell;
             cell;

@@ -11,6 +11,15 @@
 
 @implementation LCShareTool
 
++ (void)showShareMenuViewInWindowWithVc:(UIViewController *)vc item:(LCTopicItem *)item {
+    
+    //显示分享面板
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        [self shareWebPageToPlatformType:platformType item:item vc:vc];
+    }];
+}
+
 + (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType item:(LCTopicItem *)item vc:(UIViewController *)vc {
     
     //创建分享消息对象

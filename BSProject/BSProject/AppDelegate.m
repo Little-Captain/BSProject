@@ -76,20 +76,30 @@
 - (void)configUSharePlatforms {
     
     /* 设置微信的appKey和appSecret */
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    // 分享到微信回话
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxaafae70c2f9a09aa" appSecret:@"a4d82019c8c65897d94e65536f901e2a" redirectURL:@"http://mobile.umeng.com/social"];
+    // 分享到微信朋友圈
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wxaafae70c2f9a09aa" appSecret:@"a4d82019c8c65897d94e65536f901e2a" redirectURL:@"http://mobile.umeng.com/social"];
+    // 分享到微信收藏
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatFavorite appKey:@"wxaafae70c2f9a09aa" appSecret:@"a4d82019c8c65897d94e65536f901e2a" redirectURL:@"http://mobile.umeng.com/social"];
     
     /* 设置新浪的appKey和appSecret */
+    // 新浪分享
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"2139382427"  appSecret:@"507fccf0efde8a900cc86700abc13827" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 }
 
 // 支持所有iOS系统
+// 分享后回调处理
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
-    if (!result) {
+    if (result) {
+        // 这里我们处理分享成功的回调
+    } else {
         // 其他如支付等SDK的回调
     }
+    
     return result;
 }
 
